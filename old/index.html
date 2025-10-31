@@ -16,21 +16,13 @@
         }
         
         :root {
-            --primary-color: #1a2b4f;
-            --secondary-color: #1a2b4f;
-            --accent-color: #717d96;
+            --primary-color: #1a365d;
+            --secondary-color: #2d5a8c;
+            --accent-color: #c5a047;
             --light-color: #f8f9fa;
             --dark-color: #2d3748;
             --gray-color: #718096;
             --text-light: #e2e8f0;
-            
-            /* Colores brillantes para botones */
-            --color-blue: #007bff;
-            --color-green: #04AA6D;
-            --color-orange: #ff9800;
-            --color-red: #f44336;
-            --color-purple: #6e195c;
-            --color-teal: #009688;
         }
         
         body {
@@ -216,9 +208,9 @@
             color: var(--text-light);
         }
         
-        /* Botones con colores brillantes */
-        .btn {
+        .hero-button {
             display: inline-block;
+            background-color: var(--accent-color);
             color: white;
             padding: 12px 30px;
             border-radius: 30px;
@@ -228,116 +220,12 @@
             font-size: 16px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .btn:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 100%;
-            background: rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
-            z-index: -1;
-        }
-        
-        .btn:hover:before {
-            width: 100%;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .hero-button {
-            background-color: var(--color-green);
         }
         
         .hero-button:hover {
-            background-color: #038a5a;
-        }
-        
-        .btn-primary {
-            background-color: var(--color-blue);
-        }
-        
-        .btn-primary:hover {
-            background-color: #0069d9;
-        }
-        
-        .btn-success {
-            background-color: var(--color-green);
-        }
-        
-        .btn-success:hover {
-            background-color: #038a5a;
-        }
-        
-        .btn-warning {
-            background-color: var(--color-orange);
-        }
-        
-        .btn-warning:hover {
-            background-color: #e68a00;
-        }
-        
-        .btn-danger {
-            background-color: var(--color-red);
-        }
-        
-        .btn-danger:hover {
-            background-color: #d32f2f;
-        }
-        
-        .btn-purple {
-            background-color: var(--color-purple);
-        }
-        
-        .btn-purple:hover {
-            background-color: #7b1fa2;
-        }
-        
-        .btn-teal {
-            background-color: var(--color-teal);
-        }
-        
-        .btn-teal:hover {
-            background-color: #00796b;
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--color-blue);
-            color: var(--color-blue);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--color-blue);
-            color: white;
-        }
-        
-        .btn-gradient {
-            background: linear-gradient(45deg, var(--color-blue), var(--color-purple));
-        }
-        
-        .btn-gradient:hover {
-            background: linear-gradient(45deg, var(--color-purple), var(--color-blue));
-        }
-        
-        .action-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 30px;
-            flex-wrap: wrap;
+            background-color: #b08c36;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
         .slider-dots {
@@ -570,9 +458,6 @@
             display: inline-flex;
             align-items: center;
             transition: all 0.3s ease;
-            padding: 8px 16px;
-            border-radius: 4px;
-            background: rgba(197, 160, 71, 0.1);
         }
         
         .servicio-link i {
@@ -581,8 +466,7 @@
         }
         
         .servicio-link:hover {
-            color: white;
-            background: var(--accent-color);
+            color: #b08c36;
         }
         
         .servicio-link:hover i {
@@ -854,16 +738,6 @@
                 left: 50%;
                 transform: translateX(-50%);
             }
-            
-            .action-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .action-buttons .btn {
-                width: 100%;
-                max-width: 300px;
-            }
         }
         
         @media (max-width: 480px) {
@@ -891,7 +765,7 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <img src="images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                <img src="images/logo.jpg" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
                 <span class="logo-text">Wasi Mutual</span>
             </div>
             <button class="mobile-menu-btn">
@@ -918,13 +792,7 @@
         <div class="hero-content">
             <h1 class="animate__animated animate__fadeInDown">Wasi Mutual</h1>
             <p class="animate__animated animate__fadeInUp">Tu bienestar, nuestro compromiso. Solidaridad, ayuda mutua y compromiso social.</p>
-            <a href="#servicios" class="btn hero-button animate__animated animate__fadeInUp">Conocé nuestros servicios</a>
-            
-            <div class="action-buttons">
-                <a href="#novedades" class="btn btn-primary">Últimas Novedades</a>
-                <a href="#contacto" class="btn btn-warning">Contactanos</a>
-                <a href="#" class="btn btn-gradient">Asociate Ahora</a>
-            </div>
+            <a href="#servicios" class="hero-button animate__animated animate__fadeInUp">Conocé nuestros servicios</a>
         </div>
         <div class="slider-dots">
             <div class="dot active" data-slide="0"></div>
@@ -946,7 +814,6 @@
                             <span class="novedad-category">Financiación</span>
                             <h3 class="novedad-title"><a href="#">Nueva línea de créditos para emprendedores</a></h3>
                             <p class="novedad-date"><i class="far fa-calendar"></i> 15 de Octubre, 2025</p>
-                            <a href="#" class="btn btn-primary" style="margin-top: 10px; padding: 8px 15px; font-size: 14px;">Ver más</a>
                         </div>
                     </div>
                     <div class="novedad-item">
@@ -955,7 +822,6 @@
                             <span class="novedad-category">Turismo</span>
                             <h3 class="novedad-title"><a href="#">Promoción especial: 30% descuento en paquetes turísticos</a></h3>
                             <p class="novedad-date"><i class="far fa-calendar"></i> 10 de Octubre, 2025</p>
-                            <a href="#" class="btn btn-success" style="margin-top: 10px; padding: 8px 15px; font-size: 14px;">Ver más</a>
                         </div>
                     </div>
                     <div class="novedad-item">
@@ -964,7 +830,6 @@
                             <span class="novedad-category">Salud</span>
                             <h3 class="novedad-title"><a href="#">Nuevo convenio: 40% descuento en lentes y armazones</a></h3>
                             <p class="novedad-date"><i class="far fa-calendar"></i> 5 de Octubre, 2025</p>
-                            <a href="#" class="btn btn-teal" style="margin-top: 10px; padding: 8px 15px; font-size: 14px;">Ver más</a>
                         </div>
                     </div>
                     <div class="novedad-item">
@@ -973,7 +838,6 @@
                             <span class="novedad-category">Educación</span>
                             <h3 class="novedad-title"><a href="#">Taller gratuito: Educación financiera para asociados</a></h3>
                             <p class="novedad-date"><i class="far fa-calendar"></i> 1 de Octubre, 2025</p>
-                            <a href="#" class="btn btn-purple" style="margin-top: 10px; padding: 8px 15px; font-size: 14px;">Inscribirse</a>
                         </div>
                     </div>
                 </div>
@@ -981,10 +845,6 @@
                     <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
                     <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
                 </div>
-            </div>
-            
-            <div class="text-center" style="margin-top: 40px;">
-                <a href="#" class="btn btn-outline">Ver todas las novedades</a>
             </div>
         </div>
     </section>
@@ -1062,10 +922,6 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="text-center" style="margin-top: 50px;">
-                <a href="#" class="btn btn-gradient" style="padding: 15px 40px;">Descubrir todos los servicios</a>
-            </div>
         </div>
     </section>
 
@@ -1100,11 +956,6 @@
                             <span class="stat-label">Servicios</span>
                         </div>
                     </div>
-                    
-                    <div class="action-buttons" style="justify-content: flex-start; margin-top: 30px;">
-                        <a href="#" class="btn btn-primary">Nuestra Historia</a>
-                        <a href="#" class="btn btn-outline">Valores</a>
-                    </div>
                 </div>
                 <div class="about-image">
                     <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Equipo Wasi Mutual">
@@ -1119,7 +970,7 @@
             <div class="footer-container">
                 <div class="footer-about">
                     <div class="footer-logo">
-                        <img src="images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                        <img src="images/logo.jpg" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
                         <span class="footer-logo-text">Wasi Mutual</span>
                     </div>
                     <p>Tu bienestar, nuestro compromiso. Solidaridad, ayuda mutua y compromiso social.</p>
@@ -1159,13 +1010,17 @@
                         <p><i class="fas fa-envelope"></i> wasi@gmail.com</p>
                         <p><i class="fas fa-clock"></i> Lunes a Viernes: 9:00 - 17:00</p>
                     </div>
-                    <a href="#" class="btn btn-warning" style="margin-top: 15px; padding: 10px 20px;">Enviar mensaje</a>
                 </div>
             </div>
-            <div class="copyright">
-                <p>© 2025 Wasi Mutual - Todos los derechos reservados</p>
-                <p style="margin-top: 10px; font-size: 0.8rem;">Designed by <a href="https://focustech.com.ar" style="color: var(--accent-color);">FocusTech</a></p>
-            </div>
+           <div class="container copyright text-center mt-4">
+    <p>© <span>Copyright</span> <strong class="px-1 sitename">2025 FocusTech SAS </strong> <span>All Rights Reserved</span></p>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you've purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+      Designed by <a href="https://focustech.com.ar">FocusTech</a>
+    </div>
         </div>
     </footer>
 
