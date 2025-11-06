@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novedades - Wasi Mutual</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/styles.css">
+    
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                    <span class="logo-text">Wasi Mutual</span>
+                </a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="../index.html#home">Inicio</a></li>
+                    <li><a href="../index.html#novedades">Novedades</a></li>
+                    <li><a href="../index.html#servicios">Servicios</a></li>
+                    <li><a href="../index.html#nosotros">Sobre Nosotros</a></li>
+                    <li><a href="../index.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Header de Búsqueda -->
+
+    <section class="hero-section" id="home">
+        <div class="hero-slider">
+            <div class="slide slide-1 active"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Novedades</h1>
+            <p style="margin-top: 20px; font-size: 1.2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Encuentra todas las novedades, promociones y beneficios para asociados
+            </p>
+        </div>
+
+    </section>
+    <!-- Contenido Principal -->
+    <section class="busqueda-container">
+        <div class="container">
+            <!-- Filtros de Búsqueda -->
+            <div class="filtros-busqueda">
+                <form class="busqueda-form" id="formBusqueda">
+                    <input type="text" class="busqueda-input" id="inputBusqueda" placeholder="Buscar novedades...">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-search"></i> Buscar
+                    </button>
+                </form>
+                
+                <div class="filtros-avanzados">
+                    <div class="filtro-grupo">
+                        <label class="filtro-label" for="filtroCategoria">Categoría</label>
+                        <select class="filtro-select" id="filtroCategoria">
+                            <option value="">Todas las categorías</option>
+                            <option value="Financiación">Financiación</option>
+                            <option value="Turismo">Turismo</option>
+                            <option value="Salud">Salud</option>
+                            <option value="Educación">Educación</option>
+                            <option value="Vivienda">Vivienda</option>
+                            <option value="Beneficios">Beneficios</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filtro-grupo">
+                        <label class="filtro-label" for="filtroFecha">Ordenar por</label>
+                        <select class="filtro-select" id="filtroFecha">
+                            <option value="reciente">Más recientes</option>
+                            <option value="antiguo">Más antiguos</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filtro-grupo">
+                        <label class="filtro-label" for="filtroMes">Mes</label>
+                        <select class="filtro-select" id="filtroMes">
+                            <option value="">Todos los meses</option>
+                            <option value="10">Octubre 2025</option>
+                            <option value="9">Septiembre 2025</option>
+                            <option value="8">Agosto 2025</option>
+                            <option value="7">Julio 2025</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Resultados -->
+            <div class="resultados-info">
+                <div class="total-resultados" id="totalResultados">
+                    Mostrando 6 novedades
+                </div>
+                <div class="ordenar-por">
+                    <span>Ordenar por:</span>
+                    <select class="filtro-select" id="ordenarResultados">
+                        <option value="reciente">Más recientes</option>
+                        <option value="antiguo">Más antiguos</option>
+                        <option value="a-z">A - Z</option>
+                        <option value="z-a">Z - A</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Grid de Noticias -->
+            <div class="noticias-grid" id="gridNoticias">
+                <!-- Las noticias se cargarán aquí dinámicamente -->
+            </div>
+            
+            <!-- Paginación -->
+            <div class="paginacion" id="paginacion">
+                <!-- La paginación se generará dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                        <span class="footer-logo-text">Wasi Mutual</span>
+                    </div>
+                    <p>Tu bienestar, nuestro compromiso. Solidaridad, ayuda mutua y compromiso social.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="../index.html#servicios"><i class="fas fa-chevron-right"></i> Turismo y recreación</a></li>
+                        <li><a href="../index.html#servicios"><i class="fas fa-chevron-right"></i> Farmacia y convenios</a></li>
+                        <li><a href="../index.html#servicios"><i class="fas fa-chevron-right"></i> Acceso a vivienda</a></li>
+                        <li><a href="../index.html#servicios"><i class="fas fa-chevron-right"></i> Sepelio</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="../index.html#home"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="../index.html#servicios"><i class="fas fa-chevron-right"></i> Servicios</a></li>
+                        <li><a href="../index.html#nosotros"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                        <li><a href="../index.html#novedades"><i class="fas fa-chevron-right"></i> Novedades</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Mitre 943, Zárate, Buenos Aires</p>
+                        <p><i class="fas fa-phone"></i> 3487-XXXXXXXXX</p>
+                        <p><i class="fas fa-envelope"></i> wasi@gmail.com</p>
+                        <p><i class="fas fa-clock"></i> Lunes a Viernes: 9:00 - 17:00</p>
+                    </div>
+                    <a href="../index.html#contacto" class="btn btn-warning" style="margin-top: 15px; padding: 10px 20px;">Enviar mensaje</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Wasi Mutual - Todos los derechos reservados</p>
+                <p style="margin-top: 10px; font-size: 0.8rem;">Designed by <a href="https://focustech.com.ar" style="color: var(--accent-color);">FocusTech</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../JS/scripts.js"></script>
+    <script>
+        // Base de datos de noticias (en un caso real, esto vendría de un servidor)
+        const noticias = [
+            {
+                id: 1,
+                titulo: "Nueva línea de créditos para emprendedores",
+                resumen: "Apoyamos el crecimiento de pequeños y medianos emprendedores con condiciones preferenciales y tasas competitivas.",
+                categoria: "Financiación",
+                fecha: "2025-10-15",
+                imagen: "https://cdn.pixabay.com/photo/2012/02/28/10/20/coins-18134_1280.jpg",
+                enlace: "noticia1.html"
+            },
+            {
+                id: 2,
+                titulo: "Promoción especial: 30% descuento en paquetes turísticos",
+                resumen: "Disfruta de tus vacaciones con descuentos exclusivos en destinos nacionales e internacionales.",
+                categoria: "Turismo",
+                fecha: "2025-10-10",
+                imagen: "https://cdn.pixabay.com/photo/2017/09/04/16/58/passport-2714675_1280.jpg",
+                enlace: "#"
+            },
+            {
+                id: 3,
+                titulo: "Nuevo convenio: 20% descuento en lentes y armazones",
+                resumen: "Cuidamos tu salud visual con descuentos especiales en ópticas adheridas a nivel nacional.",
+                categoria: "Salud",
+                fecha: "2025-10-05",
+                imagen: "https://cdn.pixabay.com/photo/2019/03/07/17/20/lenses-4040684_1280.jpg",
+                enlace: "#"
+            },
+            {
+                id: 4,
+                titulo: "Taller gratuito: Educación financiera para asociados",
+                resumen: "Aprende a gestionar tus finanzas personales con nuestro programa de educación financiera.",
+                categoria: "Educación",
+                fecha: "2025-10-01",
+                imagen: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                enlace: "#"
+            },
+            {
+                id: 5,
+                titulo: "Ampliación de cobertura en servicios de sepelio",
+                resumen: "Mejoramos nuestros servicios funerarios con mayor cobertura y beneficios adicionales.",
+                categoria: "Beneficios",
+                fecha: "2025-09-25",
+                imagen: "https://images.unsplash.com/photo-1580332130530-6b6059386e6a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                enlace: "#"
+            },
+            {
+                id: 6,
+                titulo: "Nuevos planes de ahorro para vivienda",
+                resumen: "Accede a planes flexibles de ahorro previo para tu vivienda propia con rendimientos garantizados.",
+                categoria: "Vivienda",
+                fecha: "2025-09-18",
+                imagen: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                enlace: "#"
+            }
+        ];
+
+        // Variables globales
+        let noticiasFiltradas = [...noticias];
+        const noticiasPorPagina = 6;
+        let paginaActual = 1;
+
+        // Inicializar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            mostrarNoticias();
+            configurarEventos();
+        });
+
+        // Configurar eventos de los filtros
+        function configurarEventos() {
+            // Formulario de búsqueda
+            document.getElementById('formBusqueda').addEventListener('submit', function(e) {
+                e.preventDefault();
+                filtrarNoticias();
+            });
+
+            // Filtros en tiempo real
+            document.getElementById('filtroCategoria').addEventListener('change', filtrarNoticias);
+            document.getElementById('filtroFecha').addEventListener('change', filtrarNoticias);
+            document.getElementById('filtroMes').addEventListener('change', filtrarNoticias);
+            document.getElementById('ordenarResultados').addEventListener('change', filtrarNoticias);
+        }
+
+        // Filtrar y mostrar noticias
+        function filtrarNoticias() {
+            const textoBusqueda = document.getElementById('inputBusqueda').value.toLowerCase();
+            const categoria = document.getElementById('filtroCategoria').value;
+            const orden = document.getElementById('ordenarResultados').value;
+            const mes = document.getElementById('filtroMes').value;
+
+            // Aplicar filtros
+            noticiasFiltradas = noticias.filter(noticia => {
+                const coincideTexto = noticia.titulo.toLowerCase().includes(textoBusqueda) || 
+                                    noticia.resumen.toLowerCase().includes(textoBusqueda);
+                const coincideCategoria = !categoria || noticia.categoria === categoria;
+                const coincideMes = !mes || new Date(noticia.fecha).getMonth() + 1 == mes;
+                
+                return coincideTexto && coincideCategoria && coincideMes;
+            });
+
+            // Ordenar noticias
+            noticiasFiltradas.sort((a, b) => {
+                switch(orden) {
+                    case 'reciente':
+                        return new Date(b.fecha) - new Date(a.fecha);
+                    case 'antiguo':
+                        return new Date(a.fecha) - new Date(b.fecha);
+                    case 'a-z':
+                        return a.titulo.localeCompare(b.titulo);
+                    case 'z-a':
+                        return b.titulo.localeCompare(a.titulo);
+                    default:
+                        return 0;
+                }
+            });
+
+            paginaActual = 1;
+            mostrarNoticias();
+        }
+
+        // Mostrar noticias en el grid
+        function mostrarNoticias() {
+            const gridNoticias = document.getElementById('gridNoticias');
+            const totalResultados = document.getElementById('totalResultados');
+            const paginacion = document.getElementById('paginacion');
+
+            // Calcular noticias para la página actual
+            const inicio = (paginaActual - 1) * noticiasPorPagina;
+            const fin = inicio + noticiasPorPagina;
+            const noticiasPagina = noticiasFiltradas.slice(inicio, fin);
+
+            // Actualizar contador de resultados
+            totalResultados.textContent = `Mostrando ${noticiasFiltradas.length} novedad${noticiasFiltradas.length !== 1 ? 'es' : ''}`;
+
+            // Limpiar grid
+            gridNoticias.innerHTML = '';
+
+            // Mostrar noticias o mensaje de no resultados
+            if (noticiasPagina.length === 0) {
+                gridNoticias.innerHTML = `
+                    <div class="sin-resultados">
+                        <i class="fas fa-search"></i>
+                        <h3>No se encontraron noticias</h3>
+                        <p>Intenta con otros términos de búsqueda o filtros diferentes.</p>
+                    </div>
+                `;
+                paginacion.innerHTML = '';
+                return;
+            }
+
+            // Generar HTML de las noticias
+            noticiasPagina.forEach(noticia => {
+                const fechaFormateada = new Date(noticia.fecha).toLocaleDateString('es-ES', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                });
+
+                const noticiaHTML = `
+                    <div class="noticia-card">
+                        <img src="${noticia.imagen}" alt="${noticia.titulo}" class="noticia-imagen">
+                        <div class="noticia-contenido">
+                            <span class="noticia-categoria">${noticia.categoria}</span>
+                            <h3 class="noticia-titulo">
+                                <a href="${noticia.enlace}">${noticia.titulo}</a>
+                            </h3>
+                            <p class="noticia-resumen">${noticia.resumen}</p>
+                            <div class="noticia-meta">
+                                <span class="noticia-fecha">
+                                    <i class="far fa-calendar"></i> ${fechaFormateada}
+                                </span>
+                                <a href="${noticia.enlace}" class="btn btn-primary" style="padding: 8px 15px; font-size: 14px;">
+                                    Ver más
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                gridNoticias.innerHTML += noticiaHTML;
+            });
+
+            // Generar paginación
+            generarPaginacion();
+        }
+
+        // Generar controles de paginación
+        function generarPaginacion() {
+            const totalPaginas = Math.ceil(noticiasFiltradas.length / noticiasPorPagina);
+            const paginacion = document.getElementById('paginacion');
+
+            if (totalPaginas <= 1) {
+                paginacion.innerHTML = '';
+                return;
+            }
+
+            let paginacionHTML = '';
+
+            // Botón anterior
+            if (paginaActual > 1) {
+                paginacionHTML += `<a href="#" class="pagina-btn" onclick="cambiarPagina(${paginaActual - 1})"><i class="fas fa-chevron-left"></i></a>`;
+            }
+
+            // Números de página
+            for (let i = 1; i <= totalPaginas; i++) {
+                if (i === paginaActual) {
+                    paginacionHTML += `<span class="pagina-btn activa">${i}</span>`;
+                } else {
+                    paginacionHTML += `<a href="#" class="pagina-btn" onclick="cambiarPagina(${i})">${i}</a>`;
+                }
+            }
+
+            // Botón siguiente
+            if (paginaActual < totalPaginas) {
+                paginacionHTML += `<a href="#" class="pagina-btn" onclick="cambiarPagina(${paginaActual + 1})"><i class="fas fa-chevron-right"></i></a>`;
+            }
+
+            paginacion.innerHTML = paginacionHTML;
+        }
+
+        // Cambiar de página
+        function cambiarPagina(pagina) {
+            paginaActual = pagina;
+            mostrarNoticias();
+            // Scroll suave hacia arriba
+            window.scrollTo({
+                top: document.querySelector('.busqueda-container').offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>

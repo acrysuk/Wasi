@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wasi Mutual - Solidaridad y Servicio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #1a2b4f;
+            --secondary-color: #1a2b4f;
+            --accent-color: #717d96;
+            --light-color: #f8f9fa;
+            --dark-color: #2d3748;
+            --gray-color: #718096;
+            --text-light: #e2e8f0;
+            
+            /* Colores brillantes para botones */
+            --color-blue: #007bff;
+            --color-green: #04AA6D;
+            --color-orange: #ff9800;
+            --color-red: #f44336;
+            --color-purple: #6e195c;
+            --color-teal: #009688;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Header */
+        header {
+            background-color: transparent;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 20px 0;
+        }
+        
+        header.scrolled {
+            background-color: var(--primary-color);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            position: relative;
+            margin: 0 10px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 0;
+            display: block;
+            transition: all 0.3s ease;
+            font-size: 15px;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-1 {
+            background-image: linear-gradient(rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7)), url('images/slider/file_00000000133071f5838ecdc646500fa5.png');
+        }
+        
+        .slide-2 {
+            background-image: linear-gradient(rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7)), url('images/slider/2.jpg');
+        }
+        .slide-3 {
+            background-image: linear-gradient(rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7)), url('images/slider/file_00000000079871f59c395e4088444de3.png');
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            z-index: 1;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+            color: var(--text-light);
+        }
+        
+        /* Botones con colores brillantes */
+        .btn {
+            display: inline-block;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover:before {
+            width: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .hero-button {
+            background-color: var(--color-green);
+        }
+        
+        .hero-button:hover {
+            background-color: #038a5a;
+        }
+        
+        .btn-primary {
+            background-color: var(--color-blue);
+        }
+        
+        .btn-primary:hover {
+            background-color: #0069d9;
+        }
+        
+        .btn-success {
+            background-color: var(--color-green);
+        }
+        
+        .btn-success:hover {
+            background-color: #038a5a;
+        }
+        
+        .btn-warning {
+            background-color: var(--color-orange);
+        }
+        
+        .btn-warning:hover {
+            background-color: #e68a00;
+        }
+        
+        .btn-danger {
+            background-color: var(--color-red);
+        }
+        
+        .btn-danger:hover {
+            background-color: #d32f2f;
+        }
+        
+        .btn-purple {
+            background-color: var(--color-purple);
+        }
+        
+        .btn-purple:hover {
+            background-color: #7b1fa2;
+        }
+        
+        .btn-teal {
+            background-color: var(--color-teal);
+        }
+        
+        .btn-teal:hover {
+            background-color: #00796b;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--color-blue);
+            color: var(--color-blue);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--color-blue);
+            color: white;
+        }
+        
+        .btn-gradient {
+            background: linear-gradient(45deg, var(--color-blue), var(--color-purple));
+        }
+        
+        .btn-gradient:hover {
+            background: linear-gradient(45deg, var(--color-purple), var(--color-blue));
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .slider-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+        
+        /* Sección Novedades */
+        .novedades-section {
+            background-color: var(--light-color);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--accent-color);
+            margin: 15px auto 0;
+        }
+        
+        .subTitle {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 1.2rem;
+            color: var(--gray-color);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+        }
+        
+        .novedades-slider {
+            position: relative;
+            margin: 0 auto;
+            max-width: 100%;
+            overflow: hidden;
+        }
+        
+        .novedades-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 20px;
+            padding: 20px 10px;
+            scrollbar-width: none; /* Firefox */
+        }
+        
+        .novedades-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Edge */
+        }
+        
+        .novedad-item {
+            flex: 0 0 auto;
+            width: 300px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .novedad-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .novedad-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .novedad-content {
+            padding: 20px;
+        }
+        
+        .novedad-category {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .novedad-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            line-height: 1.3;
+        }
+        
+        .novedad-title a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .novedad-title a:hover {
+            color: var(--accent-color);
+        }
+        
+        .novedad-date {
+            font-size: 0.9rem;
+            color: var(--gray-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .novedad-date i {
+            margin-right: 5px;
+        }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .slider-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .slider-btn:hover {
+            background: var(--accent-color);
+            transform: scale(1.1);
+        }
+        
+        /* Sección Servicios */
+        .servicios-section {
+            background-color: white;
+        }
+        
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .servicio-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border-top: 4px solid var(--accent-color);
+        }
+        
+        .servicio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .servicio-icon {
+            background: var(--primary-color);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+        
+        .servicio-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .servicio-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .servicio-desc {
+            color: var(--gray-color);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .servicio-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 4px;
+            background: rgba(197, 160, 71, 0.1);
+        }
+        
+        .servicio-link i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .servicio-link:hover {
+            color: white;
+            background: var(--accent-color);
+        }
+        
+        .servicio-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Sección Sobre Nosotros */
+        .about-section {
+            background-color: var(--light-color);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--gray-color);
+            line-height: 1.7;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+            transition: all 0.5s ease;
+        }
+        
+        .stat-label {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to bottom, var(--primary-color), #0f1a3f);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .footer-logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+        
+        .footer-column ul li a i {
+            margin-right: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 10px 20px;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: var(--primary-color);
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .servicios-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-column {
+                text-align: center;
+            }
+            
+            .footer-column h3:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-button {
+                padding: 10px 25px;
+                font-size: 14px;
+            }
+            
+            .novedad-item {
+                width: 280px;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                <span class="logo-text">Wasi Mutual</span>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#novedades">Novedades</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-slider">
+            <div class="slide slide-1 active"></div>
+            <div class="slide slide-2"></div>
+            <div class="slide slide-3"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="animate__animated animate__fadeInDown">Wasi Mutual</h1>
+            <p class="animate__animated animate__fadeInUp">Tu bienestar, nuestro compromiso. Solidaridad, ayuda mutua y compromiso social.</p>
+            <a href="#servicios" class="btn hero-button animate__animated animate__fadeInUp">Conocé nuestros servicios</a>
+            
+            <div class="action-buttons">
+                <a href="#novedades" class="btn btn-primary">Últimas Novedades</a>
+                <a href="#contacto" class="btn btn-warning">Contactanos</a>
+                <a href="#" class="btn btn-gradient">Asociate Ahora</a>
+            </div>
+        </div>
+        <div class="slider-dots">
+            <div class="dot active" data-slide="0"></div>
+            <div class="dot" data-slide="1"></div>
+            <div class="dot" data-slide="2"></div>
+        </div>
+    </section>
+
+    <!-- Sección Novedades -->
+    <section class="novedades-section section-padding" id="novedades">
+        <div class="container">
+            <h2 class="section-title">NOVEDADES</h2>
+            <p class="subTitle">Mantente informado sobre las últimas novedades y beneficios para asociados.</p>
+            
+            <div class="novedades-slider">
+                <div class="novedades-container">
+                    <div class="novedad-item">
+                        <img src="https://cdn.pixabay.com/photo/2012/02/28/10/20/coins-18134_1280.jpg" alt="Nueva línea de créditos" class="novedad-img">
+                        <div class="novedad-content">
+                            <span class="novedad-category">Financiación</span>
+                            <h3 class="novedad-title"><a href="#">Nueva línea de créditos para emprendedores</a></h3>
+                            <p class="novedad-date"><i class="far fa-calendar"></i> 15 de Octubre, 2025</p>
+                            <a href="#" class="btn btn-primary" style="margin-top: 10px; padding: 8px 15px; font-size: 14px;">Ver más</a>
+                        </div>
+                    </div>
+                    <div class="novedad-item">
+                        <img src="https://cdn.pixabay.com/photo/2017/09/04/16/58/passport-2714675_1280.jpg" alt="Promoción turística" class="novedad-img">
+                        <div class="novedad-content">
+                            <span class="novedad-category">Turismo</span>
+                            <h3 class="novedad-title"><a href="#">Promoción especial: 30% descuento en paquetes turísticos</a></h3>
+                            <p class="novedad-date"><i class="far fa-calendar"></i> 10 de Octubre, 2025</p>
+                            <a href="#" class="btn btn-success" style="margin-top: 10px; padding: 8px 15px; font-size: 14px;">Ver más</a>
+                        </div>
+                    </div>
+                    <div class="novedad-item">
+                        <img src="https://cdn.pixabay.com/photo/2019/03/07/17/20/lenses-4040684_1280.jpg" alt="Convenio con óptica" class="novedad-img">
+                        <div class="novedad-content">
+                            <span class="novedad-category">Salud</span>
+                            <h3 class="novedad-title"><a href="#">Nuevo convenio: 20% descuento en lentes y armazones</a></h3>
+                            <p class="novedad-date"><i class="far fa-calendar"></i> 5 de Octubre, 2025</p>
+                            <a href="#" class="btn btn-teal" style="margin-top: 10px; padding: 8px 15px; font-size: 14px;">Ver más</a>
+                        </div>
+                    </div>
+                    <div class="novedad-item">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Taller de educación financiera" class="novedad-img">
+                        <div class="novedad-content">
+                            <span class="novedad-category">Educación</span>
+                            <h3 class="novedad-title"><a href="#">Taller gratuito: Educación financiera para asociados</a></h3>
+                            <p class="novedad-date"><i class="far fa-calendar"></i> 1 de Octubre, 2025</p>
+                            <a href="#" class="btn btn-purple" style="margin-top: 10px; padding: 8px 15px; font-size: 14px;">Inscribirse</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="#" class="btn btn-outline">Ver todas las novedades</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section class="servicios-section section-padding" id="servicios">
+        <div class="container">
+            <h2 class="section-title">NUESTROS SERVICIOS</h2>
+            <p class="subTitle">Apoyo, beneficios y acompañamiento a nuestros socios</p>
+            
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <div class="servicio-icon">
+                        <i class="fas fa-suitcase-rolling"></i>
+                    </div>
+                    <div class="servicio-content">
+                        <h3 class="servicio-title">Turismo y recreación</h3>
+                        <p class="servicio-desc">Descuentos y convenios con hoteles, complejos y servicios turísticos en todo el país. Disfrutá de tus vacaciones con beneficios exclusivos para asociados.</p>
+                        <a href="#" class="servicio-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="servicio-card">
+                    <div class="servicio-icon">
+                        <i class="fas fa-medkit"></i>
+                    </div>
+                    <div class="servicio-content">
+                        <h3 class="servicio-title">Farmacia y convenios</h3>
+                        <p class="servicio-desc">Acceso a medicamentos con descuentos y beneficios en farmacias adheridas. Cuidamos tu salud y la de tu familia con precios especiales.</p>
+                        <a href="#" class="servicio-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="servicio-card">
+                    <div class="servicio-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="servicio-content">
+                        <h3 class="servicio-title">Acceso a vivienda</h3>
+                        <p class="servicio-desc">Acompañamos a nuestros asociados en el sueño de la casa propia. Brindamos asesoramiento, planes de ahorro y facilidades para la adquisición, refacción o construcción de viviendas.</p>
+                        <a href="#" class="servicio-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="servicio-card">
+                    <div class="servicio-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <div class="servicio-content">
+                        <h3 class="servicio-title">Sepelio</h3>
+                        <p class="servicio-desc">Acompañamos a nuestros asociados y sus familias en los momentos más difíciles, brindando cobertura integral y contención humana. Servicio completo y respetuoso.</p>
+                        <a href="#" class="servicio-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="servicio-card">
+                    <div class="servicio-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="servicio-content">
+                        <h3 class="servicio-title">Educación y capacitación</h3>
+                        <p class="servicio-desc">Cursos, talleres y programas de formación para el desarrollo personal y profesional de nuestros asociados y sus familias.</p>
+                        <a href="#" class="servicio-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="servicio-card">
+                    <div class="servicio-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <div class="servicio-content">
+                        <h3 class="servicio-title">Asesoramiento financiero</h3>
+                        <p class="servicio-desc">Orientación profesional para la gestión de tus finanzas personales, planes de ahorro y acceso a créditos con condiciones preferenciales.</p>
+                        <a href="#" class="servicio-link">Más información <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 50px;">
+                <a href="#" class="btn btn-gradient" style="padding: 15px 40px;">Descubrir todos los servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Nosotros -->
+    <section class="about-section section-padding" id="nosotros">
+        <div class="container">
+            <h2 class="section-title">SOBRE NOSOTROS</h2>
+            <p class="subTitle">Conocé nuestra historia y valores</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Nuestra historia</h3>
+                    <p>Desde nuestros comienzos trabajamos para fortalecer el bienestar social y económico de nuestros socios, basados en principios de confianza y compromiso.</p>
+                    <p>Wasi Mutual nació con el propósito de crear una comunidad solidaria donde los asociados puedan acceder a servicios de calidad que mejoren su calidad de vida.</p>
+                    <p>Nuestro nombre "Wasi" significa "hogar" en quechua, reflejando nuestro compromiso de ser un espacio de contención y apoyo para todas las familias que confían en nosotros.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="1">0</span>
+                            <span class="stat-label">Años de experiencia</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="16">0</span>
+                            <span class="stat-label">Asociados</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="2">0</span>
+                            <span class="stat-label">Convenios activos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="2">0</span>
+                            <span class="stat-label">Servicios</span>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons" style="justify-content: flex-start; margin-top: 30px;">
+                        <a href="#" class="btn btn-primary">Nuestra Historia</a>
+                        <a href="#" class="btn btn-outline">Valores</a>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Equipo Wasi Mutual">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                        <span class="footer-logo-text">Wasi Mutual</span>
+                    </div>
+                    <p>Tu bienestar, nuestro compromiso. Solidaridad, ayuda mutua y compromiso social.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Turismo y recreación</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Farmacia y convenios</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Acceso a vivienda</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Sepelio</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Servicios</a></li>
+                        <li><a href="#nosotros"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                        <li><a href="#novedades"><i class="fas fa-chevron-right"></i> Novedades</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Mitre 943, Zárate, Buenos Aires</p>
+                        <p><i class="fas fa-phone"></i> 3487-XXXXXXXXX</p>
+                        <p><i class="fas fa-envelope"></i> wasi@gmail.com</p>
+                        <p><i class="fas fa-clock"></i> Lunes a Viernes: 9:00 - 17:00</p>
+                    </div>
+                    <a href="#" class="btn btn-warning" style="margin-top: 15px; padding: 10px 20px;">Enviar mensaje</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Wasi Mutual - Todos los derechos reservados</p>
+                <p style="margin-top: 10px; font-size: 0.8rem;">Designed by <a href="https://focustech.com.ar" style="color: var(--accent-color);">FocusTech</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            nav.classList.toggle('active');
+        });
+
+        // Hero slider
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+
+        // Auto slide
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+
+        // Slider de novedades
+        const sliderContainer = document.querySelector('.novedades-container');
+        const prevBtn = document.querySelector('.slider-btn.prev');
+        const nextBtn = document.querySelector('.slider-btn.next');
+        
+        if (sliderContainer && prevBtn && nextBtn) {
+            const itemWidth = 320; // Ancho aproximado de cada item + gap
+            
+            prevBtn.addEventListener('click', function() {
+                sliderContainer.scrollBy({
+                    left: -itemWidth,
+                    behavior: 'smooth'
+                });
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                sliderContainer.scrollBy({
+                    left: itemWidth,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    nav.classList.remove('active');
+                }
+            });
+        });
+
+        // Animación de aparición para los servicios
+        const servicios = document.querySelectorAll('.servicio-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        servicios.forEach(servicio => {
+            servicio.style.opacity = '0';
+            servicio.style.transform = 'translateY(20px)';
+            servicio.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(servicio);
+        });
+
+         // ANIMACIÓN DE CONTADORES - SOLUCIÓN ROBUSTA
+    const counters = document.querySelectorAll('.stat-number');
+    let countersAnimated = false;
+
+    function animateCounter(counter) {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        
+        const updateCounter = () => {
+            current += step;
+            if (current < target) {
+                counter.textContent = Math.ceil(current);
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = target;
+                // Formatear el número 5000 con separador de miles
+                if (target === 5000) {
+                    counter.textContent = '5.000';
+                }
+            }
+        };
+        
+        updateCounter();
+    }
+
+    function animateAllCounters() {
+        if (countersAnimated) return;
+        
+        counters.forEach(counter => {
+            animateCounter(counter);
+        });
+        
+        countersAnimated = true;
+    }
+
+    // MÉTODO 1: Intersection Observer mejorado
+    const aboutSection = document.querySelector('.about-section');
+    
+    if (aboutSection) {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2 // Muy bajo para asegurar activación
+        };
+
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !countersAnimated) {
+                    // Pequeño delay para asegurar visibilidad
+                    setTimeout(animateAllCounters, 100);
+                }
+            });
+        }, observerOptions);
+
+        sectionObserver.observe(aboutSection);
+    }
+
+    // MÉTODO 2: Scroll listener como fallback
+    function checkCountersVisibility() {
+        if (countersAnimated) return;
+        
+        const statsSection = document.querySelector('.about-stats');
+        if (!statsSection) return;
+        
+        const rect = statsSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        
+        // Se considera visible si al menos 100px del elemento están en viewport
+        const isVisible = rect.top <= windowHeight - 100 && rect.bottom >= 100;
+        
+        if (isVisible) {
+            animateAllCounters();
+        }
+    }
+
+    // MÉTODO 3: Timeout como último recurso
+    window.addEventListener('load', function() {
+        // Verificar después de 4 segundos si no se animó
+        setTimeout(function() {
+            if (!countersAnimated) {
+                console.log('Activando contadores por timeout');
+                animateAllCounters();
+            }
+        }, 4000);
+    });
+
+    // Agregar listener de scroll para el fallback
+    window.addEventListener('scroll', checkCountersVisibility);
+    
+    // Verificar inmediatamente al cargar (por si ya está visible)
+    setTimeout(checkCountersVisibility, 500);
+
+    // DEBUG: Para probar si los contadores funcionan
+    // Descomenta la siguiente línea para forzar la animación al hacer tap en móvil
+    /*
+    document.addEventListener('click', function() {
+        if (!countersAnimated) {
+            animateAllCounters();
+        }
+    });  */
+    </script>
+</body>
+</html>
