@@ -145,7 +145,8 @@ nav ul li a:hover:after {
 /* Hero Section */
 .hero-section {
     position: relative;
-    height: 100vh;
+    height: 70vh; /* Cambiado de 100vh a 33vh */
+    min-height: 250px; /* Altura mínima para móviles */
     overflow: hidden;
     display: flex;
     align-items: center;
