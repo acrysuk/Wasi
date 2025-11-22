@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15% Descuento - Hotel Guerrero | Wasi Mutual</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles-pages.css">
+    <style>
+        /* Estilos específicos para la promoción */
+        .noticia-header {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .noticia-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .noticia-category {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .discount-badge {
+            background: white;
+            color: #ff6b6b;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        
+        .hotel-info {
+            padding: 60px 0;
+        }
+        
+        .hotel-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .amenities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .amenity {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f8f9fa;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .amenity i {
+            color: #ff6b6b;
+        }
+        
+        .hotel-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .hotel-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .location {
+            background: #f8f9fa;
+            padding: 60px 0;
+        }
+        
+        .location-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .address {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .rating-value {
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .map-placeholder {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-weight: 500;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .benefit-icon {
+            font-size: 40px;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .hotel-grid, .location-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header IDÉNTICO al de asesoría legal -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../INDEX2.html" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                    <span class="logo-text">Wasi Mutual</span>
+                </a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="../INDEX2.html#home">Inicio</a></li>
+                    <li><a href="../INDEX2.html#novedades">Novedades</a></li>
+                    <li><a href="../INDEX2.html#servicios">Servicios</a></li>
+                    <li><a href="../INDEX2.html#nosotros">Sobre Nosotros</a></li>
+                    <li><a href="../INDEX2.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido de la Promoción -->
+    <section class="noticia-header">
+        <div class="container">
+            <div class="noticia-meta">
+                <span class="noticia-category">Promoción Exclusiva</span>
+                <span class="noticia-date"><i class="far fa-calendar"></i> 15 de Diciembre, 2025</span>
+            </div>
+            <h1>15% de Descuento en Hotel Guerrero</h1>
+            <p style="margin-top: 20px; font-size: 1.2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Disfruta de unas vacaciones inolvidables en Mar del Plata con este descuento especial para asociados de Wasi Mutual
+            </p>
+            <div class="discount-badge">15% OFF</div>
+        </div>
+    </section>
+
+    <section class="noticia-content">
+        <div class="container">
+            <article class="noticia-body">
+                <div class="destacado">
+                    <p style="font-size: 1.1rem; font-weight: 600; margin: 0; text-align: center;">
+                        <i class="fas fa-hotel" style="color: #ff6b6b; margin-right: 10px;"></i>
+                        Promoción válida para todos los asociados de Wasi Mutual. Presentá tu credencial al momento del check-in.
+                    </p>
+                </div>
+                
+                <!-- Información del hotel -->
+                <section class="hotel-info">
+                    <div class="hotel-grid">
+                        <div class="hotel-description">
+                            <h2>Hotel Guerrero</h2>
+                            <p>El Hotel Guerrero ofrece apartamentos independientes situados frente al Paseo Las Américas, y a tan solo 200 metros de la Playa Popular. Todas las habitaciones y apartamentos disponen de conexión Wi-Fi y conexión a internet por cable gratuitas. Se incluye un desayuno continental diario.</p>
+                            
+                            <p>Todas las habitaciones y apartamentos de Guerrero disponen de cocina equipada con microondas y nevera. Los apartamentos tienen televisión por cable.</p>
+                            
+                            <div class="amenities">
+                                <div class="amenity">
+                                    <i class="fas fa-wifi"></i>
+                                    <span>Wi-Fi Gratuito</span>
+                                </div>
+                                <div class="amenity">
+                                    <i class="fas fa-utensils"></i>
+                                    <span>Desayuno Incluido</span>
+                                </div>
+                                <div class="amenity">
+                                    <i class="fas fa-tv"></i>
+                                    <span>TV por Cable</span>
+                                </div>
+                                <div class="amenity">
+                                    <i class="fas fa-utensil-spoon"></i>
+                                    <span>Cocina Equipada</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="hotel-image">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hotel Guerrero Mar del Plata">
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Ubicación -->
+                <section class="location">
+                    <div class="location-content">
+                        <div class="location-info">
+                            <h2>Ubicación Privilegiada</h2>
+                            
+                            <div class="address">
+                                <p><i class="fas fa-map-marker-alt"></i> <strong>Dirección:</strong> Diag. Alberdi Sur 2288, B7600 Mar del Plata, Provincia de Buenos Aires</p>
+                            </div>
+                            
+                            <p>El hotel se encuentra en una ubicación privilegiada frente al Paseo Las Américas y a solo 200 metros de la Playa Popular, una de las más concurridas y famosas de Mar del Plata.</p>
+                            
+                            <div class="rating">
+                                <span class="rating-value">9.5/10</span>
+                                <span>A las parejas les encanta la ubicación</span>
+                            </div>
+                        </div>
+                        
+                        <div class="map-placeholder">
+                            <i class="fas fa-map-marked-alt" style="font-size: 40px; margin-right: 15px;"></i>
+                            <div>
+                                <p>Mapa de ubicación</p>
+                                <p style="font-size: 0.9rem;">Diag. Alberdi Sur 2288, Mar del Plata</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Beneficios -->
+                <h2>Beneficios de Esta Promoción</h2>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <h3>15% de Descuento</h3>
+                        <p>Ahorra en tu estadía con nuestro descuento exclusivo para asociados de Wasi Mutual.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3>Reserva Flexible</h3>
+                        <p>Posibilidad de modificar o cancelar tu reserva según los términos y condiciones.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h3>Desayuno Incluido</h3>
+                        <p>Disfruta de un desayuno continental completo todos los días de tu estadía.</p>
+                    </div>
+                </div>
+                
+                <!-- CTA Section -->
+                <div class="cta-section">
+                    <h2 style="color: white; margin-bottom: 15px;">¡No Pierdas Esta Oportunidad!</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 25px;">Reserva ahora y disfruta de un 15% de descuento en tu estadía en el Hotel Guerrero</p>
+                    
+                    <a href="https://hotelguerrero.com.ar/" class="btn-grande" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Visitar Sitio Web
+                    </a>
+                    <a href="tel:+5492231234567" class="btn-grande" style="background: transparent; color: white; border: 2px solid white;">
+                        <i class="fas fa-phone"></i> Llamar para Reservar
+                    </a>
+                    
+                    <p style="font-size: 0.9rem; opacity: 0.9; margin-top: 15px;">
+                        Promoción válida presentando credencial de asociado al momento del check-in
+                    </p>
+                </div>
+
+                <div class="noticia-actions">
+                    <a href="https://hotelguerrero.com.ar/" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Visitar Sitio Web
+                    </a>
+                    <a href="../INDEX2.html#contacto" class="btn btn-success">
+                        <i class="fas fa-info-circle"></i> Más Información
+                    </a>
+                    <a href="../INDEX2.html#novedades" class="btn btn-outline">
+                        <i class="fas fa-arrow-left"></i> Ver Otras Promociones
+                    </a>
+                </div>
+            </article>
+            
+            <div class="back-to-news">
+                <a href="../INDEX2.html#novedades" class="btn btn-gradient">
+                    <i class="fas fa-arrow-left"></i> Volver a Novedades
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer IDÉNTICO al de asesoría legal -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                        <span class="footer-logo-text">Wasi Mutual</span>
+                    </div>
+                    <p>Tu bienestar, nuestro compromiso. Solidaridad, ayuda mutua y compromiso social.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Turismo</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Asesoramiento Jurídico</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Capacitaciones</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="../INDEX2.html#home"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="../INDEX2.html#servicios"><i class="fas fa-chevron-right"></i> Servicios</a></li>
+                        <li><a href="../INDEX2.html#nosotros"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                        <li><a href="../INDEX2.html#novedades"><i class="fas fa-chevron-right"></i> Novedades</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i>Pasaje Entre Rios 271, Zárate, Buenos Aires</p>
+                        <p><i class="fas fa-phone"></i> 3487-525680</p>
+                        <p><i class="fas fa-envelope"></i> 
+                        <a href="mailto:info@wasi.mutual.ar" class="email-link">
+                            info@wasi.mutual.ar
+                        </a>
+                        </p>
+                        <p><i class="fas fa-clock"></i> Lunes a Viernes: 9:00 - 17:00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Wasi Mutual - Todos los derechos reservados</p>
+                <p style="margin-top: 10px; font-size: 0.8rem;">Designed by <a href="https://focustech.com.ar" style="color: var(--accent-color);">FocusTech</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asesoría Legal en Temas Laborales Gratuita - Wasi Mutual</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles-pages.css">
+    
+    <style>
+         .noticia-header {
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), url('https://cdn.pixabay.com/photo/2015/06/08/18/37/hammer-802298_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            
+            text-align: center;
+        }
+        
+        .noticia-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .noticia-category {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .noticia-date {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .noticia-content {
+            padding: 60px 0;
+        }
+        
+        .noticia-body {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .noticia-body h2 {
+            color: #1f307b;
+            margin: 30px 0 15px 0;
+            font-size: 1.8rem;
+        }
+        
+        .noticia-body p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .noticia-body ul, .noticia-body ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .noticia-body li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .noticia-body img {
+            width: 100%;
+            border-radius: 10px;
+            margin: 30px 0;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .benefit-card {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #2e429ed0;
+        }
+        
+        .benefit-icon {
+            font-size: 24px;
+            color: #132da2;
+            margin-bottom: 15px;
+        }
+        
+        .requirements-list {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+        
+        .requirements-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .requirements-list li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .requirements-list li:before {
+            content: "✓";
+            color: #03104b;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .noticia-actions {
+            display: flex;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .back-to-news {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .testimonial {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 4px solid #051974;
+        }
+        
+        .testimonial cite {
+            font-style: normal;
+            font-weight: 600;
+            color: #4a6bff;
+            margin-top: 15px;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .noticia-meta {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .noticia-actions {
+                flex-direction: column;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../INDEX2.html" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                    <span class="logo-text">Wasi Mutual</span>
+                </a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="../INDEX2.html#home">Inicio</a></li>
+                    <li><a href="../INDEX2.html#novedades">Novedades</a></li>
+                    <li><a href="../INDEX2.html#servicios">Servicios</a></li>
+                    <li><a href="../INDEX2.html#nosotros">Sobre Nosotros</a></li>
+                    <li><a href="../INDEX2.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido de la Noticia -->
+    <section class="noticia-header">
+        <div class="container">
+            <div class="noticia-meta">
+                <span class="noticia-category">Servicios & Beneficios</span>
+                <span class="noticia-date"><i class="far fa-calendar"></i> 20 de Noviembre, 2025</span>
+            </div>
+            <h1>Asesoría Legal en Temas Laborales Gratuita</h1>
+            <p style="margin-top: 20px; font-size: 1.2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Nuevo servicio exclusivo para nuestros asociados. Consultas sobre contratos, despidos y derechos laborales.
+            </p>
+        </div>
+    </section>
+
+    <section class="noticia-content">
+        <div class="container">
+            <article class="noticia-body">
+                <p>En <strong>Wasi Mutual</strong> seguimos sumando beneficios para nuestra comunidad. Nos complace anunciar el lanzamiento de nuestro servicio de <strong>Asesoría Legal en Temas Laborales completamente gratuito</strong> para todos nuestros asociados.</p>
+                
+                <h2>¿En qué consiste este servicio?</h2>
+                
+                <p>Nuestro equipo de abogados especializados en derecho laboral está disponible para brindarte asesoramiento profesional en todas las situaciones relacionadas con tu trabajo:</p>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <h3>Contratos de Trabajo</h3>
+                        <p>Revisión y asesoramiento sobre condiciones contractuales, cláusulas y derechos laborales.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <h3>Liquidaciones Salariales</h3>
+                        <p>Verificación de cálculos de sueldos, horas extras, vacaciones y aguinaldos.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-user-times"></i>
+                        </div>
+                        <h3>Despidos e Indemnizaciones</h3>
+                        <p>Asesoramiento en casos de despido, cálculo de indemnizaciones y negociaciones.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3>Conflictos Laborales</h3>
+                        <p>Mediación y orientación en situaciones de conflicto con empleadores.</p>
+                    </div>
+                </div>
+                
+                <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Asesoría Legal Laboral">
+                
+                <h2>¿Quiénes pueden acceder a este servicio?</h2>
+                
+                <div class="requirements-list">
+                    <ul>
+                        <li>Asociados activos de Wasi Mutual</li>
+                        <li>Familiares directos de asociados (cónyuge e hijos)</li>
+                        <li>Personas en proceso de asociación</li>
+                    </ul>
+                </div>
+                
+                <h2>¿Cómo solicitar la asesoría?</h2>
+                
+                <p>El proceso es simple y accesible:</p>
+                
+                <ol style="margin-left: 20px; margin-bottom: 20px;">
+                    <li><strong>Contactanos</strong> por teléfono o email para coordinar una cita</li>
+                    <li><strong>Prepará</strong> la documentación relacionada con tu consulta</li>
+                    <li><strong>Asesorate</strong> con nuestros profesionales especializados</li>
+                    <li><strong>Seguimiento</strong> continuo de tu caso si es necesario</li>
+                </ol>
+                
+                <div class="testimonial">
+                    <p>"Gracias a la asesoría de Wasi Mutual pude resolver un conflicto laboral que tenía hace meses. Los abogados fueron muy profesionales y me guiaron en cada paso."</p>
+                    <cite>– María G., Asociada desde 2024</cite>
+                </div>
+                
+                <div class="noticia-actions">
+                    <a href="../INDEX2.html#contacto" class="btn btn-primary">
+                        <i class="fas fa-phone"></i> Solicitar asesoría
+                    </a>
+                    <a href="../pages/asociate.html" class="btn btn-success">
+                        <i class="fas fa-user-plus"></i> Asociate ahora
+                    </a>
+                    <a href="../INDEX2.html#servicios" class="btn btn-outline">
+                        <i class="fas fa-info-circle"></i> Conocer más servicios
+                    </a>
+                </div>
+                
+                <p><strong>Horarios de atención:</strong> Lunes a Viernes de 9:00 a 17:00 hs</p>
+                <p><strong>Consultas:</strong> Contactanos a través de nuestro formulario o visitando nuestras oficinas.</p>
+            </article>
+            
+            <div class="back-to-news">
+                <a href="../INDEX2.html#novedades" class="btn btn-gradient">
+                    <i class="fas fa-arrow-left"></i> Volver a Novedades
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+            <footer id="contacto">
+                <div class="container">
+                    <div class="footer-container">
+                        <div class="footer-about">
+                            <div class="footer-logo">
+                                <img src="images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                                <span class="footer-logo-text">Wasi Mutual</span>
+                            </div>
+                            <p>Tu bienestar, nuestro compromiso. Solidaridad, ayuda mutua y compromiso social.</p>
+                            <div class="social-icons">
+                                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h3>Servicios</h3>
+                            <ul>
+                                <li><a href="#"><i class="fas fa-chevron-right"></i> Turismo y recreación</a></li>
+                                <li><a href="#"><i class="fas fa-chevron-right"></i> Farmacia y convenios</a></li>
+                                <li><a href="#"><i class="fas fa-chevron-right"></i> Acceso a vivienda</a></li>
+                                <li><a href="#"><i class="fas fa-chevron-right"></i> Sepelio</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h3>Enlaces rápidos</h3>
+                            <ul>
+                                <li><a href="#home"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                                <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Servicios</a></li>
+                                <li><a href="#nosotros"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                                <li><a href="#novedades"><i class="fas fa-chevron-right"></i> Novedades</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="footer-column">
+                            <h3>Contacto</h3>
+                            <div class="footer-contact">
+                                <p><i class="fas fa-map-marker-alt"></i>Pasaje Entre Rios 271, Zárate, Buenos Aires</p>
+                                <p><i class="fas fa-phone"></i> 3487-525680</p>
+                                <p><i class="fas fa-envelope"></i> 
+                                <a href="mailto:info@wasi.mutual.ar" class="email-link">
+                                    info@wasi.mutual.ar
+                                </a>
+        </p>
+        </p>
+                                <p><i class="fas fa-clock"></i> Lunes a Viernes: 9:00 - 17:00</p>
+                            </div>
+                            <!--<a href="#" class="btn btn-warning" style="margin-top: 15px; padding: 10px 20px;">Enviar mensaje</a>-->
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <p>© 2025 Wasi Mutual - Todos los derechos reservados</p>
+                        <p style="margin-top: 10px; font-size: 0.8rem;">Designed by <a href="https://focustech.com.ar" style="color: var(--accent-color);">FocusTech</a></p>
+                    </div>
+                </div>
+            </footer>
+
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

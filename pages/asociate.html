@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wasi Mutual - Solidaridad y Servicio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="../css/styles-pages.css">
+    <style>
+        .asociacion-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        
+        .paso {
+            display: none;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .paso.activo {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .metodo-pago {
+            display: flex;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .metodo-option {
+            flex: 1;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .metodo-option:hover, .metodo-option.seleccionado {
+            border-color: var(--accent-color);
+            background-color: rgba(74, 107, 255, 0.05);
+        }
+        
+        .metodo-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+        
+        .qr-container {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+        
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+        
+        .datos-transferencia {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .datos-transferencia p {
+            margin: 10px 0;
+        }
+        
+        .botones-navegacion {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .comprobante-upload {
+            border: 2px dashed #ddd;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+            cursor: pointer;
+        }
+        
+        .comprobante-upload:hover {
+            border-color: var(--accent-color);
+        }
+        
+        .comprobante-preview {
+            max-width: 300px;
+            margin: 20px auto;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Header -->
+     
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../INDEX2.html" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                    <span class="logo-text">Wasi Mutual</span>
+                </a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="../INDEX2.html#home">Inicio</a></li>
+                    <li><a href="../INDEX2.html#novedades">Novedades</a></li>
+                    <li><a href="../INDEX2.html#servicios">Servicios</a></li>
+                    <li><a href="../INDEX2.html#nosotros">Sobre Nosotros</a></li>
+                    <li><a href="../INDEX2.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="asociate-header">
+        <div class="container">
+            <div class="asociate-meta"></div>
+            <h1>ASOCIATE</h1>
+         </div>
+    </section>
+    <div class="asociacion-container">
+        <h1>Asociate a Wasi Mutual</h1>
+        <p>Completá el siguiente formulario para asociarte y acceder a todos nuestros beneficios.</p>
+        
+        <!-- Paso 1: Datos Personales -->
+        <div class="paso activo" id="paso1">
+            <h2>Datos Personales</h2>
+            <form id="form-datos-personales">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dni">DNI</label>
+                    <input type="text" id="dni" name="dni" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="direccion">Dirección</label>
+                    <input type="text" id="direccion" name="direccion" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="localidad">Localidad</label>
+                    <input type="text" id="localidad" name="localidad" required>
+                </div>
+                
+                <div class="botones-navegacion">
+                    <div></div> <!-- Espacio vacío para alinear el botón a la derecha -->
+                    <button type="button" class="btn btn-primary" onclick="siguientePaso(2)">Continuar</button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Paso 2: Método de Pago -->
+        <div class="paso" id="paso2">
+            <h2>Método de Pago</h2>
+            <p>Seleccioná cómo deseas abonar la cuota de asociación.</p>
+            
+            <div class="metodo-pago">
+                <div class="metodo-option" onclick="seleccionarMetodo('qr')">
+                    <div class="metodo-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h3>Pago con QR</h3>
+                    <p>Escaneá el código QR con tu aplicación bancaria</p>
+                </div>
+                
+                <div class="metodo-option" onclick="seleccionarMetodo('transferencia')">
+                    <div class="metodo-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Transferencia Bancaria</h3>
+                    <p>Realizá una transferencia a nuestra cuenta</p>
+                </div>
+            </div>
+            
+            <!-- Sección QR (se muestra si se selecciona esta opción) -->
+            <div id="seccion-qr" style="display: none;">
+                <div class="qr-container">
+                    <h3>Escaneá este código con tu app bancaria</h3>
+                    <div class="qr-code">
+                        <!-- Aquí iría tu código QR real -->
+                        <span>[CÓDIGO QR]</span>
+                    </div>
+                    <p>Una vez realizado el pago, continuá al siguiente paso para enviar el comprobante.</p>
+                </div>
+            </div>
+            
+            <!-- Sección Transferencia (se muestra si se selecciona esta opción) -->
+            <div id="seccion-transferencia" style="display: none;">
+                <div class="datos-transferencia">
+                    <h3>Datos para transferencia</h3>
+                    <p><strong>Banco:</strong> [Nombre del Banco]</p>
+                    <p><strong>Titular:</strong> Wasi Mutual</p>
+                    <p><strong>CBU/CVU:</strong> [Número de CBU/CVU]</p>
+                    <p><strong>Alias:</strong> [Alias de la cuenta]</p>
+                    <p><strong>Concepto:</strong> Cuota asociación - [Tu nombre]</p>
+                    <p><strong>Importe:</strong> $XXXX</p>
+                </div>
+                <p>Una vez realizada la transferencia, continuá al siguiente paso para enviar el comprobante.</p>
+            </div>
+            
+            <div class="botones-navegacion">
+                <button type="button" class="btn btn-outline" onclick="anteriorPaso(1)">Atrás</button>
+                <button type="button" class="btn btn-primary" id="btn-continuar-pago" onclick="siguientePaso(3)" disabled>Continuar</button>
+            </div>
+        </div>
+        
+        <!-- Paso 3: Comprobante -->
+        <div class="paso" id="paso3">
+            <h2>Envío de Comprobante</h2>
+            <p>Subí el comprobante de pago para completar tu asociación.</p>
+            
+            <div class="comprobante-upload" onclick="document.getElementById('file-comprobante').click()">
+                <i class="fas fa-cloud-upload-alt" style="font-size: 50px; color: #ccc; margin-bottom: 15px;"></i>
+                <h3>Hacé clic para subir tu comprobante</h3>
+                <p>Formatos aceptados: JPG, PNG, PDF (máx. 5MB)</p>
+                <input type="file" id="file-comprobante" accept=".jpg,.jpeg,.png,.pdf" style="display: none;" onchange="mostrarPrevisualizacion(event)">
+            </div>
+            
+            <div class="comprobante-preview" id="comprobante-preview">
+                <img id="preview-img" src="" alt="Vista previa del comprobante" style="max-width: 100%; border-radius: 5px;">
+                <p id="nombre-archivo" style="margin-top: 10px;"></p>
+                <button type="button" class="btn btn-outline" onclick="eliminarComprobante()" style="margin-top: 10px;">Eliminar</button>
+            </div>
+            
+            <div class="botones-navegacion">
+                <button type="button" class="btn btn-outline" onclick="anteriorPaso(2)">Atrás</button>
+                <button type="button" class="btn btn-primary" id="btn-finalizar" onclick="finalizarAsociacion()" disabled>Finalizar Asociación</button>
+            </div>
+        </div>
+        
+        <!-- Paso 4: Confirmación -->
+        <div class="paso" id="paso4">
+            <div style="text-align: center; padding: 40px 0;">
+                <i class="fas fa-check-circle" style="font-size: 80px; color: #4CAF50; margin-bottom: 20px;"></i>
+                <h2>¡Asociación completada!</h2>
+                <p>Hemos recibido tu solicitud de asociación y el comprobante de pago.</p>
+                <p>En las próximas 48 horas hábiles te contactaremos para confirmar tu asociación y enviarte tu credencial.</p>
+                <p>Mientras tanto, podés explorar todos los servicios disponibles.</p>
+                <div style="margin-top: 30px;">
+                    <a href="../INDEX2.html" class="btn btn-primary">Volver al Inicio</a>
+                    <a href="../INDEX2.html#servicios" class="btn btn-outline">Ver Servicios</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let metodoPagoSeleccionado = '';
+        let comprobanteSubido = false;
+        
+        function siguientePaso(paso) {
+            // Validaciones antes de avanzar
+            if (paso === 2) {
+                const form = document.getElementById('form-datos-personales');
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+            }
+            
+            if (paso === 3 && !metodoPagoSeleccionado) {
+                alert('Por favor, seleccioná un método de pago');
+                return;
+            }
+            
+            // Ocultar todos los pasos
+            document.querySelectorAll('.paso').forEach(paso => {
+                paso.classList.remove('activo');
+            });
+            
+            // Mostrar el paso actual
+            document.getElementById('paso' + paso).classList.add('activo');
+        }
+        
+        function anteriorPaso(paso) {
+            // Ocultar todos los pasos
+            document.querySelectorAll('.paso').forEach(paso => {
+                paso.classList.remove('activo');
+            });
+            
+            // Mostrar el paso anterior
+            document.getElementById('paso' + paso).classList.add('activo');
+        }
+        
+        function seleccionarMetodo(metodo) {
+            metodoPagoSeleccionado = metodo;
+            
+            // Remover selección de todos los métodos
+            document.querySelectorAll('.metodo-option').forEach(opcion => {
+                opcion.classList.remove('seleccionado');
+            });
+            
+            // Agregar selección al método elegido
+            event.currentTarget.classList.add('seleccionado');
+            
+            // Mostrar la sección correspondiente
+            if (metodo === 'qr') {
+                document.getElementById('seccion-qr').style.display = 'block';
+                document.getElementById('seccion-transferencia').style.display = 'none';
+            } else {
+                document.getElementById('seccion-qr').style.display = 'none';
+                document.getElementById('seccion-transferencia').style.display = 'block';
+            }
+            
+            // Habilitar el botón de continuar
+            document.getElementById('btn-continuar-pago').disabled = false;
+        }
+        
+        function mostrarPrevisualizacion(event) {
+            const file = event.target.files[0];
+            if (file) {
+                comprobanteSubido = true;
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    if (file.type.includes('image')) {
+                        document.getElementById('preview-img').src = e.target.result;
+                        document.getElementById('preview-img').style.display = 'block';
+                    } else {
+                        document.getElementById('preview-img').style.display = 'none';
+                    }
+                    
+                    document.getElementById('nombre-archivo').textContent = file.name;
+                    document.getElementById('comprobante-preview').style.display = 'block';
+                    
+                    // Habilitar el botón de finalizar
+                    document.getElementById('btn-finalizar').disabled = false;
+                }
+                
+                reader.readAsDataURL(file);
+            }
+        }
+        
+        function eliminarComprobante() {
+            document.getElementById('file-comprobante').value = '';
+            document.getElementById('comprobante-preview').style.display = 'none';
+            comprobanteSubido = false;
+            document.getElementById('btn-finalizar').disabled = true;
+        }
+        
+        function finalizarAsociacion() {
+            if (!comprobanteSubido) {
+                alert('Por favor, subí el comprobante de pago antes de finalizar');
+                return;
+            }
+            
+            // Aquí iría el código para enviar los datos al servidor
+            // Por ahora solo avanzamos al paso de confirmación
+            siguientePaso(4);
+            
+            // En una implementación real, aquí enviarías los datos al servidor
+            // const formData = new FormData();
+            // formData.append('datos', JSON.stringify(obtenerDatosFormulario()));
+            // formData.append('comprobante', document.getElementById('file-comprobante').files[0]);
+            
+            // fetch('procesar-asociacion.php', {
+            //     method: 'POST',
+            //     body: formData
+            // })
+            // .then(response => response.json())
+            // .then(data => {
+            //     if (data.success) {
+            //         siguientePaso(4);
+            //     } else {
+            //         alert('Error al procesar la asociación: ' + data.message);
+            //     }
+            // })
+            // .catch(error => {
+            //     console.error('Error:', error);
+            //     alert('Error al procesar la asociación');
+            // });
+        }
+        
+        function obtenerDatosFormulario() {
+            return {
+                nombre: document.getElementById('nombre').value,
+                dni: document.getElementById('dni').value,
+                email: document.getElementById('email').value,
+                telefono: document.getElementById('telefono').value,
+                direccion: document.getElementById('direccion').value,
+                localidad: document.getElementById('localidad').value,
+                metodoPago: metodoPagoSeleccionado
+            };
+        }
+    </script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

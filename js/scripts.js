@@ -262,3 +262,165 @@ if (document.readyState === 'loading') {
     console.log('⚡ DOM ya está listo, ejecutando scripts inmediatamente');
     document.dispatchEvent(new Event('DOMContentLoaded'));
 }
+
+// Prevenir la propagación del scroll en el submenú
+document.addEventListener('DOMContentLoaded', function() {
+    const submenus = document.querySelectorAll('.submenu');
+    
+    submenus.forEach(submenu => {
+        // Prevenir que el scroll se propague al fondo
+        submenu.addEventListener('wheel', function(e) {
+            // Si el scroll llega al tope o al fondo, permitir que el evento continúe
+            const isScrollingDown = e.deltaY > 0;
+            const isScrollingUp = e.deltaY < 0;
+            
+            const isAtTop = this.scrollTop === 0;
+            const isAtBottom = this.scrollTop + this.clientHeight >= this.scrollHeight - 1;
+            
+            if ((isScrollingUp && isAtTop) || (isScrollingDown && isAtBottom)) {
+                // Permitir que el scroll continúe al fondo
+                return;
+            }
+            
+            // Prevenir el comportamiento por defecto y detener la propagación
+            e.preventDefault();
+            e.stopPropagation();
+        }, { passive: false });
+        
+        // También prevenir touchmove en dispositivos táctiles
+        submenu.addEventListener('touchmove', function(e) {
+            e.stopPropagation();
+        }, { passive: false });
+    });
+});
+
+// Popup del sorteo para asociados
+document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('popupSorteo');
+    const closeButtons = document.querySelectorAll('.popup-close, .btn-popup-close');
+    const secondaryButton = document.querySelector('.btn-popup-secondary');
+    
+    // Mostrar popup después de 2 segundos
+    setTimeout(function() {
+        // Verificar si ya se mostró hoy
+        const lastPopup = localStorage.getItem('popupSorteoLastShow');
+        const today = new Date().toDateString();
+        
+        if (!lastPopup || lastPopup !== today) {
+            popup.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevenir scroll
+        }
+    }, 2000);
+    
+    // Cerrar popup
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            popup.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restaurar scroll
+            // Guardar que se mostró hoy
+            localStorage.setItem('popupSorteoLastShow', new Date().toDateString());
+        });
+    });
+    
+    // Botón secundario - ir a bases y condiciones
+    if (secondaryButton) {
+        secondaryButton.addEventListener('click', function() {
+            window.location.href = '../pages/bases-condiciones.html';
+        });
+    }
+    
+    // Cerrar al hacer click fuera del contenido
+    popup.addEventListener('click', function(e) {
+        if (e.target === popup) {
+            popup.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            localStorage.setItem('popupSorteoLastShow', new Date().toDateString());
+        }
+    });
+});
+
+// Popup del sorteo para asociados
+document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('popupSorteo');
+    const closeButtons = document.querySelectorAll('.popup-close, .btn-popup-close');
+    const secondaryButton = document.querySelector('.btn-popup-secondary');
+    
+    // Mostrar popup después de 2 segundos (SIN localStorage)
+    setTimeout(function() {
+        popup.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }, 2000);
+    
+    // Cerrar popup
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            popup.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+    });
+    
+    // Botón secundario
+    if (secondaryButton) {
+        secondaryButton.addEventListener('click', function() {
+            window.location.href = '../pages/bases-condiciones.html';
+        });
+    }
+    
+    // Cerrar al hacer click fuera
+    popup.addEventListener('click', function(e) {
+        if (e.target === popup) {
+            popup.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+});
+
+//para salir con escape
+document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.getElementById('popupSorteo');
+    const closeButtons = document.querySelectorAll('.popup-close, .btn-popup-close');
+    const secondaryButton = document.querySelector('.btn-popup-secondary');
+    
+    // Función para cerrar el popup
+    function closePopup() {
+        popup.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Función para abrir el popup
+    function openPopup() {
+        popup.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Mostrar popup después de 2 segundos
+    setTimeout(function() {
+        openPopup();
+    }, 2000);
+    
+    // Cerrar popup con botones
+    closeButtons.forEach(button => {
+        button.addEventListener('click', closePopup);
+    });
+    
+    // Botón secundario
+    if (secondaryButton) {
+        secondaryButton.addEventListener('click', function() {
+            window.location.href = '../pages/bases-condiciones.html';
+        });
+    }
+    
+    // Cerrar al hacer click fuera
+    popup.addEventListener('click', function(e) {
+        if (e.target === popup) {
+            closePopup();
+        }
+    });
+    
+    // Cerrar con tecla Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && popup.style.display === 'flex') {
+            closePopup();
+        }
+    });
+});

@@ -38,11 +38,11 @@ h1, h2, h3, h4, h5, h6 {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 10px;
 }
 
 .section-padding {
-    padding: 80px 0;
+    padding: 20px 0;
 }
 
 .text-center {
@@ -145,7 +145,7 @@ nav ul li a:hover:after {
 /* Hero Section */
 .hero-section {
     position: relative;
-    height: 70vh; /* Cambiado de 100vh a 33vh */
+    height: 90vh; /* Cambiado de 100vh a 33vh */
     min-height: 250px; /* Altura mínima para móviles */
     overflow: hidden;
     display: flex;
@@ -881,86 +881,7 @@ nav ul li a:hover:after {
         }
 
     /*NOTICIAS*/
-    .noticia-header {
-            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), url('https://cdn.pixabay.com/photo/2012/02/28/10/20/coins-18134_1280.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 120px 0 60px;
-            text-align: center;
-        }
-        
-        .noticia-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-        
-        .noticia-meta {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .noticia-category {
-            background: var(--color-blue);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-        
-        .noticia-date {
-            color: var(--text-light);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .noticia-body {
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-        
-        .noticia-body h2, .noticia-body h3 {
-            color: var(--primary-color);
-            margin: 30px 0 15px;
-        }
-        
-        .noticia-body p {
-            margin-bottom: 20px;
-        }
-        
-        .noticia-body img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-        
-        .noticia-actions {
-            display: flex;
-            gap: 15px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-        
-        .back-to-news {
-            margin-top: 40px;
-            text-align: center;
-        }
-        
-        @media (max-width: 768px) {
-            .noticia-header h1 {
-                font-size: 2rem;
-            }
-            
-            .noticia-content {
-                padding: 40px 20px;
-            }
-        }
+    
         .busqueda-header {
             background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(26, 54, 93, 0.9)), url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
@@ -1218,3 +1139,456 @@ nav ul li a:hover:after {
                 margin-bottom: 20px;
             }
         }
+
+/* Menú desplegable */
+.menu-con-desplegable {
+    position: relative;
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    min-width: 220px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    padding: 8px 0;
+    border: 1px solid #e0e0e0;
+}
+
+.submenu a {
+    padding: 12px 20px;
+    color: #333;
+    display: block;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f5f5f5;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+.submenu a:hover {
+    background: linear-gradient(135deg, #959292, #939191);
+    color: white;
+    padding-left: 25px;
+}
+
+.menu-con-desplegable:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+
+/* Para pantallas pequeñas, ajusta la posición */
+@media (max-width: 1200px) {
+    .submenu {
+        right: auto;
+        left: 0;
+    }
+}
+.upcoming-services-list {
+    list-style: none;
+    padding: 0;
+    margin: 30px auto;
+    max-width: 500px; /* Ancho máximo para mejor lectura */
+    text-align: center;
+}
+
+.upcoming-services-list li {
+    background: #f8f9fa;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border-left: 4px solid #ff6b6b;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.upcoming-services-list li:hover {
+    background: #fff5f5;
+    transform: translateX(5px);
+}
+
+/* Para centrar el título y subtítulo también */
+.section-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.subTitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+/* Popup Sorteo */
+/* Popup Sorteo - Corregido */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.popup-content {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh; /* Máximo 90% de la altura de la ventana */
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    animation: slideUp 0.4s ease;
+    overflow-y: auto; /* Scroll interno si es necesario */
+    box-sizing: border-box;
+}
+
+.popup-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s ease;
+    z-index: 1;
+}
+
+.popup-close:hover {
+    color: #ff6b6b;
+}
+
+.popup-header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-right: 30px; /* Espacio para el botón cerrar */
+}
+
+.popup-icon {
+    font-size: 50px;
+    color: #ff6b6b;
+    margin-bottom: 15px;
+}
+
+.popup-header h2 {
+    color: #333;
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.popup-body {
+    margin: 20px 0;
+}
+
+.popup-premios {
+    background: #fff5f5;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.premio-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 8px 0;
+}
+
+.premio-item i {
+    color: #ff6b6b;
+    font-size: 20px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+.premio-item span {
+    color: #333;
+    font-weight: 500;
+}
+
+.popup-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-popup {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 50px;
+    text-align: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-popup:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255,107,107,0.3);
+}
+
+.btn-popup-secondary {
+    background: transparent;
+    color: #ff6b6b;
+    padding: 12px 25px;
+    border: 2px solid #ff6b6b;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn-popup-secondary:hover {
+    background: #ff6b6b;
+    color: white;
+}
+
+.btn-popup-close {
+    background: #f8f9fa;
+    color: #666;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-popup-close:hover {
+    background: #e9ecef;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Para móvil - Mejorado */
+@media (max-width: 768px) {
+    .popup-overlay {
+        padding: 15px;
+        align-items: flex-start; /* Alinear arriba en móvil */
+        padding-top: 50px; /* Espacio desde arriba */
+    }
+    
+    .popup-content {
+        padding: 20px;
+        max-height: 85vh; /* Un poco menos en móvil */
+        margin: 0 auto;
+    }
+    
+    .popup-header h2 {
+        font-size: 1.4rem; /* Título más pequeño en móvil */
+    }
+    
+    .popup-icon {
+        font-size: 40px; /* Icono más pequeño */
+    }
+    
+    .popup-premios {
+        padding: 15px;
+    }
+    
+    .popup-footer {
+        gap: 8px;
+    }
+    
+    .btn-popup,
+    .btn-popup-secondary,
+    .btn-popup-close {
+        padding: 12px 20px; /* Botones más compactos */
+        font-size: 0.9rem;
+    }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .popup-overlay {
+        padding: 10px;
+        padding-top: 30px;
+    }
+    
+    .popup-content {
+        padding: 15px;
+        max-height: 80vh;
+    }
+    
+    .popup-header h2 {
+        font-size: 1.2rem;
+    }
+    
+    .premio-item {
+        font-size: 0.9rem;
+    }
+}
+
+/*boton flotante para asociarme*/
+/* Botón Asociate Flotante */
+/* Contenedor de Botones Flotantes */
+.floating-buttons-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-end;
+}
+
+/* Botones flotantes base */
+.floating-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 1rem;
+    animation: pulse 2s infinite;
+}
+
+/* Botón WhatsApp */
+.whatsapp-btn {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    order: 1; /* Para que quede arriba */
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+    color: white;
+}
+
+/* Botón Asociate */
+.associate-btn {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    order: 2; /* Para que quede abajo */
+}
+
+.associate-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+    color: white;
+}
+
+.floating-btn i {
+    font-size: 1.2rem;
+}
+
+.btn-text {
+    white-space: nowrap;
+}
+
+/* Animación de pulso para ambos botones */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Versión móvil */
+@media (max-width: 768px) {
+    .floating-buttons-container {
+        bottom: 20px;
+        right: 20px;
+        gap: 12px;
+    }
+    
+    .floating-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .btn-text {
+        display: none; /* Ocultar texto en móvil */
+    }
+    
+    .floating-btn i {
+        margin-right: 0;
+        font-size: 1.3rem;
+    }
+}
+
+/* Para móviles muy pequeños - solo iconos */
+@media (max-width: 480px) {
+    .floating-btn {
+        padding: 15px;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        justify-content: center;
+    }
+    
+    .btn-text {
+        display: none;
+    }
+    
+    .floating-btn i {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+}
+
+/* Efecto adicional al pasar el mouse */
+.floating-btn:hover i {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+/* Estilos para enlaces de correo electrónico */
+.email-link {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.email-link:hover {
+    color: #ff6b6b;
+    text-decoration: underline;
+}
