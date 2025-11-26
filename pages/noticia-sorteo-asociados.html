@@ -6,13 +6,87 @@
     <title>Asociate y Gana - Sorteo de Motocicleta - Wasi Mutual</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles-pages.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #ff6b6b;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 25px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #ff6b6b;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Noticia Header */
         .noticia-header {
-            background: linear-gradient(135deg, #ff6b6b, #ff8e53), url('https://images.pexels.com/photos/1715193/pexels-photo-1715193.jpeg');
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
             color: white;
-            background-size: cover;
-            background-position: center;
+            padding: 80px 0;
             text-align: center;
         }
         
@@ -38,6 +112,13 @@
             gap: 8px;
         }
         
+        .noticia-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Noticia Content */
         .noticia-content {
             padding: 60px 0;
         }
@@ -45,6 +126,10 @@
         .noticia-body {
             max-width: 800px;
             margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         
         .noticia-body h2 {
@@ -58,6 +143,65 @@
             line-height: 1.6;
         }
         
+        .destacado {
+            background: #fff5f5;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #ff6b6b;
+            margin: 25px 0;
+        }
+        
+        /* Contadores */
+        .contador-disponibles {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .contador-disponibles h3 {
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+        
+        .about-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+            text-align: center;
+        }
+        
+        .texto-urgencia {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ff6b6b;
+        }
+        
+        /* Premios */
         .premios-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -105,6 +249,7 @@
             font-size: 0.9rem;
         }
         
+        /* CTA Section */
         .cta-section {
             background: linear-gradient(135deg, #ff6b6b, #ff8e53);
             color: white;
@@ -134,6 +279,7 @@
             box-shadow: 0 10px 25px rgba(255,107,107,0.3);
         }
         
+        /* Bases Legales */
         .bases-legales {
             background: #f8f9fa;
             padding: 25px;
@@ -165,6 +311,7 @@
             margin-right: 10px;
         }
         
+        /* Noticia Actions */
         .noticia-actions {
             display: flex;
             gap: 15px;
@@ -173,33 +320,184 @@
             justify-content: center;
         }
         
-        .back-to-news {
+        .btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: #ff6b6b;
+            color: white;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: #ff6b6b;
+            border: 2px solid #ff6b6b;
+        }
+        
+        .btn-success {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .btn-gradient {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-about p {
+            margin: 15px 0;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: #ff6b6b;
+            transform: translateY(-3px);
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            color: #ff6b6b;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-column a:hover {
+            color: #ff6b6b;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .email-link {
+            color: #ff6b6b;
+            text-decoration: none;
+        }
+        
+        .copyright {
             text-align: center;
-            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #aaa;
         }
         
-        .destacado {
-            background: #fff5f5;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #ff6b6b;
-            margin: 25px 0;
-        }
-        
+        /* Responsive */
         @media (max-width: 768px) {
-            .noticia-meta {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            nav {
+                width: 100%;
+                margin-top: 15px;
+                display: none;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
                 flex-direction: column;
-                align-items: center;
                 gap: 10px;
             }
             
-            .premios-grid {
-                grid-template-columns: 1fr;
+            nav li {
+                margin-left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .noticia-header h1 {
+                font-size: 2rem;
+            }
+            
+            .noticia-body {
+                padding: 25px;
+            }
+            
+            .about-stats {
+                gap: 30px;
+            }
+            
+            .stat-number {
+                font-size: 2.8rem;
             }
             
             .btn-grande {
                 padding: 15px 30px;
                 font-size: 1.1rem;
+            }
+            
+            .premios-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -207,25 +505,27 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="header-container">
-            <div class="logo">
-                <a href="../INDEX2.html" style="display: flex; align-items: center; text-decoration: none;">
-                    <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
-                    <span class="logo-text">Wasi Mutual</span>
-                </a>
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <a href="../INDEX2.html" style="display: flex; align-items: center; text-decoration: none;">
+                        <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                        <span class="logo-text">Wasi Mutual</span>
+                    </a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav>
+                    <ul>
+                        <li><a href="../INDEX2.html#home">Inicio</a></li>
+                        <li><a href="../INDEX2.html#novedades">Novedades</a></li>
+                        <li><a href="../INDEX2.html#servicios">Servicios</a></li>
+                        <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="../INDEX2.html#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
             </div>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav>
-                <ul>
-                    <li><a href="../INDEX2.html#home">Inicio</a></li>
-                    <li><a href="../INDEX2.html#novedades">Novedades</a></li>
-                    <li><a href="../INDEX2.html#servicios">Servicios</a></li>
-                    <li><a href="../INDEX2.html#nosotros">Sobre Nosotros</a></li>
-                    <li><a href="../INDEX2.html#contacto">Contacto</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
 
@@ -254,6 +554,22 @@
                 </div>
                 
                 <p>Todas las personas que se adhieran al plan semestral, abonando 6 meses por adelantado con una cuota mensual de solo <strong>$5.000</strong>, participarán automáticamente por importantes premios.</p>
+                
+                <!-- Contador de números disponibles -->
+                <div class="contador-disponibles">
+                    <h3><i class="fas fa-ticket-alt"></i> Estado del Sorteo</h3>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="numeros-vendidos">0</span>
+                            <span class="stat-label">Números vendidos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="numeros-disponibles">0</span>
+                            <span class="stat-label">Números por vender</span>
+                        </div>
+                    </div>
+                    <p class="texto-urgencia" id="texto-urgencia">¡No te quedes sin tu oportunidad!</p>
+                </div>
                 
                 <h2>🎁 Premios del Sorteo</h2>
                 
@@ -285,9 +601,9 @@
                         <div class="premio-desc">Equipo completo para trabajo y estudio</div>
                     </div>
                 </div>
-                
-                <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                     alt="Motocicleta premio sorteo">
+                <!-- Imagen de la motocicleta -->
+                <!--<img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Motocicleta premio sorteo" style="width: 100%; border-radius: 10px; margin: 20px 0;">-->
                 
                 <div class="cta-section">
                     <h2 style="color: white; margin-bottom: 15px;">¡No te quedes fuera!</h2>
@@ -301,28 +617,43 @@
                 </div>
                 
                 <h2>📌 Bases y Condiciones</h2>
-                
+
                 <div class="bases-legales">
                     <h3>Información importante sobre la promoción:</h3>
                     <ul>
-                        <li>Promoción válida exclusivamente para nuevas asociaciones</li>
-                        <li>Debe realizarse el pago completo de los 6 meses por adelantado</li>
-                        <li>Cuota mensual: $5.000 (monto total semestral: $30.000)</li>
-                        <li>La participación en el sorteo queda registrada al momento de acreditarse el pago</li>
-                        <li>Fecha del sorteo y transmisión oficial serán informadas en nuestras redes y sitio web</li>
-                        <li>El ganador deberá acreditar identidad y cumplir con los requisitos legales para la entrega de premios</li>
-                        <li>Válido hasta agotar cupos promocionales o hasta fecha de cierre establecida</li>
+                        <li>Promoción válida exclusivamente para nuevas asociaciones.</li>
+                        <li>Para acceder a la promoción, deberá abonarse por adelantado el valor total correspondiente a seis (6) meses de cuota.</li>
+                        <li>Cuota mensual: $5.000 (monto total semestral: $30.000).</li>
+                        <li>La participación en el sorteo quedará registrada únicamente una vez acreditado el pago.</li>
+                        <li>Para participar, el interesado deberá realizar la transferencia y enviar el comprobante mediante el formulario al que se accede presionando el botón “Quiero asociarme”, donde podrá pre-cargar su correo electrónico para adjuntar la información requerida.</li>
+                        <li>El sorteo se llevará a cabo a través de Lotería Nacional, conforme mecanismos oficiales de asignación y resultados.</li>
+                        <li>La promoción cuenta con un total de 1.000 números disponibles.</li>
+                        <li>Con la asociación por seis (6) meses, el participante obtiene doble chance, lo que implica la asignación de dos (2) números dentro de los 1.000 disponibles.</li>
+                        <li>Una vez acreditado y verificado el pago, la mutual asignará al asociado los números correspondientes según disponibilidad de stock y le proporcionará dicha información para su participación en el sorteo.</li>
+                        <li>El sorteo se realizará una vez vendidos la totalidad de los números, con un plazo máximo de dos (2) meses desde el lanzamiento.</li>
+                        <li>El ganador deberá acreditar identidad y cumplir con los requisitos legales correspondientes para la entrega del premio.</li>
+                        <li>Promoción válida hasta agotar cupos o hasta la fecha de cierre que se establezca.</li>
+                    </ul>
+
+                    <h3>Datos para realizar la transferencia:</h3>
+                    <ul>
+                        <li><strong>Titular de la Cuenta: </strong> WASI MUTUAL</li>
+                        <li><strong>Cuenta Corriente en Pesos:</strong> 1040029282</li>
+                        <li><strong>CBU:</strong> 2990104110400292820004</li>
+                        <li>Para completar la participación, el comprobante debe cargarse a través del formulario accesible desde el botón “Quiero asociarme”.</li>
                     </ul>
                 </div>
+
+
                 
                 <div class="noticia-actions">
                     <a href="../pages/asociate.html" class="btn btn-primary">
                         <i class="fas fa-user-plus"></i> Quiero Asociarme
                     </a>
-                    <a href="../INDEX2.html#contacto" class="btn btn-outline">
-                        <i class="fas fa-question-circle"></i> Hacer una Consulta
+                    <a href="https://wa.me/5493487525680?text=Hola%20Wasi%20Mutual,%20me%20interesa%20asociarme" class="btn btn-success">
+                        <i class="fab fa-whatsapp"></i> Hacer una Consulta
                     </a>
-                    <a href="../INDEX2.html#servicios" class="btn btn-success">
+                    <a href="../INDEX2.html#servicios" class="btn btn-outline">
                         <i class="fas fa-info-circle"></i> Conocer Servicios
                     </a>
                 </div>
@@ -347,7 +678,7 @@
             <div class="footer-container">
                 <div class="footer-about">
                     <div class="footer-logo">
-                        <img src="images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                        <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
                         <span class="footer-logo-text">Wasi Mutual</span>
                     </div>
                     <p>Tu bienestar, nuestro compromiso. Solidaridad, ayuda mutua y compromiso social.</p>
@@ -374,7 +705,7 @@
                     <ul>
                         <li><a href="#home"><i class="fas fa-chevron-right"></i> Inicio</a></li>
                         <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Servicios</a></li>
-                        <li><a href="#nosotros"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                        <li><a href="sobre-nosotros.html" ><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
                         <li><a href="#novedades"><i class="fas fa-chevron-right"></i> Novedades</a></li>
                     </ul>
                 </div>
@@ -385,23 +716,73 @@
                         <p><i class="fas fa-map-marker-alt"></i>Pasaje Entre Rios 271, Zárate, Buenos Aires</p>
                         <p><i class="fas fa-phone"></i> 3487-525680</p>
                         <p><i class="fas fa-envelope"></i> 
-                        <a href="mailto:info@wasi.mutual.ar" class="email-link">
-                            info@wasi.mutual.ar
-                        </a>
-</p>
-</p>
+                            <a href="mailto:info@wasi.mutual.ar?subject=Quiero hacer una consulta&body=Hola Mutual Wasi quisiera mas informacion sobre:" class="email-link">
+                                info@wasi.mutual.ar
+                            </a>
+                        </p>
                         <p><i class="fas fa-clock"></i> Lunes a Viernes: 9:00 - 17:00</p>
                     </div>
-                    <!--<a href="#" class="btn btn-warning" style="margin-top: 15px; padding: 10px 20px;">Enviar mensaje</a>-->
                 </div>
             </div>
             <div class="copyright">
                 <p>© 2025 Wasi Mutual - Todos los derechos reservados</p>
-                <p style="margin-top: 10px; font-size: 0.8rem;">Designed by <a href="https://focustech.com.ar" style="color: var(--accent-color);">FocusTech</a></p>
+                <p style="margin-top: 10px; font-size: 0.8rem;">Designed by <a href="https://focustech.com.ar" style="color: #ff6b6b;">FocusTech</a></p>
             </div>
         </div>
     </footer>
 
-    <script src="../js/scripts.js"></script>
+    <script>
+        // Contador de números disponibles - Versión mejorada
+        document.addEventListener('DOMContentLoaded', function() {
+            const totalNumeros = 1000;
+            const numerosVendidos = 750; // Número fijo de números vendidos
+            const numerosDisponibles = totalNumeros - numerosVendidos;
+            
+            const numerosVendidosElement = document.getElementById('numeros-vendidos');
+            const numerosDisponiblesElement = document.getElementById('numeros-disponibles');
+            const textoUrgenciaElement = document.getElementById('texto-urgencia');
+            
+            // Función para animar el contador
+            function animarContador(valorFinal, elemento, duracion = 2000) {
+                let valorActual = 0;
+                const incremento = valorFinal / (duracion / 16); // 60fps
+                
+                const intervalo = setInterval(() => {
+                    valorActual += incremento;
+                    
+                    if (valorActual >= valorFinal) {
+                        valorActual = valorFinal;
+                        clearInterval(intervalo);
+                    }
+                    
+                    elemento.textContent = Math.floor(valorActual);
+                }, 16);
+            }
+            
+            // Iniciar animación de los contadores
+            animarContador(numerosVendidos, numerosVendidosElement);
+            animarContador(numerosDisponibles, numerosDisponiblesElement);
+            
+            // Actualizar el texto de urgencia
+            if (numerosDisponibles < 100) {
+                textoUrgenciaElement.textContent = '¡Últimos números disponibles!';
+                textoUrgenciaElement.style.color = '#ff6b6b';
+            } else if (numerosDisponibles < 300) {
+                textoUrgenciaElement.textContent = '¡Quedan pocos números!';
+                textoUrgenciaElement.style.color = '#ff8e53';
+            } else {
+                textoUrgenciaElement.textContent = '¡No te quedes sin tu oportunidad!';
+                textoUrgenciaElement.style.color = '#ff6b6b';
+            }
+            
+            // Menú móvil
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('nav');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                nav.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>

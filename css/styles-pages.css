@@ -267,6 +267,13 @@ nav ul li a:hover:after {
 .btn-primary:hover {
     background-color: #0069d9;
 }
+.btn-secondary {
+    background: #f5631f;
+    color: white;
+}
+.btn-secondary:hover {
+    background-color: #ff4949;
+}
 
 .btn-success {
     background-color: var(--color-green);
