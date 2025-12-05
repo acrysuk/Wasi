@@ -1141,7 +1141,7 @@ nav ul li a:hover:after {
             align-items: center;
             margin-top: auto;
             padding-top: 15px;
-            border-top: 1px solid var(--light-color);
+            
         }
         
         .noticia-fecha {
@@ -1241,4 +1241,11 @@ nav ul li a:hover:after {
             margin-bottom: 30px;
             flex-wrap: wrap;
         }
-        
+        .logo a {
+    text-decoration: none !important;
+}
+
+/* Para el texto específicamente */
+.logo-text {
+    text-decoration: none !important;
+}
