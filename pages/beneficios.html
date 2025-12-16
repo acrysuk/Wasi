@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beneficios - Wasi Mutual</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles-pages.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        /* ESTILOS ESPECÍFICOS PARA LA PÁGINA DE BUSQUEDA MODERNA */
+        .busqueda-moderna {
+            display: flex;
+            gap: 30px;
+            margin: 40px 0;
+            min-height: 600px;
+        }
+        
+        /* BARRA LATERAL DE FILTROS */
+        .filtros-sidebar {
+            flex: 0 0 280px;
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .filtros-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .filtros-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .btn-limpiar {
+            background: transparent;
+            border: none;
+            color: var(--gray-color);
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-limpiar:hover {
+            color: var(--color-red);
+            background: rgba(244, 67, 54, 0.1);
+        }
+        
+        /* En el <style> de beneficios.html, en la sección RESPONSIVE o al final */
+        .mobile-nav .menu-item-has-children > a {
+            position: relative;
+            padding-right: 40px;
+        }
+
+        .submenu-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* FORMULARIO DE BÚSQUEDA COMPACTO */
+        .busqueda-compacta {
+            margin-bottom: 25px;
+        }
+        
+        .busqueda-input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .busqueda-input-compacto {
+            width: 100%;
+            padding: 14px 45px 14px 15px;
+            border: 2px solid var(--light-color);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .busqueda-input-compacto:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(113, 125, 150, 0.1);
+        }
+        
+        .btn-buscar-compacto {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-buscar-compacto:hover {
+            background: var(--accent-color);
+            transform: translateY(-50%) scale(1.05);
+        }
+        
+        /* FILTROS POR GRUPOS */
+         /* En la sección de estilos, añadir o modificar esto */
+    
+    /* Por defecto los filtros están colapsados */
+    .filtro-grupo-lateral {
+        margin-bottom: 25px;
+        border-bottom: 1px solid var(--light-color);
+        padding-bottom: 15px;
+    }
+    
+    /* Último filtro sin borde inferior */
+    .filtro-grupo-lateral:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    
+    /* Asegurarse de que el contenido esté oculto por defecto */
+    .filtro-grupo-contenido {
+        overflow: hidden;
+        transition: all 0.3s ease;
+        max-height: 0;
+        opacity: 0;
+    }
+    
+    /* Cuando está activo, mostrar el contenido */
+    .filtro-grupo-lateral.active .filtro-grupo-contenido {
+        max-height: 500px;
+        opacity: 1;
+        margin-top: 15px;
+    }
+    
+    /* Flecha hacia abajo por defecto */
+    .toggle-arrow i {
+        color: var(--gray-color);
+        transition: transform 0.3s ease;
+        font-size: 0.8rem;
+    }
+    
+    /* Flecha hacia arriba cuando está activo */
+    .filtro-grupo-lateral.active .toggle-arrow i {
+        transform: rotate(180deg);
+    }
+        
+        /* CHECKBOXES MODERNOS */
+        .filtro-option {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .filtro-option:hover {
+            padding-left: 5px;
+        }
+        
+        .custom-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--light-color);
+            border-radius: 4px;
+            margin-right: 12px;
+            position: relative;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .filtro-option input:checked + .custom-checkbox {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .filtro-option input:checked + .custom-checkbox:after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .filtro-option input {
+            display: none;
+        }
+        
+        .filtro-label-text {
+            color: var(--dark-color);
+            font-size: 0.9rem;
+            flex-grow: 1;
+        }
+        
+        .filtro-count {
+            background: var(--light-color);
+            color: var(--gray-color);
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 8px;
+        }
+        
+        /* ÁREA DE RESULTADOS */
+        .resultados-area {
+            flex: 1;
+        }
+        
+        .resultados-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .resultados-count {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+        
+        .resultados-count span {
+            color: var(--accent-color);
+        }
+        
+        .resultados-ordenar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .select-moderno {
+            padding: 10px 15px;
+            border: 2px solid var(--light-color);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            background: white;
+            cursor: pointer;
+            min-width: 180px;
+            transition: all 0.3s ease;
+        }
+        
+        .select-moderno:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(113, 125, 150, 0.1);
+        }
+        
+        /* GRID DE RESULTADOS MEJORADO */
+        .servicios-grid-moderno {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .servicio-card-moderno {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .servicio-card-moderno:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+            border-color: var(--accent-color);
+        }
+        
+        .servicio-imagen {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .servicio-card-moderno:hover .servicio-imagen {
+            transform: scale(1.05);
+        }
+        
+        .servicio-contenido {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .servicio-categoria {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            align-self: flex-start;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .servicio-titulo {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            line-height: 1.4;
+            font-weight: 700;
+        }
+        
+        .servicio-resumen {
+            color: var(--gray-color);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            font-size: 0.95rem;
+        }
+        
+        .servicio-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid var(--light-color);
+            margin-top: auto;
+        }
+        
+        .servicio-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--gray-color);
+        }
+        
+        .servicio-badge i {
+            color: var(--accent-color);
+        }
+        
+        .btn-detalle {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .btn-detalle:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* PAGINACIÓN MODERNA */
+        .paginacion-moderna {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--light-color);
+        }
+        
+        .pagina-btn-moderna {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--light-color);
+            border-radius: 8px;
+            background: white;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .pagina-btn-moderna:hover,
+        .pagina-btn-moderna.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        .pagina-btn-moderna.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .pagina-btn-moderna.disabled:hover {
+            transform: none;
+            background: white;
+            color: var(--dark-color);
+            border-color: var(--light-color);
+        }
+        
+        /* SIN RESULTADOS */
+        .sin-resultados-moderno {
+            text-align: center;
+            padding: 80px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .sin-resultados-moderno i {
+            font-size: 4rem;
+            color: var(--light-color);
+            margin-bottom: 20px;
+        }
+        
+        .sin-resultados-moderno h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .sin-resultados-moderno p {
+            color: var(--gray-color);
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .busqueda-moderna {
+                flex-direction: column;
+            }
+            
+            .filtros-sidebar {
+                position: static;
+                width: 100%;
+            }
+            
+            .servicios-grid-moderno {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .servicios-grid-moderno {
+                grid-template-columns: 1fr;
+            }
+            
+            .resultados-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .select-moderno {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .filtros-sidebar {
+                padding: 20px;
+            }
+            
+            .servicio-card-moderno {
+                margin-bottom: 0;
+            }
+        }
+        
+        .mobile-submenu {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.3s ease;
+            background: rgba(0,0,0,0.03);
+            margin: 10px 0 10px 15px;
+            border-left: 2px solid var(--light-color);
+            padding-left: 15px;
+        }
+
+        .mobile-submenu.active {
+            max-height: 500px;
+            opacity: 1;
+            padding: 10px 0 10px 15px;
+        }
+
+        .mobile-nav .menu-item-has-children.active > a {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Icono de flecha - asegurar que esté visible */
+        .submenu-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            display: flex !important; /* Forzar display */
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-nav .menu-item-has-children.active .submenu-toggle {
+            transform: translateY(-50%) rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header (mantener tu header actual) -->
+<header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../INDEX2.html" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                    <span class="logo-text">Wasi Mutual</span>
+                </a>
+            </div>
+            
+            <!-- Menú principal estilo CNZ -->
+            <div class="cnz-menu-container">
+                <ul class="cnz-main-nav">
+                    <li><a href="../INDEX2.html#home">Inicio</a></li>
+                    <li><a href="../INDEX2.html#novedades">Novedades</a></li>
+                    <li><a href="../INDEX2.html#servicios">Servicios</a></li>
+                    
+                    <li class="menu-item-has-children">
+                        <a>La Mutual</a>
+                        <ul class="cnz-sub-menu">
+                            <li><a href="../pages/sobre-nosotros.html">¿Qué es Wasi?</a></li>
+                            <li><a href="../pages/historia-valores.html">Historia y Valores</a></li>
+                            <li><a href="../pages/beneficios.html">Beneficios Socios</a></li>
+                            <li><a href="../pages/soluciones-empresas.html">Soluciones para Empresas</a></li>
+                            <li><a href="../doc/estatuto.pdf" target="_blank">Estatuto</a></li>
+                            <li><a href="../pages/terminos.html">Términos y Condiciones</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="../pages/asociate.html" class="asociate-btn">¡ASÓCIATE!</a></li>
+                    
+                    <li><a href="../pages/contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Menú móvil (manteniendo el original) -->
+    <div class="overlay"></div>
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <a href="../INDEX2.html" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                    <span class="logo-text">Wasi Mutual</span>
+                </a>
+            </div>
+            <button class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="mobile-nav">
+            <li><a href="../INDEX2.html#home">Inicio</a></li>
+            <li><a href="../INDEX2.html#novedades">Novedades</a></li>
+            <li><a href="../INDEX2.html#servicios">Servicios</a></li>
+            
+            <li class="menu-item-has-children">
+                <a href="#">La Mutual
+                    <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span></a>
+                <ul class="mobile-submenu">
+                    <li><a href="../pages/sobre-nosotros.html">¿Qué es Wasi?</a></li>
+                    <li><a href="../pages/historia-valores.html">Historia y Valores</a></li>
+                    <li><a href="../pages/beneficios.html">Beneficios Socios</a></li>
+                    <li><a href="../pages/soluciones-empresas.html">Soluciones para Empresas</a></li>
+                    <li><a href="../doc/estatuto.pdf" target="_blank">Estatuto</a></li>
+                    <li><a href="../pages/terminos.html">Términos y Condiciones</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="../pages/asociate.html" class="asociate-btn">¡ASÓCIATE!</a></li>
+            
+            <li><a href="../pages/contacto.html">Contacto</a></li>
+        </ul>
+    </div>
+
+    <!-- Header de Búsqueda -->
+    <section class="hero-section" id="home">
+        <div class="hero-slider">
+            <div class="slide slide-1 active"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Beneficios</h1>
+            <p style="margin-top: 20px; font-size: 1.2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Conoce todos los Beneficios y Novedades que Wasi Mutual tiene para ofrecerte y descubre cómo podemos ayudarte a mejorar tu calidad de vida.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contenido Principal - VERSIÓN MODERNA -->
+    <section class="busqueda-container">
+        <div class="container">
+            <div class="busqueda-moderna">
+                
+                <!-- BARRA LATERAL DE FILTROS -->
+                <aside class="filtros-sidebar">
+                    <div class="filtros-header">
+                        <h2 class="filtros-title">
+                            <i class="fas fa-filter"></i> Filtros
+                        </h2>
+                        <button class="btn-limpiar" id="btnLimpiarFiltros">
+                            <i class="fas fa-redo"></i> Limpiar
+                        </button>
+                    </div>
+                    
+                    <!-- Búsqueda compacta -->
+                    <div class="busqueda-compacta">
+                        <div class="busqueda-input-group">
+                            <input type="text" 
+                                   class="busqueda-input-compacto" 
+                                   id="inputBusquedaCompacto" 
+                                   placeholder="Buscar novedades...">
+                            <button class="btn-buscar-compacto" id="btnBuscarCompacto">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Filtros por categoría -->
+                    <div class="filtro-grupo-lateral active">
+                        <div class="filtro-grupo-header" onclick="toggleFiltro(this)">
+                            <span class="filtro-grupo-title">
+                                <i class="fas fa-tags"></i> Categoría
+                            </span>
+                            <span class="toggle-arrow">
+                                <i class="fas fa-chevron-up"></i>
+                            </span>
+                        </div>
+                        <div class="filtro-grupo-contenido">
+                            <label class="filtro-option">
+                                <input type="checkbox" name="categoria" value="Sorteo">
+                                <span class="custom-checkbox"></span>
+                                <span class="filtro-label-text">Sorteo</span>
+                                <span class="filtro-count">1</span>
+                            </label>
+                            <label class="filtro-option">
+                                <input type="checkbox" name="categoria" value="Servicios">
+                                <span class="custom-checkbox"></span>
+                                <span class="filtro-label-text">Servicios</span>
+                                <span class="filtro-count">1</span>
+                            </label>
+                            <label class="filtro-option">
+                                <input type="checkbox" name="categoria" value="Turismo">
+                                <span class="custom-checkbox"></span>
+                                <span class="filtro-label-text">Turismo</span>
+                                <span class="filtro-count">1</span>
+                            </label>
+                            <label class="filtro-option">
+                                <input type="checkbox" name="categoria" value="Capacitaciones">
+                                <span class="custom-checkbox"></span>
+                                <span class="filtro-label-text">Capacitaciones</span>
+                                <span class="filtro-count">1</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Filtro por fecha -->
+                    <div class="filtro-grupo-lateral active">
+                        <div class="filtro-grupo-header" onclick="toggleFiltro(this)">
+                            <span class="filtro-grupo-title">
+                                <i class="far fa-calendar-alt"></i> Fecha
+                            </span>
+                            <span class="toggle-arrow">
+                                <i class="fas fa-chevron-up"></i>
+                            </span>
+                        </div>
+                        <div class="filtro-grupo-contenido">
+                            <label class="filtro-option">
+                                <input type="radio" name="fecha" value="reciente" checked>
+                                <span class="custom-checkbox"></span>
+                                <span class="filtro-label-text">Más recientes</span>
+                            </label>
+                            <label class="filtro-option">
+                                <input type="radio" name="fecha" value="antiguo">
+                                <span class="custom-checkbox"></span>
+                                <span class="filtro-label-text">Más antiguos</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Filtro por mes -->
+                    <div class="filtro-grupo-lateral">
+                        <div class="filtro-grupo-header" onclick="toggleFiltro(this)">
+                            <span class="filtro-grupo-title">
+                                <i class="fas fa-calendar-week"></i> Mes
+                            </span>
+                            <span class="toggle-arrow">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </div>
+                        <div class="filtro-grupo-contenido">
+                            <label class="filtro-option">
+                                <input type="checkbox" name="mes" value="12">
+                                <span class="custom-checkbox"></span>
+                                <span class="filtro-label-text">Diciembre 2025</span>
+                                <span class="filtro-count">1</span>
+                            </label>
+                            <label class="filtro-option">
+                                <input type="checkbox" name="mes" value="11">
+                                <span class="custom-checkbox"></span>
+                                <span class="filtro-label-text">Noviembre 2025</span>
+                                <span class="filtro-count">3</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Filtro por disponibilidad -->
+                    <div class="filtro-grupo-lateral">
+                        <div class="filtro-grupo-header" onclick="toggleFiltro(this)">
+                            <span class="filtro-grupo-title">
+                                <i class="fas fa-check-circle"></i> Estado
+                            </span>
+                            <span class="toggle-arrow">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                        </div>
+                        <div class="filtro-grupo-contenido">
+                            <label class="filtro-option">
+                                <input type="checkbox" name="disponibilidad" value="activo">
+                                <span class="custom-checkbox"></span>
+                                <span class="filtro-label-text">Activos</span>
+                                <span class="filtro-count">4</span>
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+                
+                <!-- ÁREA DE RESULTADOS -->
+                <div class="resultados-area">
+                    <div class="resultados-header">
+                        <div class="resultados-count">
+                            <span id="totalServicios">4</span> novedades encontradas
+                        </div>
+                        <div class="resultados-ordenar">
+                            <span>Ordenar por:</span>
+                            <select class="select-moderno" id="ordenarServicios">
+                                <option value="reciente">Más recientes</option>
+                                <option value="antiguo">Más antiguos</option>
+                                <option value="a-z">A - Z</option>
+                                <option value="z-a">Z - A</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Grid de servicios -->
+                    <div class="servicios-grid-moderno" id="gridServicios">
+                        <!-- Las novedades se cargarán aquí dinámicamente -->
+                    </div>
+                    
+                    <!-- Paginación moderna -->
+                    <div class="paginacion-moderna" id="paginacionServicios">
+                        <!-- La paginación se generará dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (mantener tu footer actual) -->
+<footer id="contacto">
+    <div class="container">
+        <div class="footer-container">
+            <!-- Columna 1: Sobre Nosotros -->
+            <div class="footer-column footer-about">
+                <div class="footer-logo">
+                    <img src="../images/logo.png" alt="Wasi Mutual" width="50" height="50">
+                    <span class="footer-logo-text">Wasi Mutual</span>
+                </div>
+                <p class="footer-description">Tu bienestar, nuestro compromiso. Solidaridad, ayuda mutua y compromiso social.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/543487525680" class="social-icon whatsapp-icon" aria-label="WhatsApp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Columna 2: Navegación -->
+            <div class="footer-column">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="../INDEX2.html#home"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="../INDEX2.html#novedades"><i class="fas fa-newspaper"></i> Novedades</a></li>
+                    <li><a href="../INDEX2.html#servicios"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
+                    <li><a href="../pages/asociate.html" class="asociate-link"><i class="fas fa-handshake"></i> ¡Asóciate!</a></li>
+                </ul>
+            </div>
+            
+            <!-- Columna 3: La Mutual -->
+            <div class="footer-column">
+                <h3>La Mutual</h3>
+                <ul>
+                    <li><a href="../pages/sobre-nosotros.html"><i class="fas fa-users"></i> Sobre Nosotros</a></li>
+                    <li><a href="../pages/historia-valores.html"><i class="fas fa-history"></i> Historia y Valores</a></li>
+                    <li><a href="../pages/beneficios.html"><i class="fas fa-star"></i> Beneficios Socios</a></li>
+                    <li><a href="../pages/soluciones-empresas.html"><i class="fas fa-building"></i> Soluciones Empresas</a></li>
+                </ul>
+            </div>
+            
+            <!-- Columna 4: Contacto (más ancha) -->
+            <div class="footer-column footer-contact">
+                <h3>Contacto</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <span class="contact-label">Dirección</span>
+                            <p>Pasaje Entre Rios 271, Zárate, Buenos Aires</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <span class="contact-label">Teléfono</span>
+                            <p>3487-525680</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <span class="contact-label">Email</span>
+                            <a href="mailto:info@wasi.mutual.ar" class="email-link">info@wasi.mutual.ar</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span class="contact-label">Horario</span>
+                            <p>Lun-Vie: 9:00 - 17:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="copyright">
+            <p>© 2025 Wasi Mutual - Todos los derechos reservados</p>
+            <p class="design-credit">Diseñado por <a href="https://focustech.com.ar" target="_blank">FocusTech</a></p>
+        </div>
+    </div>
+</footer>
+
+    <script src="../js/scripts.js"></script>
+    <script>
+        // Base de datos de NOVEDADES actualizada con tus novedades
+        const novedades = [
+            {
+                id: 1,
+                titulo: "¡Asociate y Gana una Motocicleta!",
+                resumen: "Asociate por 6 meses y participá del sorteo de una moto 0 km + otros premios increíbles.",
+                categoria: "Sorteo",
+                fecha: "2025-11-25",
+                imagen: "../images/moto.png",
+                enlace: "../pages/noticia-sorteo-asociados.html",
+                disponible: true,
+                popular: true
+            },
+            {
+                id: 2,
+                titulo: "Asesoría Legal en Temas Laborales para el Socio",
+                resumen: "Nuevo servicio exclusivo para nuestros asociados. Consultas sobre contratos, despidos y derechos laborales.",
+                categoria: "Servicios",
+                fecha: "2025-11-20",
+                imagen: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                enlace: "../pages/noticia-asesoria-legal.html",
+                disponible: true,
+                popular: true
+            },
+            {
+                id: 3,
+                titulo: "15% Descuento en Hotel Guerrero - Mar del Plata",
+                resumen: "Promoción exclusiva para asociados. Disfrutá de la mejor ubicación en Mar del Plata con descuento especial.",
+                categoria: "Turismo",
+                fecha: "2025-12-15",
+                imagen: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                enlace: "../pages/hotel-guerrero.html",
+                disponible: true,
+                popular: false
+            },
+            {
+                id: 4,
+                titulo: "Capacitación Integral en Emprendurismo",
+                resumen: "Programa completo para desarrollar habilidades emprendedoras y transformar ideas en negocios exitosos.",
+                categoria: "Capacitaciones",
+                fecha: "2025-11-25",
+                imagen: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                enlace: "../pages/noticia-capacitacion-emprendurismo.html",
+                disponible: true,
+                popular: false
+            }
+        ];
+
+        // Variables globales
+        let novedadesFiltradas = [...novedades];
+        const novedadesPorPagina = 4;
+        let paginaActual = 1;
+
+        // Inicializar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            mostrarNovedades();
+            configurarEventos();
+            inicializarFiltros();
+            actualizarContadores();
+        });
+
+        // Configurar eventos
+        function configurarEventos() {
+            // Búsqueda compacta
+            document.getElementById('btnBuscarCompacto').addEventListener('click', filtrarNovedades);
+            document.getElementById('inputBusquedaCompacto').addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') filtrarNovedades();
+            });
+
+            // Limpiar filtros
+            document.getElementById('btnLimpiarFiltros').addEventListener('click', limpiarFiltros);
+
+            // Filtros en tiempo real
+            document.querySelectorAll('input[name="categoria"], input[name="fecha"], input[name="mes"], input[name="disponibilidad"]')
+                .forEach(input => {
+                    input.addEventListener('change', filtrarNovedades);
+                });
+
+            // Ordenar resultados
+            document.getElementById('ordenarServicios').addEventListener('change', filtrarNovedades);
+        }
+
+        // Inicializar filtros (colapsables)
+        // Modificar la función inicializarFiltros para cerrar TODOS los filtros por defecto
+    function inicializarFiltros() {
+        // Cerrar TODOS los filtros por defecto
+        const filtros = document.querySelectorAll('.filtro-grupo-lateral');
+        filtros.forEach(filtro => {
+            filtro.classList.remove('active');
+            
+            // Asegurarse de que la flecha apunte hacia abajo
+            const arrow = filtro.querySelector('.toggle-arrow i');
+            if (arrow) {
+                arrow.className = 'fas fa-chevron-down';
+            }
+        });
+    }
+
+    // Modificar la función toggleFiltro
+    function toggleFiltro(element) {
+        const filtroGrupo = element.closest('.filtro-grupo-lateral');
+        filtroGrupo.classList.toggle('active');
+        
+        const arrow = element.querySelector('.toggle-arrow i');
+        if (filtroGrupo.classList.contains('active')) {
+            arrow.className = 'fas fa-chevron-up';
+        } else {
+            arrow.className = 'fas fa-chevron-down';
+        }
+    }
+
+    // En el DOMContentLoaded, cambiar la inicialización
+    document.addEventListener('DOMContentLoaded', function() {
+        mostrarNovedades();
+        configurarEventos();
+        inicializarFiltros(); // Esta función ahora cerrará todos los filtros
+        actualizarContadores();
+        
+        // Si quieres que algún filtro esté abierto por defecto, puedes hacerlo aquí
+        // Por ejemplo, si quieres que "Categoría" esté abierto:
+        // const filtroCategoria = document.querySelector('.filtro-grupo-lateral:first-child');
+        // filtroCategoria.classList.add('active');
+        // const arrow = filtroCategoria.querySelector('.toggle-arrow i');
+        // if (arrow) arrow.className = 'fas fa-chevron-up';
+    });
+
+        // Limpiar todos los filtros
+        function limpiarFiltros() {
+            // Limpiar búsqueda
+            document.getElementById('inputBusquedaCompacto').value = '';
+            
+            // Desmarcar todos los checkboxes y radios
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            document.querySelectorAll('input[type="radio"]').forEach(rb => rb.checked = false);
+            
+            // Marcar radio por defecto
+            document.querySelector('input[value="reciente"]').checked = true;
+            
+            // Resetear orden
+            document.getElementById('ordenarServicios').value = 'reciente';
+            
+            // Re-filtrar
+            filtrarNovedades();
+        }
+
+        // Filtrar novedades
+        function filtrarNovedades() {
+            const textoBusqueda = document.getElementById('inputBusquedaCompacto').value.toLowerCase();
+            const categoriasSeleccionadas = Array.from(document.querySelectorAll('input[name="categoria"]:checked'))
+                .map(cb => cb.value);
+            const fechaSeleccionada = document.querySelector('input[name="fecha"]:checked').value;
+            const mesesSeleccionados = Array.from(document.querySelectorAll('input[name="mes"]:checked'))
+                .map(cb => parseInt(cb.value));
+            const disponibilidadSeleccionada = Array.from(document.querySelectorAll('input[name="disponibilidad"]:checked'))
+                .map(cb => cb.value);
+            const orden = document.getElementById('ordenarServicios').value;
+
+            // Aplicar filtros
+            novedadesFiltradas = novedades.filter(novedad => {
+                // Filtro por texto
+                const coincideTexto = textoBusqueda === '' || 
+                    novedad.titulo.toLowerCase().includes(textoBusqueda) || 
+                    novedad.resumen.toLowerCase().includes(textoBusqueda);
+                
+                // Filtro por categoría
+                const coincideCategoria = categoriasSeleccionadas.length === 0 || 
+                    categoriasSeleccionadas.includes(novedad.categoria);
+                
+                // Filtro por mes
+                const fecha = new Date(novedad.fecha);
+                const mes = fecha.getMonth() + 1;
+                const coincideMes = mesesSeleccionados.length === 0 || 
+                    mesesSeleccionados.includes(mes);
+                
+                // Filtro por disponibilidad
+                let coincideDisponibilidad = true;
+                if (disponibilidadSeleccionada.length > 0) {
+                    if (disponibilidadSeleccionada.includes('activo')) {
+                        coincideDisponibilidad = novedad.disponible === true;
+                    }
+                }
+                
+                return coincideTexto && coincideCategoria && coincideMes && coincideDisponibilidad;
+            });
+
+            // Ordenar novedades
+            novedadesFiltradas.sort((a, b) => {
+                switch(orden) {
+                    case 'reciente':
+                        return new Date(b.fecha) - new Date(a.fecha);
+                    case 'antiguo':
+                        return new Date(a.fecha) - new Date(b.fecha);
+                    case 'a-z':
+                        return a.titulo.localeCompare(b.titulo);
+                    case 'z-a':
+                        return b.titulo.localeCompare(a.titulo);
+                    default:
+                        return 0;
+                }
+            });
+
+            paginaActual = 1;
+            mostrarNovedades();
+        }
+
+        // Actualizar contadores de filtros
+        function actualizarContadores() {
+            const categorias = ['Sorteo', 'Servicios', 'Turismo', 'Capacitaciones'];
+            const meses = [12, 11];
+            
+            // Contar por categoría
+            categorias.forEach(categoria => {
+                const count = novedades.filter(n => n.categoria === categoria).length;
+                const countElement = document.querySelector(`input[value="${categoria}"] + .custom-checkbox + .filtro-label-text + .filtro-count`);
+                if (countElement) {
+                    countElement.textContent = count;
+                }
+            });
+            
+            // Contar por mes
+            meses.forEach(mes => {
+                const count = novedades.filter(n => {
+                    const fecha = new Date(n.fecha);
+                    return fecha.getMonth() + 1 === mes;
+                }).length;
+                const countElement = document.querySelector(`input[value="${mes}"] + .custom-checkbox + .filtro-label-text + .filtro-count`);
+                if (countElement) {
+                    countElement.textContent = count;
+                }
+            });
+            
+            // Contar por disponibilidad
+            const activosCount = novedades.filter(n => n.disponible === true).length;
+            
+            const activosElement = document.querySelector('input[value="activo"] + .custom-checkbox + .filtro-label-text + .filtro-count');
+            
+            if (activosElement) activosElement.textContent = activosCount;
+        }
+
+        // Mostrar novedades
+        function mostrarNovedades() {
+            const gridNovedades = document.getElementById('gridServicios');
+            const totalNovedades = document.getElementById('totalServicios');
+            const paginacion = document.getElementById('paginacionServicios');
+
+            // Calcular novedades para la página actual
+            const inicio = (paginaActual - 1) * novedadesPorPagina;
+            const fin = inicio + novedadesPorPagina;
+            const novedadesPagina = novedadesFiltradas.slice(inicio, fin);
+
+            // Actualizar contador
+            totalNovedades.textContent = novedadesFiltradas.length;
+
+            // Limpiar grid
+            gridNovedades.innerHTML = '';
+
+            // Mostrar novedades o mensaje de no resultados
+            if (novedadesPagina.length === 0) {
+                gridNovedades.innerHTML = `
+                    <div class="sin-resultados-moderno" style="grid-column: 1 / -1;">
+                        <i class="fas fa-search"></i>
+                        <h3>No se encontraron novedades</h3>
+                        <p>Intenta con otros términos de búsqueda o ajusta los filtros para encontrar lo que necesitas.</p>
+                        <button class="btn btn-primary" onclick="limpiarFiltros()">
+                            <i class="fas fa-redo"></i> Limpiar filtros
+                        </button>
+                    </div>
+                `;
+                paginacion.innerHTML = '';
+                return;
+            }
+
+            // Generar HTML de las novedades
+            novedadesPagina.forEach(novedad => {
+                const fechaFormateada = new Date(novedad.fecha).toLocaleDateString('es-ES', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                });
+
+                const novedadHTML = `
+                    <div class="servicio-card-moderno">
+                        <img src="${novedad.imagen}" alt="${novedad.titulo}" class="servicio-imagen">
+                        <div class="servicio-contenido">
+                            <span class="servicio-categoria">${novedad.categoria}</span>
+                            <h3 class="servicio-titulo">${novedad.titulo}</h3>
+                            <p class="servicio-resumen">${novedad.resumen}</p>
+                            <div class="servicio-meta">
+                                <div class="servicio-badge">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <span>${fechaFormateada}</span>
+                                </div>
+                                <a href="${novedad.enlace}" class="btn-detalle">
+                                    <i class="fas fa-arrow-right"></i> Ver más
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                gridNovedades.innerHTML += novedadHTML;
+            });
+
+            // Generar paginación
+            generarPaginacionNovedades();
+        }
+
+        // Generar paginación para novedades
+        function generarPaginacionNovedades() {
+            const totalPaginas = Math.ceil(novedadesFiltradas.length / novedadesPorPagina);
+            const paginacion = document.getElementById('paginacionServicios');
+
+            if (totalPaginas <= 1) {
+                paginacion.innerHTML = '';
+                return;
+            }
+
+            let paginacionHTML = '';
+
+            // Botón anterior
+            if (paginaActual > 1) {
+                paginacionHTML += `
+                    <a href="#" class="pagina-btn-moderna" onclick="cambiarPaginaNovedades(${paginaActual - 1}); return false;">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>`;
+            } else {
+                paginacionHTML += `<span class="pagina-btn-moderna disabled"><i class="fas fa-chevron-left"></i></span>`;
+            }
+
+            // Números de página (máximo 5)
+            let inicioPagina = Math.max(1, paginaActual - 2);
+            let finPagina = Math.min(totalPaginas, inicioPagina + 4);
+            
+            if (finPagina - inicioPagina < 4) {
+                inicioPagina = Math.max(1, finPagina - 4);
+            }
+
+            for (let i = inicioPagina; i <= finPagina; i++) {
+                if (i === paginaActual) {
+                    paginacionHTML += `<span class="pagina-btn-moderna active">${i}</span>`;
+                } else {
+                    paginacionHTML += `
+                        <a href="#" class="pagina-btn-moderna" onclick="cambiarPaginaNovedades(${i}); return false;">
+                            ${i}
+                        </a>`;
+                }
+            }
+
+            // Botón siguiente
+            if (paginaActual < totalPaginas) {
+                paginacionHTML += `
+                    <a href="#" class="pagina-btn-moderna" onclick="cambiarPaginaNovedades(${paginaActual + 1}); return false;">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>`;
+            } else {
+                paginacionHTML += `<span class="pagina-btn-moderna disabled"><i class="fas fa-chevron-right"></i></span>`;
+            }
+
+            paginacion.innerHTML = paginacionHTML;
+        }
+
+        // Cambiar página de novedades
+        function cambiarPaginaNovedades(pagina) {
+            paginaActual = pagina;
+            mostrarNovedades();
+            // Scroll suave hacia el grid
+            window.scrollTo({
+                top: document.querySelector('.resultados-area').offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
+
+        // Solución rápida para submenús móviles en beneficios.html
+        document.addEventListener('DOMContentLoaded', function() {
+            // ... tu código existente ...
+            
+            // Agregar funcionalidad para submenús móviles en esta página
+            const submenuItems = document.querySelectorAll('.mobile-nav .menu-item-has-children > a');
+            
+            submenuItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#' || href === '') {
+                        e.preventDefault();
+                        
+                        const parentLi = this.closest('li');
+                        const submenu = parentLi.querySelector('.mobile-submenu');
+                        const icon = this.querySelector('.submenu-toggle i');
+                        
+                        if (!submenu) return;
+                        
+                        // Toggle submenú
+                        submenu.classList.toggle('active');
+                        parentLi.classList.toggle('active');
+                        
+                        // Cambiar icono
+                        if (icon) {
+                            if (submenu.classList.contains('active')) {
+                                icon.classList.remove('fa-chevron-down');
+                                icon.classList.add('fa-chevron-up');
+                            } else {
+                                icon.classList.remove('fa-chevron-up');
+                                icon.classList.add('fa-chevron-down');
+                            }
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+    // Sobreescribir o desactivar cualquier listener existente
+    document.querySelectorAll('.mobile-nav .menu-item-has-children > a').forEach(item => {
+        item.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#' || !href) {
+                e.preventDefault();
+                e.stopImmediatePropagation(); // Prevenir otros listeners
+                
+                const parentLi = this.closest('li');
+                const submenu = parentLi.querySelector('.mobile-submenu');
+                
+                if (submenu) {
+                    submenu.classList.toggle('active');
+                    parentLi.classList.toggle('active');
+                }
+            }
+        }, true); // Usar captura para ejecutarse primero
+    });
+</script>
+<!-- Botón Asociate Flotante -->
+        <!-- Botones Flotantes -->
+        <div class="floating-buttons-container">
+            <!-- Botón WhatsApp -->
+            <a href="https://wa.me/5493487525680?text=Hola%20Wasi%20Mutual,%20me%20interesa%20asociarme" 
+            class="floating-btn whatsapp-btn" 
+            target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                
+            </a>
+        </div>
+</body>
+</html>

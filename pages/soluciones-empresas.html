@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluciones para Empresas - Wasi Mutual</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles-pages.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    
+    <style>
+        /* Encabezado principal */
+        .empresas-header {
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.85) 0%, rgba(31, 48, 123, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .empresas-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png');
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        .empresas-header h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .empresas-tagline {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.5;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header-cta {
+            margin-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Contenido principal */
+        .empresas-content {
+            padding: 80px 0;
+            background: #f9fafe;
+        }
+        
+        .empresas-body {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Sección de valor para empresas */
+        .valor-section {
+            background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin: 40px 0 60px;
+            box-shadow: 0 15px 40px rgba(31, 48, 123, 0.08);
+            border: 1px solid rgba(46, 66, 158, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .valor-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(to bottom, #2e429e, #1f307b);
+        }
+        
+        .valor-title {
+            color: #1f307b;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            text-align: center;
+        }
+        
+        .valor-subtitle {
+            color: #555;
+            font-size: 1.2rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        
+        /* Tarjetas de beneficios principales */
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .beneficio-card {
+            background: white;
+            padding: 35px 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #eef2ff;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .beneficio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #2e429e, #1f307b);
+        }
+        
+        .beneficio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(46, 66, 158, 0.15);
+        }
+        
+        .beneficio-icon {
+            font-size: 42px;
+            color: #2e429e;
+            margin-bottom: 25px;
+            display: inline-block;
+            background: linear-gradient(135deg, #f0f4ff, #e1e8ff);
+            width: 90px;
+            height: 90px;
+            line-height: 90px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .beneficio-card:hover .beneficio-icon {
+            background: linear-gradient(135deg, #2e429e, #1f307b);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .beneficio-card h3 {
+            color: #1f307b;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .beneficio-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1.02rem;
+        }
+        
+        /* Sección de impacto empresarial */
+        .impacto-section {
+            background: linear-gradient(135deg, #1f307b 0%, #2e429e 100%);
+            padding: 70px 40px;
+            border-radius: 20px;
+            margin: 70px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .impacto-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/connected.png');
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        
+        .impacto-title {
+            color: white;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .impacto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .impacto-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px 25px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .impacto-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .impacto-item i {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #00d6ff;
+        }
+        
+        .impacto-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Sección de testimonios empresariales */
+        .testimonios-empresas {
+            margin: 80px 0;
+        }
+        
+        .testimonio-empresarial {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            margin: 30px 0;
+            border-left: 6px solid #2e429e;
+            position: relative;
+        }
+        
+        .testimonio-empresarial:before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 100px;
+            color: #f0f4ff;
+            font-family: serif;
+            line-height: 1;
+            opacity: 0.7;
+        }
+        
+        .testimonio-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonio-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonio-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+            border: 3px solid #eef2ff;
+        }
+        
+        .testimonio-info h4 {
+            color: #1f307b;
+            margin-bottom: 5px;
+        }
+        
+        .testimonio-info p {
+            color: #777;
+            font-size: 0.95rem;
+        }
+        
+        /* Sección de proceso */
+        .proceso-section {
+            background: #f0f4ff;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin: 60px 0;
+        }
+        
+        .proceso-title {
+            color: #1f307b;
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+        }
+        
+        .proceso-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        
+        .proceso-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            background: linear-gradient(90deg, #2e429e, #1f307b);
+            z-index: 1;
+        }
+        
+        .proceso-step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 0 15px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2e429e, #1f307b);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 20px rgba(46, 66, 158, 0.3);
+        }
+        
+        .step-title {
+            color: #1f307b;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        /* CTA final */
+        .cta-empresas {
+            background: linear-gradient(135deg, #00b09b 0%, #96c93d 100%);
+            padding: 70px 40px;
+            border-radius: 20px;
+            margin: 80px 0 40px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-empresas::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/crisp-paper-ruffles.png');
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        .cta-empresas h2 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-empresas p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn-empresa {
+            background: white;
+            color: #1f307b;
+            padding: 18px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-empresa:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .btn-consulta {
+            background: #1f307b;
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .empresas-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .beneficios-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            
+            .proceso-steps::before {
+                display: none;
+            }
+            
+            .proceso-step {
+                margin-bottom: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .empresas-header {
+                padding: 100px 0 60px;
+                background-attachment: scroll;
+            }
+            
+            .empresas-header h1 {
+                font-size: 2rem;
+            }
+            
+            .empresas-tagline {
+                font-size: 1.2rem;
+                padding: 0 20px;
+            }
+            
+            .valor-section, .impacto-section, .cta-empresas {
+                padding: 40px 25px;
+            }
+            
+            .beneficios-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .impacto-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-empresa {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .empresas-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .testimonio-empresarial {
+                padding: 30px 20px;
+            }
+            
+            .proceso-step {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header (manteniendo el original) -->
+   <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../INDEX2.html" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                    <span class="logo-text">Wasi Mutual</span>
+                </a>
+            </div>
+            
+            <!-- Menú principal estilo CNZ -->
+            <div class="cnz-menu-container">
+                <ul class="cnz-main-nav">
+                    <li><a href="../INDEX2.html#home">Inicio</a></li>
+                    <li><a href="../INDEX2.html#novedades">Novedades</a></li>
+                    <li><a href="../INDEX2.html#servicios">Servicios</a></li>
+                    <!--<li class="menu-item-has-children">
+                        <a>Servicios</a>
+                        <ul class="cnz-sub-menu">
+                            <li><a href="../INDEX2.html#servicios">Nuestros Servicios</a></li>
+                            <li><a href="../INDEX2.html#servicios">Turismo</a></li>
+                            <li><a href="../INDEX2.html#servicios">Asesoramiento Jurídico</a></li>
+                            <li><a href="../INDEX2.html#servicios">Capacitaciones</a></li>
+                        </ul>
+                    </li>-->
+                    
+                    <li class="menu-item-has-children">
+                        <a>La Mutual</a>
+                        <ul class="cnz-sub-menu">
+                            <li><a href="../pages/sobre-nosotros.html">¿Qué es Wasi?</a></li>
+                            <li><a href="../pages/historia-valores.html">Historia y Valores</a></li>
+                            <li><a href="../pages/beneficios.html">Beneficios Socios</a></li>
+                            <li><a href="../pages/soluciones-empresas.html">Soluciones para Empresas</a></li>
+                            <li><a href="../doc/estatuto.pdf" target="_blank">Estatuto</a></li>
+                            <li><a href="../pages/terminos.html">Términos y Condiciones</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="../pages/asociate.html" class="asociate-btn">¡ASÓCIATE!</a></li>
+                    
+                    <li><a href="../pages/contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Menú móvil (manteniendo el original) -->
+    <div class="overlay"></div>
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <a href="../INDEX2.html" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                    <span class="logo-text">Wasi Mutual</span>
+                </a>
+            </div>
+            <button class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="mobile-nav">
+            <li><a href="../INDEX2.html#home">Inicio</a></li>
+            <li><a href="../INDEX2.html#novedades">Novedades</a></li>
+            <li><a href="../INDEX2.html#servicios">Servicios</a></li>
+            <!--<li class="menu-item-has-children">
+                <a href="#">Servicios
+                <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span></a>
+                <ul class="mobile-submenu">
+                    <li><a href="#servicios">Nuestros Servicios</a></li>
+                    <li><a href="#servicios">Turismo</a></li>
+                    <li><a href="#servicios">Asesoramiento Jurídico</a></li>
+                    <li><a href="#servicios">Capacitaciones</a></li>
+                </ul>
+            </li>-->
+            
+            <li class="menu-item-has-children">
+                <a href="#">La Mutual
+                    <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span></a>
+                <ul class="mobile-submenu">
+                    <li><a href="../pages/sobre-nosotros.html">¿Qué es Wasi?</a></li>
+                    <li><a href="../pages/historia-valores.html">Historia y Valores</a></li>
+                    <li><a href="../pages/beneficios.html">Beneficios Socios</a></li>
+                    <li><a href="../pages/soluciones-empresas.html">Soluciones para Empresas</a></li>
+                    <li><a href="../doc/estatuto.pdf" target="_blank">Estatuto</a></li>
+                    <li><a href="../pages/terminos.html">Términos y Condiciones</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="../pages/asociate.html" class="asociate-btn">¡ASÓCIATE!</a></li>
+            
+            <li><a href="../pages/contacto.html">Contacto</a></li>
+        </ul>
+    </div>
+
+    <!-- Encabezado para empresas -->
+    <section class="empresas-header">
+        <div class="container">
+            <h1>Soluciones para Empresas</h1>
+            <p class="empresas-tagline">
+                Transformamos el bienestar de sus colaboradores en una ventaja competitiva para su organización
+            </p>
+            <div class="header-cta">
+                <a href="#contactate" class="btn btn-empresa btn-consulta">
+                    <i class="fas fa-handshake"></i> Solicitar una Propuesta Personalizada
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contenido principal -->
+    <section class="empresas-content">
+        <div class="container">
+            <article class="empresas-body">
+                <!-- Valor para empresas -->
+                <div class="valor-section">
+                    <h2 class="valor-title">Valor para su organización</h2>
+                    <p class="valor-subtitle">
+                        En Wasi Mutual entendemos que el capital humano es el activo más valioso de cualquier empresa. 
+                        Por eso, diseñamos soluciones que no solo benefician a sus colaboradores, sino que también 
+                        impulsan indicadores clave como la retención de talento, el compromiso organizacional y la productividad.
+                    </p>
+                    
+                    <div class="beneficios-grid">
+                        <div class="beneficio-card">
+                            <div class="beneficio-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Mayor Retención de Talento</h3>
+                            <p>Reduzca la rotación de personal hasta en un 40% al ofrecer beneficios que realmente valoran sus empleados, fortaleciendo su sentido de pertenencia.</p>
+                        </div>
+                        
+                        <div class="beneficio-card">
+                            <div class="beneficio-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Productividad Incrementada</h3>
+                            <p>Colaboradores más satisfechos y menos estresados muestran un aumento del 15-25% en productividad según estudios de bienestar laboral.</p>
+                        </div>
+                        
+                        <div class="beneficio-card">
+                            <div class="beneficio-icon">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <h3>Responsabilidad Social Corporativa</h3>
+                            <p>Refuerce su imagen como empresa comprometida con el bienestar integral de sus colaboradores y sus familias.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Impacto empresarial -->
+                <div class="impacto-section">
+                    <h2 class="impacto-title">Impacto Medible en su Organización</h2>
+                    
+                    <div class="impacto-grid">
+                        <div class="impacto-item">
+                            <i class="fas fa-trophy"></i>
+                            <h4>Atracción de Talento</h4>
+                            <p>Posicione su empresa como un empleador preferente en el mercado laboral.</p>
+                        </div>
+                        
+                        <div class="impacto-item">
+                            <i class="fas fa-heartbeat"></i>
+                            <h4>Menor Ausentismo</h4>
+                            <p>Reducción del 20-30% en días perdidos por enfermedad o estrés laboral.</p>
+                        </div>
+                        
+                        <div class="impacto-item">
+                            <i class="fas fa-handshake"></i>
+                            <h4>Clima Laboral Positivo</h4>
+                            <p>Mejora sustancial en las relaciones interpersonales y el trabajo en equipo.</p>
+                        </div>
+                        
+                        <div class="impacto-item">
+                            <i class="fas fa-piggy-bank"></i>
+                            <h4>Optimización de Costos</h4>
+                            <p>Acceso a servicios de calidad con importantes descuentos corporativos.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonios empresariales -->
+                <!--<div class="testimonios-empresas">
+                    <h2 style="color: #1f307b; text-align: center; margin-bottom: 50px; font-size: 2rem;">
+                        Empresas que ya confían en nosotros
+                    </h2>
+                    
+                    <div class="testimonio-empresarial">
+                        <p class="testimonio-text">
+                            "Implementar Wasi Mutual como beneficio para nuestros 200 empleados fue una de las mejores decisiones estratégicas del año. No solo mejoró significativamente la satisfacción laboral, sino que nos ayudó a retener talento clave que estaba considerando otras ofertas. Los programas de bienestar familiar fueron especialmente valorados."
+                        </p>
+                        <div class="testimonio-author">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="CEO">
+                            <div class="testimonio-info">
+                                <h4>Roberto Gutiérrez</h4>
+                                <p>Director de Recursos Humanos, Logística Integral S.A.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonio-empresarial">
+                        <p class="testimonio-text">
+                            "Como sindicato, buscábamos ofrecer beneficios concretos a nuestros afiliados más allá de lo laboral. Wasi nos brindó una solución integral que incluye turismo, salud, capacitación y recreación. La respuesta ha sido extraordinaria: más del 85% de nuestros afiliados utilizan activamente los beneficios."
+                        </p>
+                        <div class="testimonio-author">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Líder sindical">
+                            <div class="testimonio-info">
+                                <h4>María Elena Ríos</h4>
+                                <p>Secretaria General, Sindicato de Trabajadores del Comercio</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+                
+                <!-- Proceso de implementación -->
+                <div class="proceso-section">
+                    <h2 class="proceso-title">Implementación Sencilla en 4 Pasos</h2>
+                    
+                    <div class="proceso-steps">
+                        <div class="proceso-step">
+                            <div class="step-number">1</div>
+                            <h3 class="step-title">Diagnóstico</h3>
+                            <p>Analizamos las necesidades específicas de su organización y colaboradores.</p>
+                        </div>
+                        
+                        <div class="proceso-step">
+                            <div class="step-number">2</div>
+                            <h3 class="step-title">Propuesta</h3>
+                            <p>Diseñamos un paquete de beneficios personalizado según sus objetivos.</p>
+                        </div>
+                        
+                        <div class="proceso-step">
+                            <div class="step-number">3</div>
+                            <h3 class="step-title">Implementación</h3>
+                            <p>Gestionamos todo el proceso sin interrumpir sus operaciones habituales.</p>
+                        </div>
+                        
+                        <div class="proceso-step">
+                            <div class="step-number">4</div>
+                            <h3 class="step-title">Acompañamiento</h3>
+                            <p>Seguimiento continuo y ajustes según la experiencia de uso.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA final -->
+                <div id="contactate">
+    <div class="cta-empresas">
+        <h2>Construyamos juntos una organización más fuerte</h2>
+        <p>
+            Invierta en el bienestar de su equipo y conviértalo en una ventaja competitiva sostenible. 
+            Nuestros especialistas están listos para diseñar una propuesta a medida de sus necesidades.
+        </p>
+        
+        <div class="cta-buttons">
+            <a href="https://wa.me/543487525680?text=Hola%20Wasi%20Mutual,%20me%20interesa%20conocer%20las%20soluciones%20para%20empresas%20que%20ofrecen.%20¿Podrían%20enviarme%20más%20información?" 
+               target="_blank" 
+               class="btn btn-empresa btn-consulta"
+               style="background: linear-gradient(135deg, #25D366, #128C7E);">
+                <i class="fab fa-whatsapp"></i> WhatsApp: 3487-525680
+            </a>
+            <a href="mailto:info@wasi.mutual.ar?subject=Propuesta para Empresa&body=Hola Wasi Mutual, nos interesa conocer sus soluciones para empresas. Por favor envíenme más información." 
+               class="btn btn-empresa">
+                <i class="fas fa-envelope"></i> Solicitar Propuesta por Email
+            </a>
+        </div>
+    </div>
+</div>
+                
+                <!-- Volver al inicio -->
+                <div class="back-to-home" style="text-align: center; margin-top: 50px;">
+                    <a href="../INDEX2.html" class="btn btn-gradient">
+                        <i class="fas fa-arrow-left"></i> Volver al Inicio
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer (manteniendo el original) -->
+  <footer id="contacto">
+    <div class="container">
+        <div class="footer-container">
+            <!-- Columna 1: Sobre Nosotros -->
+            <div class="footer-column footer-about">
+                <div class="footer-logo">
+                    <img src="../images/logo.png" alt="Wasi Mutual" width="50" height="50">
+                    <span class="footer-logo-text">Wasi Mutual</span>
+                </div>
+                <p class="footer-description">Tu bienestar, nuestro compromiso. Solidaridad, ayuda mutua y compromiso social.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/543487525680" class="social-icon whatsapp-icon" aria-label="WhatsApp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Columna 2: Navegación -->
+            <div class="footer-column">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="../INDEX2.html#home"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="../INDEX2.html#novedades"><i class="fas fa-newspaper"></i> Novedades</a></li>
+                    <li><a href="../INDEX2.html#servicios"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
+                    <li><a href="../pages/asociate.html" class="asociate-link"><i class="fas fa-handshake"></i> ¡Asóciate!</a></li>
+                </ul>
+            </div>
+            
+            <!-- Columna 3: La Mutual -->
+            <div class="footer-column">
+                <h3>La Mutual</h3>
+                <ul>
+                    <li><a href="../pages/sobre-nosotros.html"><i class="fas fa-users"></i> Sobre Nosotros</a></li>
+                    <li><a href="../pages/historia-valores.html"><i class="fas fa-history"></i> Historia y Valores</a></li>
+                    <li><a href="../pages/beneficios.html"><i class="fas fa-star"></i> Beneficios Socios</a></li>
+                    <li><a href="../pages/soluciones-empresas.html"><i class="fas fa-building"></i> Soluciones Empresas</a></li>
+                </ul>
+            </div>
+            
+            <!-- Columna 4: Contacto (más ancha) -->
+            <div class="footer-column footer-contact">
+                <h3>Contacto</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <span class="contact-label">Dirección</span>
+                            <p>Pasaje Entre Rios 271, Zárate, Buenos Aires</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <span class="contact-label">Teléfono</span>
+                            <p>3487-525680</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <span class="contact-label">Email</span>
+                            <a href="mailto:info@wasi.mutual.ar" class="email-link">info@wasi.mutual.ar</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span class="contact-label">Horario</span>
+                            <p>Lun-Vie: 9:00 - 17:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="copyright">
+            <p>© 2025 Wasi Mutual - Todos los derechos reservados</p>
+            <p class="design-credit">Diseñado por <a href="https://focustech.com.ar" target="_blank">FocusTech</a></p>
+        </div>
+    </div>
+</footer>
+<!-- Botón Asociate Flotante -->
+        <!-- Botones Flotantes -->
+        <div class="floating-buttons-container">
+            <!-- Botón WhatsApp -->
+            <a href="https://wa.me/5493487525680?text=Hola%20Wasi%20Mutual,%20me%20interesa%20asociarme" 
+            class="floating-btn whatsapp-btn" 
+            target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                
+            </a>
+            
+            <!-- Botón Asociate -->
+            <!--<a href="pages/asociate.html" class="floating-btn associate-btn">
+                <i class="fas fa-user-plus"></i>
+                <span class="btn-text">Asociate</span>
+            </a>-->
+        </div>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

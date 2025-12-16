@@ -7,32 +7,122 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles-pages.css">
+    <link rel="stylesheet" href="../css/styles.css">
     
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="header-container">
-            <div class="logo">
-                <a href="../INDEX2.html" style="display: flex; align-items: center; text-decoration: none;">
-                    <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
-                    <span class="logo-text">Wasi Mutual</span>
-                </a>
-            </div>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav>
-                <ul>
-                    <li><a href="../INDEX2.html#home">Inicio</a></li>
-                    <li><a href="../INDEX2.html#novedades">Novedades</a></li>
-                    <li><a href="../INDEX2.html#servicios">Servicios</a></li>
-                    <li><a href="../INDEX2.html#nosotros">Sobre Nosotros</a></li>
-                    <li><a href="../INDEX2.html#contacto">Contacto</a></li>
-                </ul>
-            </nav>
+    <div class="header-container">
+        <div class="logo">
+            <a href="../INDEX2.1.html" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                <span class="logo-text">Wasi Mutual</span>
+            </a>
         </div>
-    </header>
+        
+        <!-- Menú principal estilo CNZ -->
+        <div class="cnz-menu-container">
+            <ul class="cnz-main-nav">
+                <li><a href="../INDEX2.1.html#home">Inicio</a></li>
+                
+                <li class="menu-item-has-children">
+                    <a>Novedades</a>
+                    <ul class="cnz-sub-menu">
+                        <li><a href="#novedades">Últimas Novedades</a></li>
+                        <li><a href="../pages/noticia-sorteo-asociados.html">Sorteo Motocicleta</a></li>
+                        <li><a href="../pages/noticia-asesoria-legal.html">Asesoría Legal</a></li>
+                        <li><a href="..//pages/hotel-guerrero.html">Hotel Guerrero</a></li>
+                        <li><a href="../pages/noticia-capacitacion-emprendurismo.html">Capacitación Emprendurismo</a></li>
+                    </ul>
+                </li>
+                
+                <li class="menu-item-has-children">
+                    <a>Servicios</a>
+                    <ul class="cnz-sub-menu">
+                        <li><a href="../INDEX2.1.html#servicios">Nuestros Servicios</a></li>
+                        <li><a href="../INDEX2.1.html#servicios">Turismo</a></li>
+                        <li><a href="../INDEX2.1.html#servicios">Asesoramiento Jurídico</a></li>
+                        <li><a href="../INDEX2.1.html#servicios">Capacitaciones</a></li>
+                    </ul>
+                </li>
+                
+                <li class="menu-item-has-children">
+                    <a>Sobre Nosotros</a>
+                    <ul class="cnz-sub-menu">
+                        <li><a href="../pages/sobre-nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="../doc/estatuto.pdf" target="_blank">Estatuto</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="../pages/asociate.html" class="asociate-btn">¡ASÓCIATE!</a></li>
+                
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+        
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</header>
+<!-- Header Menú móvil -->
+<div class="overlay"></div>
+<div class="mobile-menu">
+    <div class="mobile-menu-header">
+        <div class="logo">
+            <a href="../INDEX2.1.html" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                <span class="logo-text">Wasi Mutual</span>
+            </a>
+        </div>
+        <button class="mobile-menu-close">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <ul class="mobile-nav">
+        <li><a href="../INDEX2.1.html#home">Inicio</a></li>
+        
+        <li class="menu-item-has-children">
+            <a href="../INDEX2.html#novedades">Novedades
+            <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span></a>
+            <ul class="mobile-submenu">
+                <li><a href="#novedades">Últimas Novedades</a></li>
+                <li><a href="../pages/noticia-sorteo-asociados.html">Sorteo Motocicleta</a></li>
+                <li><a href="../pages/noticia-asesoria-legal.html">Asesoría Legal</a></li>
+                <li><a href="../pages/hotel-guerrero.html">Hotel Guerrero</a></li>
+                <li><a href="../pages/noticia-capacitacion-emprendurismo.html">Capacitación Emprendurismo</a></li>
+            </ul>
+        </li>
+        
+        <li class="menu-item-has-children">
+            <a href="#">Servicios
+            <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span></a>
+            <ul class="mobile-submenu">
+                <li><a href="#servicios">Nuestros Servicios</a></li>
+                <li><a href="#servicios">Turismo</a></li>
+                <li><a href="#servicios">Asesoramiento Jurídico</a></li>
+                <li><a href="#servicios">Capacitaciones</a></li>
+            </ul>
+        </li>
+        
+        <li class="menu-item-has-children">
+            <a href="#">Sobre Nosotros
+                <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span></a>
+            <ul class="mobile-submenu">
+                <li><a href="pages/sobre-nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="doc/estatuto.pdf" target="_blank">Estatuto</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </li>
+        
+        <li><a href="../pages/asociate.html" class="asociate-btn">¡ASÓCIATE!</a></li>
+        
+        <li><a href="#contacto">Contacto</a></li>
+    </ul>
+</div>
 
     <!-- Header de Búsqueda -->
 
@@ -412,5 +502,6 @@
             });
         }
     </script>
+    <script src="../js/scripts.js"></script>
 </body>
-</html>
+</html>  

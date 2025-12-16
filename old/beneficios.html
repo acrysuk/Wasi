@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beneficios Wasi - Wasi Mutual</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles-pages.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    
+    <style>
+        .beneficios-header {
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), url('https://cdn.pixabay.com/photo/2017/08/06/22/09/people-2597454_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .benefit-service {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            border-top: 4px solid #2e429e;
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-service:hover {
+            transform: translateY(-10px);
+        }
+        
+        .benefit-icon {
+            font-size: 40px;
+            color: #2e429e;
+            margin-bottom: 20px;
+        }
+        
+        .why-choose-section {
+            background: #f8f9ff;
+            padding: 50px 40px;
+            border-radius: 15px;
+            margin: 60px 0;
+        }
+        
+        .why-choose-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .why-choose-list li {
+            padding: 12px 0 12px 40px;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        
+        .why-choose-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            background: #2e429e;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: bold;
+        }
+        
+        .business-section {
+            margin: 60px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .business-section h2 {
+            color: white;
+        }
+        
+        .business-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .benefit-item {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header (igual que tu archivo original) -->
+    <header>
+        <!-- ... mismo header que tu archivo ... -->
+    </header>
+
+    <!-- Encabezado -->
+    <section class="beneficios-header">
+        <div class="container">
+            <h1>Beneficios Wasi</h1>
+            <p style="margin-top: 20px; font-size: 1.4rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.5; color: #ffffff; font-style: italic; font-weight: bold;">
+                Transformamos servicios en experiencias reales
+            </p>
+        </div>
+    </section>
+    
+    <!-- Contenido -->
+    <section class="nosotros-content">
+        <div class="container">
+            <article class="nosotros-body">
+                <h2>Beneficios para Nuestros Asociados</h2>
+                <p style="margin-bottom: 30px;">En Wasi Mutual transformamos la palabra "servicios" en experiencias reales para nuestra comunidad. Cada beneficio está pensado para mejorar tu calidad de vida.</p>
+                
+                <!-- Grid de Beneficios -->
+                <div class="benefits-grid">
+                    <div class="benefit-service">
+                        <div class="benefit-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Salud y Medicamentos</h3>
+                        <p>Acceso a descuentos, convenios y acompañamiento para el cuidado integral.</p>
+                    </div>
+                    
+                    <div class="benefit-service">
+                        <div class="benefit-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <h3>Turismo Social</h3>
+                        <p>Experiencias accesibles, viajes organizados y oportunidades para descubrir nuevos destinos.</p>
+                    </div>
+                    
+                    <div class="benefit-service">
+                        <div class="benefit-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Formación y Educación</h3>
+                        <p>Talleres, cursos y actividades que impulsan el crecimiento personal y profesional.</p>
+                    </div>
+                    
+                    <div class="benefit-service">
+                        <div class="benefit-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3>Recreación y Bienestar</h3>
+                        <p>Propuestas pensadas para disfrutar, compartir y fortalecer vínculos.</p>
+                    </div>
+                    
+                    <div class="benefit-service">
+                        <div class="benefit-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Futuro Plan de Vivienda</h3>
+                        <p>Trabajamos para que cada asociado pueda proyectar un hogar propio.</p>
+                    </div>
+                    
+                    <div class="benefit-service">
+                        <div class="benefit-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3>Asesoramiento Jurídico</h3>
+                        <p>Orientación legal y apoyo en trámites administrativos.</p>
+                    </div>
+                </div>
+                
+                <!-- ¿Por qué elegirnos? -->
+                <div class="why-choose-section">
+                    <h2>¿Por qué elegir Wasi?</h2>
+                    <p>En Wasi Mutual no sumás un número más: sumás un aliado real. Somos una organización creada para acompañar, proteger y brindar oportunidades a quienes deciden crecer en comunidad.</p>
+                    <p>Elegirnos es acceder a:</p>
+                    <ul class="why-choose-list">
+                        <li>Acompañamiento cercano, humano y permanente.</li>
+                        <li>Servicios concretos que mejoran la vida diaria (salud, turismo, educación y más).</li>
+                        <li>Una comunidad activa, comprometida y en pleno crecimiento.</li>
+                        <li>Convenios que abren puertas a beneficios exclusivos.</li>
+                        <li>Una institución seria, transparente y con visión de futuro.</li>
+                    </ul>
+                    <p style="margin-top: 20px; font-style: italic;">Aquí, cada asociado importa. Aquí, cada paso lo damos juntos.</p>
+                </div>
+                
+                <!-- Para Empresas -->
+                <div class="business-section">
+                    <h2>Soluciones para Empresas y Sindicatos</h2>
+                    <p>En Wasi acompañamos a organizaciones que buscan cuidar a su gente y fortalecer su comunidad interna.</p>
+                    
+                    <div class="business-benefits">
+                        <div class="benefit-item">
+                            <p>✓ Programas de bienestar que hacen la diferencia</p>
+                        </div>
+                        <div class="benefit-item">
+                            <p>✓ Acceso a servicios y descuentos exclusivos</p>
+                        </div>
+                        <div class="benefit-item">
+                            <p>✓ Actividades recreativas y turísticas para toda la familia</p>
+                        </div>
+                        <div class="benefit-item">
+                            <p>✓ Un aliado con responsabilidad social y compromiso territorial</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA -->
+                <div class="cta-section" style="text-align: center; margin: 50px 0;">
+                    <a href="../pages/asociate.html" class="btn btn-gradient" style="padding: 15px 40px; font-size: 1.1rem;">
+                        <i class="fas fa-user-plus"></i> ¡Quiero Asociarme!
+                    </a>
+                </div>
+                
+                <!-- Navegación entre páginas -->
+                <div class="page-navigation" style="display: flex; justify-content: space-between; margin-top: 40px;">
+                    <a href="historia-valores.html" class="btn btn-outline">
+                        <i class="fas fa-arrow-left"></i> Nuestra Historia
+                    </a>
+                    <a href="sobre-nosotros.html" class="btn btn-gradient">
+                        Volver a Sobre Nosotros <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer (igual que tu archivo original) -->
+    <footer id="contacto">
+        <!-- ... mismo footer que tu archivo ... -->
+    </footer>
+
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

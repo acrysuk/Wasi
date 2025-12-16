@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles-pages.css">
+     <link rel="stylesheet" href="../css/styles.css">
     
     <style>
         .noticia-header {
@@ -74,14 +75,6 @@
         .noticia-body li {
             margin-bottom: 8px;
             line-height: 1.6;
-        }
-        
-        .noticia-body img {
-            width: 100%;
-            border-radius: 10px;
-            margin: 30px 0;
-            height: 400px;
-            object-fit: cover;
         }
         
         .intro-box {
@@ -253,26 +246,82 @@
             display: block;
         }
         
-        .learning-outcomes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .outcome-card {
-            background: white;
-            padding: 20px;
+        .program-highlight {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6ebff 100%);
+            padding: 25px;
             border-radius: 10px;
-            text-align: center;
-            border-top: 4px solid #9c27b0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin: 30px 0;
+            border: 2px solid #2e429e;
         }
         
-        .outcome-icon {
-            font-size: 30px;
-            color: #9c27b0;
-            margin-bottom: 15px;
+        .program-highlight h3 {
+            color: #1f307b;
+            margin-top: 0;
+        }
+        
+        .download-section {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            border: 3px solid #4caf50;
+            text-align: center;
+        }
+        
+        .download-icon {
+            font-size: 50px;
+            color: #2e7d32;
+            margin-bottom: 20px;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+        }
+        
+        .summary-box {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 4px solid #9c27b0;
+        }
+        
+        .summary-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .summary-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .summary-title {
+            color: #1f307b;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
         @media (max-width: 768px) {
@@ -298,28 +347,82 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
+   <header>
         <div class="header-container">
             <div class="logo">
-                <a href="../INDEX2.html" style="display: flex; align-items: center; text-decoration: none !important; border-bottom: none !important;">
-    <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
-    <span class="logo-text" style="text-decoration: none !important; border-bottom: none !important;">Wasi Mutual</span>
-</a>
+                <a href="../INDEX2.1.html" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                    <span class="logo-text">Wasi Mutual</span>
+                </a>
             </div>
+            
+            <!-- Menú principal estilo CNZ -->
+            <div class="cnz-menu-container">
+                <ul class="cnz-main-nav">
+                    <li><a href="../INDEX2.1.html#home">Inicio</a></li>
+                    <li><a href="../INDEX2.1.html#novedades">Novedades</a></li>
+                    <li><a href="../INDEX2.1.html#servicios">Servicios</a></li>
+                    <li class="menu-item-has-children">
+                        <a>La Mutual</a>
+                        <ul class="cnz-sub-menu">
+                            <li><a href="../pages/sobre-nosotros.html">¿Qué es Wasi?</a></li>
+                            <li><a href="../pages/historia-valores.html">Historia y Valores</a></li>
+                            <li><a href="../pages/beneficios.html">Beneficios Socios</a></li>
+                            <li><a href="../pages/soluciones-empresas.html">Soluciones para Empresas</a></li>
+                            <li><a href="../doc/estatuto.pdf" target="_blank">Estatuto</a></li>
+                            <li><a href="../pages/terminos.html">Términos y Condiciones</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="../pages/asociate.html" class="asociate-btn">¡ASÓCIATE!</a></li>
+                    
+                    <li><a href="../pages/contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
-            <nav>
-                <ul>
-                    <li><a href="../INDEX2.html#home">Inicio</a></li>
-                    <li><a href="../INDEX2.html#novedades">Novedades</a></li>
-                    <li><a href="../INDEX2.html#servicios">Servicios</a></li>
-                    <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
+    
+    <!-- Menú móvil -->
+    <div class="overlay"></div>
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <a href="../INDEX2.1.html" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                    <span class="logo-text">Wasi Mutual</span>
+                </a>
+            </div>
+            <button class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="mobile-nav">
+            <li><a href="../INDEX2.1.html#home">Inicio</a></li>
+            <li><a href="../INDEX2.1.html#novedades">Novedades</a></li>
+            <li><a href="../INDEX2.1.html#servicios">Servicios</a></li>
+            <li class="menu-item-has-children">
+                <a href="#">La Mutual
+                    <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span></a>
+                <ul class="mobile-submenu">
+                    <li><a href="../pages/sobre-nosotros.html">¿Qué es Wasi?</a></li>
+                    <li><a href="../pages/historia-valores.html">Historia y Valores</a></li>
+                    <li><a href="../pages/beneficios.html">Beneficios Socios</a></li>
+                    <li><a href="../pages/soluciones-empresas.html">Soluciones para Empresas</a></li>
+                    <li><a href="../doc/estatuto.pdf" target="_blank">Estatuto</a></li>
+                    <li><a href="../pages/terminos.html">Términos y Condiciones</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="../pages/asociate.html" class="asociate-btn">¡ASÓCIATE!</a></li>
+            
+            <li><a href="../pages/contacto.html">Contacto</a></li>
+        </ul>
+    </div>
 
     <!-- Contenido de la Noticia -->
     <section class="noticia-header">
@@ -331,7 +434,7 @@
             </div>
             <h1>Curso "Tu Primer Emprendimiento"</h1>
             <p style="margin-top: 20px; font-size: 1.2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Transformá tu idea en un negocio viable en solo 4 semanas
+                Programa práctico de 4 semanas para convertir tu idea en negocio
             </p>
         </div>
     </section>
@@ -340,18 +443,98 @@
         <div class="container">
             <article class="noticia-body">
                 <div class="intro-box">
-                    <p><strong>¡Bienvenidos al curso "Tu Primer Emprendimiento"!</strong></p>
-                    <p>Si tenés una idea, o simplemente las ganas de ser tu propio jefe, este es el espacio que necesitás. Sabemos que empezar de cero puede ser abrumador, por eso, esta capacitación presencial de 4 semanas te dará las herramientas esenciales para transformar tu visión en un negocio viable.</p>
-                    <p>Aprenderás a diseñar un Modelo de Negocio sólido, desarrollar el liderazgo necesario para autogestionarte, y adquirirás nociones clave de aspectos legales y posición contable/impositiva para formalizarte sin miedo.</p>
-                    <p>Como Mutual, nuestro objetivo es acompañarte desde la concepción de tu idea hasta el lanzamiento, proporcionándote conocimientos prácticos y una red de apoyo. Preparate para trabajar con tu propia idea de principio a fin. ¡El futuro de tu negocio comienza hoy!</p>
+                    <p><strong>¡Transformá tu idea en realidad con nuestro programa paso a paso!</strong></p>
+                    <p>Este curso de 4 semanas te guiará desde la validación de tu idea hasta el lanzamiento de tu Producto Mínimo Viable. Con 6 módulos prácticos, aprenderás a identificar oportunidades reales, diseñar tu modelo de negocio, manejar costos básicos, crear presencia digital y lanzar tu emprendimiento de forma segura.</p>
+                    <p>Como parte de Wasi Mutual, no solo obtendrás herramientas prácticas, sino también acceso a nuestra red de apoyo y opciones de financiamiento específicas para socios.</p>
                 </div>
                 
-                <div class="resumen-box">
-                    <div class="resumen-title">
-                        <i class="fas fa-bullhorn"></i>
-                        <h3>Resumen de la Capacitación</h3>
+                <!-- SECCIÓN DE DESCARGA -->
+                <div class="download-section">
+                    <div class="download-icon">
+                        <i class="fas fa-file-download"></i>
                     </div>
-                    <p><strong>¡Emprendé sin miedo!</strong> Diseñá tu negocio, aprendé de liderazgo, impuestos y contabilidad con nuestra Mutual.</p>
+                    <h2>¡Descargá el Programa Completo del Curso!</h2>
+                    <p>Obtén acceso inmediato a las <strong>6 guías detalladas</strong> con todas las tareas y preguntas clave para cada módulo del curso.</p>
+                    <p><strong>Incluye:</strong> Plantillas de trabajo, preguntas guía para cada etapa, checklist de validación y estructura completa del Modelo Canvas.</p>
+                    
+                    <a href="../doc/programa-emprendedores-wasi.pdf" class="download-btn" download="Programa_Emprendedores_Wasi.pdf">
+                        <i class="fas fa-download"></i> Descargar Programa Completo (PDF)
+                    </a>
+                    
+                    <p style="margin-top: 15px; font-size: 0.9rem; color: #555;">
+                        <i class="fas fa-info-circle"></i> Archivo PDF • 12 páginas • 450 KB
+                    </p>
+                </div>
+                
+                <!-- RESUMEN EJECUTIVO -->
+                <div class="summary-box">
+                    <h2 style="color: #1f307b; margin-top: 0;">Resumen Ejecutivo del Programa</h2>
+                    <p>Aquí tenés un resumen de lo que aprenderás en cada módulo. Para los detalles completos de cada tarea y las preguntas guía específicas, descargá el programa completo arriba.</p>
+                    
+                    <div class="summary-item">
+                        <div class="summary-title">
+                            <i class="fas fa-bolt" style="color: #9c27b0;"></i>
+                            <h3>MÓDULO 1 — La Chispa: De la Idea a la Oportunidad</h3>
+                        </div>
+                        <p><strong>Objetivo:</strong> Validar tu idea identificando un problema real y definiendo tu cliente ideal.</p>
+                        <p><strong>Tareas clave:</strong> Identificar el problema, definir por qué vos podés resolverlo, crear el perfil de cliente ideal y realizar validación inicial con 3-5 personas reales.</p>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <div class="summary-title">
+                            <i class="fas fa-pencil-ruler" style="color: #9c27b0;"></i>
+                            <h3>MÓDULO 2 — Diseño Básico del Negocio</h3>
+                        </div>
+                        <p><strong>Objetivo:</strong> Crear la estructura básica de tu negocio usando el Modelo Canvas.</p>
+                        <p><strong>Tareas clave:</strong> Definir tu propuesta de valor, segmentar clientes, establecer canales de venta, identificar recursos clave y aliados estratégicos.</p>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <div class="summary-title">
+                            <i class="fas fa-calculator" style="color: #9c27b0;"></i>
+                            <h3>MÓDULO 3 — Legales, Costos y Punto de Equilibrio</h3>
+                        </div>
+                        <p><strong>Objetivo:</strong> Conocer tus números básicos y determinar cuánto necesitás vender para ser rentable.</p>
+                        <p><strong>Tareas clave:</strong> Identificar costos fijos y variables, calcular punto de equilibrio y definir estrategia de precios inicial.</p>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <div class="summary-title">
+                            <i class="fas fa-bullhorn" style="color: #9c27b0;"></i>
+                            <h3>MÓDULO 4 — Marketing y Visibilidad Inicial</h3>
+                        </div>
+                        <p><strong>Objetivo:</strong> Crear presencia básica y contenido que atraiga a tus primeros clientes.</p>
+                        <p><strong>Tareas clave:</strong> Definir identidad simple, elegir y dominar una red social principal, crear contenido relevante y planificar comunicación por WhatsApp.</p>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <div class="summary-title">
+                            <i class="fas fa-rocket" style="color: #9c27b0;"></i>
+                            <h3>MÓDULO 5 — Producto Mínimo Viable (PMV)</h3>
+                        </div>
+                        <p><strong>Objetivo:</strong> Diseñar y lanzar una versión pequeña de tu producto para testear el mercado.</p>
+                        <p><strong>Tareas clave:</strong> Definir qué incluye tu PMV, establecer objetivos de ventas de prueba, experimentar con precios y recoger feedback valioso.</p>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <div class="summary-title">
+                            <i class="fas fa-chart-line" style="color: #9c27b0;"></i>
+                            <h3>MÓDULO 6 — Financiación + Plan de Acción 90 días</h3>
+                        </div>
+                        <p><strong>Objetivo:</strong> Planificar el crecimiento sostenible de tu emprendimiento.</p>
+                        <p><strong>Tareas clave:</strong> Crear plan de ventas para el primer mes, identificar canales de escalamiento, organizar tu tiempo y recursos, y presentar tu Modelo Canvas final.</p>
+                    </div>
+                </div>
+                
+                <div class="program-highlight">
+                    <h3>¿Qué hace único este programa?</h3>
+                    <ul>
+                        <li><strong>100% práctico:</strong> Cada módulo incluye tareas concretas que aplicás directamente a tu negocio</li>
+                        <li><strong>Validación real:</strong> Aprendés a testear tu idea con clientes reales desde el inicio</li>
+                        <li><strong>Enfoque en acción:</strong> Menos teoría, más herramientas aplicables inmediatamente</li>
+                        <li><strong>Red de apoyo:</strong> Conectás con otros emprendedores y mentores de Wasi Mutual</li>
+                        <li><strong>Recursos descargables:</strong> Accedés a plantillas y guías prácticas que podés usar una y otra vez</li>
+                    </ul>
                 </div>
                 
                 <div class="duration-info">
@@ -360,8 +543,8 @@
                             <i class="far fa-clock"></i>
                         </div>
                         <h4>Duración</h4>
-                        <p>4 semanas</p>
-                        <p>(6 módulos)</p>
+                        <p>4 semanas intensivas</p>
+                        <p>6 módulos prácticos</p>
                     </div>
                     
                     <div class="info-item">
@@ -369,8 +552,8 @@
                             <i class="fas fa-chalkboard-teacher"></i>
                         </div>
                         <h4>Modalidad</h4>
-                        <p>Presencial</p>
-                        <p>Con actividades prácticas</p>
+                        <p>Presencial + Material digital</p>
+                        <p>Seguimiento personalizado</p>
                     </div>
                     
                     <div class="info-item">
@@ -387,268 +570,54 @@
                             <i class="fas fa-certificate"></i>
                         </div>
                         <h4>Certificación</h4>
-                        <p>Entrega de certificado</p>
-                        <p>al completar el curso</p>
-                    </div>
-                </div>
-                
-                <h2>¿Qué aprenderás?</h2>
-                
-                <div class="learning-outcomes">
-                    <div class="outcome-card">
-                        <div class="outcome-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h4>Modelo de Negocio</h4>
-                        <p>Diseñar un plan sólido usando Modelo Canvas</p>
-                    </div>
-                    
-                    <div class="outcome-card">
-                        <div class="outcome-icon">
-                            <i class="fas fa-balance-scale"></i>
-                        </div>
-                        <h4>Aspectos Legales</h4>
-                        <p>Formalización y estructura legal básica</p>
-                    </div>
-                    
-                    <div class="outcome-card">
-                        <div class="outcome-icon">
-                            <i class="fas fa-calculator"></i>
-                        </div>
-                        <h4>Gestión Financiera</h4>
-                        <p>Cálculo de costos y punto de equilibrio</p>
-                    </div>
-                    
-                    <div class="outcome-card">
-                        <div class="outcome-icon">
-                            <i class="fas fa-bullhorn"></i>
-                        </div>
-                        <h4>Marketing Básico</h4>
-                        <p>Estrategias iniciales de promoción</p>
-                    </div>
-                </div>
-                
-                <h2>Módulos del Curso</h2>
-                <p>Nuestro programa está diseñado para guiarte paso a paso en la creación de tu emprendimiento:</p>
-                
-                <div class="modules-container">
-                    <!-- Módulo 1 -->
-                    <div class="module-card">
-                        <div class="module-header">
-                            <h3 class="module-title"><span class="module-number">1</span> Módulo 1: La Chispa: De la Idea a la Oportunidad</h3>
-                            <p class="module-subtitle">Ayudar a encontrar y validar una necesidad real</p>
-                        </div>
-                        <div class="module-body">
-                            <div class="topics-list">
-                                <div class="topic-item">
-                                    <div class="topic-title">
-                                        <i class="fas fa-brain"></i>
-                                        <span>Temas Clave:</span>
-                                    </div>
-                                    <ul>
-                                        <li><strong>Mentalidad Emprendedora:</strong> Miedo al fracaso y perseverancia</li>
-                                        <li><strong>Identificación de Problemas y Necesidades</strong></li>
-                                        <li><strong>Propuesta de Valor:</strong> ¿Qué ofrezco que es diferente?</li>
-                                        <li><strong>El concepto de "Cliente Ideal"</strong> (Buyer Persona)</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="activity-box">
-                                <div class="activity-title">
-                                    <i class="fas fa-tasks"></i>
-                                    <span>Actividad Práctica</span>
-                                </div>
-                                <p><strong>Tarea:</strong> Definir el problema que su negocio resolverá y a quién.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Módulo 2 -->
-                    <div class="module-card">
-                        <div class="module-header">
-                            <h3 class="module-title"><span class="module-number">2</span> Módulo 2: Diseño Básico del Negocio</h3>
-                            <p class="module-subtitle">Definir cómo ganarán dinero y qué recursos necesitan</p>
-                        </div>
-                        <div class="module-body">
-                            <div class="topics-list">
-                                <div class="topic-item">
-                                    <div class="topic-title">
-                                        <i class="fas fa-tools"></i>
-                                        <span>Temas Clave:</span>
-                                    </div>
-                                    <ul>
-                                        <li><strong>Introducción al Modelo Canvas</strong> (la herramienta clave)</li>
-                                        <li><strong>Fuentes de Ingreso</strong> y estructura de costos inicial</li>
-                                        <li><strong>Recursos Clave</strong> (humanos, materiales, tecnológicos)</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="activity-box">
-                                <div class="activity-title">
-                                    <i class="fas fa-tasks"></i>
-                                    <span>Actividad Práctica</span>
-                                </div>
-                                <p><strong>Tarea:</strong> Rellenar las primeras 4-5 secciones del Modelo Canvas.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Módulo 3 -->
-                    <div class="module-card">
-                        <div class="module-header">
-                            <h3 class="module-title"><span class="module-number">3</span> Módulo 3: Los Pilares Legales y de Costos</h3>
-                            <p class="module-subtitle">Entender la formalización y manejar los números básicos</p>
-                        </div>
-                        <div class="module-body">
-                            <div class="topics-list">
-                                <div class="topic-item">
-                                    <div class="topic-title">
-                                        <i class="fas fa-gavel"></i>
-                                        <span>Temas Clave:</span>
-                                    </div>
-                                    <ul>
-                                        <li><strong>Formalización Inicial:</strong> Tipos de figura legal (muy básico)</li>
-                                        <li><strong>Concepto de Costo Fijo y Variable</strong></li>
-                                        <li><strong>Cálculo del Punto de Equilibrio</strong> (cuánto debo vender para no perder)</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="activity-box">
-                                <div class="activity-title">
-                                    <i class="fas fa-tasks"></i>
-                                    <span>Actividad Práctica</span>
-                                </div>
-                                <p><strong>Tarea:</strong> Calcular sus costos operativos mensuales estimados.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Módulo 4 -->
-                    <div class="module-card">
-                        <div class="module-header">
-                            <h3 class="module-title"><span class="module-number">4</span> Módulo 4: Marketing y Marca Personal Básica</h3>
-                            <p class="module-subtitle">Cómo darse a conocer sin una gran inversión</p>
-                        </div>
-                        <div class="module-body">
-                            <div class="topics-list">
-                                <div class="topic-item">
-                                    <div class="topic-title">
-                                        <i class="fas fa-bullhorn"></i>
-                                        <span>Temas Clave:</span>
-                                    </div>
-                                    <ul>
-                                        <li><strong>Nombre y Logotipo:</strong> Importancia de la identidad</li>
-                                        <li><strong>Marketing de Contenidos Inicial:</strong> ¿Qué publicar en redes?</li>
-                                        <li><strong>Redes Sociales para Principiantes:</strong> Elegir la plataforma correcta</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="activity-box">
-                                <div class="activity-title">
-                                    <i class="fas fa-tasks"></i>
-                                    <span>Actividad Práctica</span>
-                                </div>
-                                <p><strong>Tarea:</strong> Crear un perfil de negocio en una red social y una publicación de prueba.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Módulo 5 -->
-                    <div class="module-card">
-                        <div class="module-header">
-                            <h3 class="module-title"><span class="module-number">5</span> Módulo 5: El Producto Mínimo Viable (PMV)</h3>
-                            <p class="module-subtitle">Aprender a lanzar algo pequeño para probar antes de invertir mucho</p>
-                        </div>
-                        <div class="module-body">
-                            <div class="topics-list">
-                                <div class="topic-item">
-                                    <div class="topic-title">
-                                        <i class="fas fa-rocket"></i>
-                                        <span>Temas Clave:</span>
-                                    </div>
-                                    <ul>
-                                        <li><strong>Concepto de PMV</strong> (Mínimo Producto Viable) y "Lanzar y Aprender"</li>
-                                        <li><strong>Estrategias de Precios iniciales</strong></li>
-                                        <li><strong>Recolección de Feedback:</strong> Cómo preguntar al cliente</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="activity-box">
-                                <div class="activity-title">
-                                    <i class="fas fa-tasks"></i>
-                                    <span>Actividad Práctica</span>
-                                </div>
-                                <p><strong>Tarea:</strong> Diseñar su PMV (ej: vender 10 unidades de prueba, hacer una preventa, etc.).</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Módulo 6 -->
-                    <div class="module-card">
-                        <div class="module-header">
-                            <h3 class="module-title"><span class="module-number">6</span> Módulo 6: Financiación y Próximos Pasos</h3>
-                            <p class="module-subtitle">Cómo seguir creciendo y la importancia de la mutual</p>
-                        </div>
-                        <div class="module-body">
-                            <div class="topics-list">
-                                <div class="topic-item">
-                                    <div class="topic-title">
-                                        <i class="fas fa-chart-line"></i>
-                                        <span>Temas Clave:</span>
-                                    </div>
-                                    <ul>
-                                        <li><strong>Opciones de Financiamiento:</strong> Autofinanciamiento, créditos (énfasis en las opciones de la mutual)</li>
-                                        <li><strong>Plan de Acción</strong> de los primeros 90 días</li>
-                                        <li><strong>Conclusión y Networking</strong></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="activity-box">
-                                <div class="activity-title">
-                                    <i class="fas fa-tasks"></i>
-                                    <span>Actividad Práctica</span>
-                                </div>
-                                <p><strong>Tarea:</strong> Presentación de su Modelo Canvas y sus 3 objetivos para el primer mes.</p>
-                            </div>
-                        </div>
+                        <p>Certificado oficial</p>
+                        <p>Wasi Mutual</p>
                     </div>
                 </div>
                 
                 <div class="testimonial">
-                    <p>"Este curso me dio las herramientas que necesitaba para lanzar mi emprendimiento de repostería. Lo que más valoro es el acompañamiento práctico y la red de apoyo que generamos entre todos los participantes."</p>
-                    <cite>– Ana L., Participante de la primera edición</cite>
+                    <p>"Las tareas prácticas de cada módulo me obligaron a salir de mi zona de confort y hablar con clientes reales. Eso cambió completamente mi idea inicial y me llevó a un negocio mucho más viable. El programa completo que te dan para descargar es una mina de oro que sigo consultando."</p>
+                    <cite>– Carlos M., Emprendedor de servicios digitales</cite>
                 </div>
                 
                 <h2>¿Quiénes pueden participar?</h2>
                 
                 <div class="requirements-list" style="background: #f8f9ff; padding: 25px; border-radius: 10px; margin: 25px 0;">
                     <ul>
-                        <li>Asociados activos de Wasi Mutual</li>
-                        <li>Familiares directos de asociados (cónyuge e hijos mayores de 18 años)</li>
+                        <li>Asociados activos de Wasi Mutual y sus familiares directos</li>
                         <li>Personas con ideas de negocio o proyectos emprendedores</li>
-                        <li>No se requieren conocimientos previos en negocios</li>
-                        <li>Compromiso para asistir a las 6 sesiones del curso</li>
+                        <li>No se requieren conocimientos previos ni estudios formales</li>
+                        <li>Disponibilidad para asistir a las sesiones presenciales</li>
+                        <li>Compromiso para realizar las tareas prácticas entre sesiones</li>
+                        <li>Ganas de aprender haciendo y validando en el mercado real</li>
                     </ul>
                 </div>
                 
                 <div class="noticia-actions">
-                    <a href="https://wa.me/5493487525680?text=Hola%20Wasi%20Mutual,%20me%20interesa%20el%20curso%20'Tu%20Primer%20Emprendimiento'." class="btn btn-success">
-                        <i class="fab fa-whatsapp"></i> Consultar por Inscripción
+                    <a href="https://wa.me/5493487525680?text=Hola%20Wasi%20Mutual,%20quiero%20más%20información%20sobre%20el%20curso%20'Tu%20Primer%20Emprendimiento'%20y%20descargar%20el%20programa." class="btn btn-success">
+                        <i class="fab fa-whatsapp"></i> Consultar por WhatsApp
                     </a>
                     <a href="../pages/asociate.html" class="btn btn-secondary">
-                        <i class="fas fa-user-plus"></i> Quiero Asociarme
+                        <i class="fas fa-user-plus"></i> Asociate para Participar
                     </a>
                 </div>
                 
-                <p><strong>Próximo inicio:</strong> Enero 2026 (fecha a confirmar)</p>
-                <p><strong>Horarios:</strong> Sábados de 10:00 a 13:00 hs</p>
-                <p><strong>Lugar:</strong> Oficinas de Wasi Mutual, Pasaje Entre Rios 271, Zárate</p>
-                <p><strong>Costo:</strong> Completamente gratuito para asociados de Wasi Mutual</p>
-                <p><strong>Cupos limitados:</strong> Máximo 20 participantes por edición</p>
+                <div style="background: #fff8e1; padding: 20px; border-radius: 10px; margin: 30px 0; border-left: 4px solid #ffb300;">
+                    <h3 style="color: #ff8f00; margin-top: 0;"><i class="fas fa-lightbulb"></i> Información Importante</h3>
+                    <p><strong>Próximo inicio:</strong> MARZO 2026 (fecha exacta a confirmar por WhatsApp)</p>
+                    <p><strong>Horarios:</strong> Sábados de 10:00 a 13:00 hs en nuestras oficinas de Zárate</p>
+                    <p><strong>Costo:</strong> Totalmente gratuito para asociados activos de Wasi Mutual</p>
+                    <p><strong>Cupos limitados:</strong> Solo 20 participantes por edición para garantizar seguimiento personalizado</p>
+                    <p><strong>Material incluido:</strong> Programa completo descargable + plantillas de trabajo + acceso a recursos exclusivos</p>
+                </div>
+                
+                <p style="text-align: center; font-style: italic; color: #666;">
+                    <i class="fas fa-download"></i> <strong>Recordá:</strong> Podés descargar el programa completo ahora mismo para revisar todo el contenido detallado de cada módulo.
+                </p>
             </article>
             
             <div class="back-to-news">
-                <a href="../INDEX2.html#novedades" class="btn btn-gradient">
+                <a href="../INDEX2.1.html#novedades" class="btn btn-gradient">
                     <i class="fas fa-arrow-left"></i> Volver a Novedades
                 </a>
             </div>
@@ -659,61 +628,118 @@
     <footer id="contacto">
         <div class="container">
             <div class="footer-container">
-                <div class="footer-about">
+                <!-- Columna 1: Sobre Nosotros -->
+                <div class="footer-column footer-about">
                     <div class="footer-logo">
-                        <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                        <img src="../images/logo.png" alt="Wasi Mutual" width="50" height="50">
                         <span class="footer-logo-text">Wasi Mutual</span>
                     </div>
-                    <p>Tu bienestar, nuestro compromiso. Solidaridad, ayuda mutua y compromiso social.</p>
+                    <p class="footer-description">Tu bienestar, nuestro compromiso. Solidaridad, ayuda mutua y compromiso social.</p>
                     <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/543487525680" class="social-icon whatsapp-icon" aria-label="WhatsApp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
                     </div>
                 </div>
                 
+                <!-- Columna 2: Navegación -->
                 <div class="footer-column">
-                    <h3>Servicios</h3>
+                    <h3>Navegación</h3>
                     <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Turismo y recreación</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Farmacia y convenios</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Acceso a vivienda</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Sepelio</a></li>
+                        <li><a href="../INDEX2.1.html#home"><i class="fas fa-home"></i> Inicio</a></li>
+                        <li><a href="../INDEX2.1.html#novedades"><i class="fas fa-newspaper"></i> Novedades</a></li>
+                        <li><a href="../INDEX2.1.html#servicios"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
+                        <li><a href="../pages/asociate.html" class="asociate-link"><i class="fas fa-handshake"></i> ¡Asóciate!</a></li>
                     </ul>
                 </div>
                 
+                <!-- Columna 3: La Mutual -->
                 <div class="footer-column">
-                    <h3>Enlaces rápidos</h3>
+                    <h3>La Mutual</h3>
                     <ul>
-                        <li><a href="../INDEX2.html#home"><i class="fas fa-chevron-right"></i> Inicio</a></li>
-                        <li><a href="../INDEX2.html#servicios"><i class="fas fa-chevron-right"></i> Servicios</a></li>
-                        <li><a href="sobre-nosotros.html"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
-                        <li><a href="../INDEX2.html#novedades"><i class="fas fa-chevron-right"></i> Novedades</a></li>
+                        <li><a href="../pages/sobre-nosotros.html"><i class="fas fa-users"></i> Sobre Nosotros</a></li>
+                        <li><a href="../pages/historia-valores.html"><i class="fas fa-history"></i> Historia y Valores</a></li>
+                        <li><a href="../pages/beneficios.html"><i class="fas fa-star"></i> Beneficios Socios</a></li>
+                        <li><a href="../pages/soluciones-empresas.html"><i class="fas fa-building"></i> Soluciones Empresas</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-column">
+                <!-- Columna 4: Contacto -->
+                <div class="footer-column footer-contact">
                     <h3>Contacto</h3>
-                    <div class="footer-contact">
-                        <p><i class="fas fa-map-marker-alt"></i> Pasaje Entre Rios 271, Zárate, Buenos Aires</p>
-                        <p><i class="fas fa-phone"></i> 3487-525680</p>
-                        <p><i class="fas fa-envelope"></i> 
-                            <a href="mailto:info@wasi.mutual.ar" class="email-link">
-                                info@wasi.mutual.ar
-                            </a>
-                        </p>
-                        <p><i class="fas fa-clock"></i> Lunes a Viernes: 9:00 - 17:00</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <span class="contact-label">Dirección</span>
+                                <p>Pasaje Entre Rios 271, Zárate</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span class="contact-label">Teléfono</span>
+                                <p>3487-525680</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <span class="contact-label">Email</span>
+                                <a href="mailto:info@wasi.mutual.ar" class="email-link">info@wasi.mutual.ar</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="contact-label">Horario</span>
+                                <p>Lun-Vie: 9:00 - 17:00</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- Copyright -->
             <div class="copyright">
                 <p>© 2025 Wasi Mutual - Todos los derechos reservados</p>
-                <p style="margin-top: 10px; font-size: 0.8rem;">Designed by <a href="https://focustech.com.ar" style="color: var(--accent-color);">FocusTech</a></p>
+                <p class="design-credit">Diseñado por <a href="https://focustech.com.ar" target="_blank">FocusTech</a></p>
             </div>
         </div>
     </footer>
 
+    <!-- Botones Flotantes -->
+    <div class="floating-buttons-container">
+        <a href="https://wa.me/5493487525680?text=Hola%20Wasi%20Mutual,%20quiero%20descargar%20el%20programa%20del%20curso%20de%20emprendedores" 
+           class="floating-btn whatsapp-btn" 
+           target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    
     <script src="../js/scripts.js"></script>
+    
+    <script>
+        // Script para manejar la descarga
+        document.addEventListener('DOMContentLoaded', function() {
+            const downloadBtn = document.querySelector('.download-btn');
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', function(e) {
+                    // Podés agregar aquí tracking de descargas si es necesario
+                    console.log('Programa descargado - Curso Emprendedores Wasi');
+                    
+                    // Opcional: Mostrar mensaje de confirmación
+                    setTimeout(function() {
+                        alert('¡Programa descargado correctamente! Revisá tu carpeta de descargas.');
+                    }, 1000);
+                });
+            }
+        });
+    </script>
 </body>
 </html>

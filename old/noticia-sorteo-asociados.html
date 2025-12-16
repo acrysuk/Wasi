@@ -6,7 +6,7 @@
     <title>Asociate y Gana - Sorteo de Motocicleta - Wasi Mutual</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/styles-pages.css">
+        <link rel="stylesheet" href="../css/styles-pages.css">
     <link rel="stylesheet" href="../css/styles.css">
     <style>
         * {
@@ -206,10 +206,10 @@
         /* Premios */
         .premios-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
             gap: 20px;
             margin: 30px 0;
-            justify-items: center;
+            justify-items: center; /* Centra los elementos horizontalmente */
         }
         
         .premio-card {
@@ -251,61 +251,6 @@
         .premio-desc {
             color: #666;
             font-size: 0.9rem;
-        }
-        
-        /* Patrocinadores */
-        .patrocinadores-section {
-            text-align: center;
-            margin: 40px 0;
-            padding: 25px;
-            background: #f8f9fa;
-            border-radius: 15px;
-            border: 2px dashed #ff6b6b;
-        }
-        
-        .patrocinadores-section h3 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 1.4rem;
-        }
-        
-        .patrocinadores-grid {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-        
-        .patrocinador-item {
-            text-align: center;
-            max-width: 200px;
-        }
-        
-        .patrocinador-icon {
-            font-size: 35px;
-            color: #ff6b6b;
-            margin-bottom: 10px;
-        }
-        
-        .patrocinador-nombre {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
-        }
-        
-        .patrocinador-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            color: #ff6b6b;
-            text-decoration: none;
-            font-size: 0.9rem;
-            margin-top: 5px;
-        }
-        
-        .patrocinador-link:hover {
-            text-decoration: underline;
         }
         
         /* CTA Section */
@@ -350,55 +295,24 @@
         .bases-legales h3 {
             color: #ff6b6b;
             margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        
-        .bases-legales h4 {
-            color: #333;
-            margin: 20px 0 10px 0;
-            font-size: 1.1rem;
         }
         
         .bases-legales ul {
             list-style: none;
             padding: 0;
-            margin-bottom: 15px;
         }
         
         .bases-legales li {
-            padding: 8px 0 8px 20px;
-            position: relative;
-            text-align: justify;
+            padding: 8px 0;
+            display: flex;
+            align-items: flex-start;
         }
         
         .bases-legales li:before {
             content: "•";
             color: #ff6b6b;
             font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        .bases-legales p {
-            text-align: justify;
-            margin-bottom: 15px;
-        }
-        
-        .numero-expediente {
-            background: #fff5f5;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 3px solid #ff6b6b;
-        }
-        
-        .legal-disclaimer {
-            font-size: 0.9rem;
-            color: #666;
-            font-style: italic;
-            margin-top: 20px;
-            padding-top: 15px;
-            border-top: 1px solid #ddd;
+            margin-right: 10px;
         }
         
         /* Noticia Actions */
@@ -447,6 +361,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
+       
         .social-icons {
             display: flex;
             gap: 15px;
@@ -470,6 +385,8 @@
             background: #ff6b6b;
             transform: translateY(-3px);
         }
+        
+       
         
         .copyright {
             text-align: center;
@@ -532,10 +449,6 @@
             .premios-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .patrocinadores-grid {
-                gap: 20px;
-            }
         }
     </style>
 </head>
@@ -544,7 +457,7 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <a href="../INDEX2.html" style="display: flex; align-items: center; text-decoration: none;">
+                <a href="../INDEX2.1.html" style="display: flex; align-items: center; text-decoration: none;">
                     <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
                     <span class="logo-text">Wasi Mutual</span>
                 </a>
@@ -553,9 +466,18 @@
             <!-- Menú principal estilo CNZ -->
             <div class="cnz-menu-container">
                 <ul class="cnz-main-nav">
-                    <li><a href="../INDEX2.html#home">Inicio</a></li>
-                    <li><a href="../INDEX2.html#novedades">Novedades</a></li>
-                    <li><a href="../INDEX2.html#servicios">Servicios</a></li>
+                    <li><a href="../INDEX2.1.html#home">Inicio</a></li>
+                    <li><a href="../INDEX2.1.html#novedades">Novedades</a></li>
+                    <li><a href="../INDEX2.1.html#servicios">Servicios</a></li>
+                    <!--<li class="menu-item-has-children">
+                        <a>Servicios</a>
+                        <ul class="cnz-sub-menu">
+                            <li><a href="../INDEX2.1.html#servicios">Nuestros Servicios</a></li>
+                            <li><a href="../INDEX2.1.html#servicios">Turismo</a></li>
+                            <li><a href="../INDEX2.1.html#servicios">Asesoramiento Jurídico</a></li>
+                            <li><a href="../INDEX2.1.html#servicios">Capacitaciones</a></li>
+                        </ul>
+                    </li>-->
                     
                     <li class="menu-item-has-children">
                         <a>La Mutual</a>
@@ -586,7 +508,7 @@
     <div class="mobile-menu">
         <div class="mobile-menu-header">
             <div class="logo">
-                <a href="../INDEX2.html" style="display: flex; align-items: center; text-decoration: none;">
+                <a href="../INDEX2.1.html" style="display: flex; align-items: center; text-decoration: none;">
                     <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
                     <span class="logo-text">Wasi Mutual</span>
                 </a>
@@ -597,9 +519,19 @@
         </div>
         
         <ul class="mobile-nav">
-            <li><a href="../INDEX2.html#home">Inicio</a></li>
-            <li><a href="../INDEX2.html#novedades">Novedades</a></li>
-            <li><a href="../INDEX2.html#servicios">Servicios</a></li>
+            <li><a href="../INDEX2.1.html#home">Inicio</a></li>
+            <li><a href="../INDEX2.1.html#novedades">Novedades</a></li>
+            <li><a href="../INDEX2.1.html#servicios">Servicios</a></li>
+            <!--<li class="menu-item-has-children">
+                <a href="#">Servicios
+                <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span></a>
+                <ul class="mobile-submenu">
+                    <li><a href="#servicios">Nuestros Servicios</a></li>
+                    <li><a href="#servicios">Turismo</a></li>
+                    <li><a href="#servicios">Asesoramiento Jurídico</a></li>
+                    <li><a href="#servicios">Capacitaciones</a></li>
+                </ul>
+            </li>-->
             
             <li class="menu-item-has-children">
                 <a href="#">La Mutual
@@ -671,9 +603,7 @@
                             <i class="fas fa-motorcycle"></i>
                         </div>
                         <div class="premio-titulo">Motocicleta 0 km</div>
-                            <div style="margin-top: 10px; font-size: 0.85rem; color: #ff6b6b;">
-                            <i class="fas fa-handshake"></i> Cortesía de Lacognata Motos
-                        </div>
+                        <div class="premio-desc">Modelo 2025 - Incluye patentamiento</div>
                     </div>
                     
                     <div class="premio-card">
@@ -683,11 +613,7 @@
                         </div>
                         <div class="premio-titulo">Computadora de escritorio</div>
                         <div class="premio-desc">Equipo completo para trabajo y estudio</div>
-                        <div style="margin-top: 10px; font-size: 0.85rem; color: #ff6b6b;">
-                            <i class="fas fa-handshake"></i> Cortesía de XMPC Computación
-                        </div>
                     </div>
-                    
                     <div class="premio-card">
                         <span class="premio-posicion">🥉 Tercer Premio</span>
                         <div class="premio-icon">
@@ -695,52 +621,13 @@
                         </div>
                         <div class="premio-titulo">Parrillada para 10 personas</div>
                         <div class="premio-desc">Ideal para compartir con tu familia y amigos</div>
-                        <div style="margin-top: 10px; font-size: 0.85rem; color: #ff6b6b;">
-                            <i class="fas fa-handshake"></i> Cortesía de La Esquina Dorada
-                        </div>
                     </div>
-                </div>
-                
-                <!-- Sección de Patrocinadores -->
-                <div class="patrocinadores-section">
-                    <h3><i class="fas fa-star"></i> Nuestros Aliados Comerciales</h3>
-                    <p>Estos increíbles premios son posibles gracias al apoyo de nuestros aliados comerciales:</p>
                     
-                    <div class="patrocinadores-grid">
-                        <div class="patrocinador-item">
-                            <div class="patrocinador-icon">
-                                <i class="fas fa-motorcycle"></i>
-                            </div>
-                            <div class="patrocinador-nombre">Lacognata Motos</div>
-                            <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">Concesionaria oficial</p>
-                            <a href="https://www.instagram.com/lacognatamotos_/?hl=es" target="_blank" class="patrocinador-link">
-                                <i class="fab fa-instagram"></i> @lacognatamotos_
-                            </a>
-                        </div>
-                        
-                        <div class="patrocinador-item">
-                            <div class="patrocinador-icon">
-                                <i class="fas fa-laptop"></i>
-                            </div>
-                            <div class="patrocinador-nombre">XMPC Computación</div>
-                            <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">Tecnología y soluciones</p>
-                            <a href="https://www.instagram.com/xmpc08/" target="_blank" class="patrocinador-link">
-                                <i class="fab fa-instagram"></i> @xmpc08
-                            </a>
-                        </div>
-                        
-                        <div class="patrocinador-item">
-                            <div class="patrocinador-icon">
-                                <i class="fas fa-utensils"></i>
-                            </div>
-                            <div class="patrocinador-nombre">La Esquina Dorada</div>
-                            <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">Carnicería y parrillada</p>
-                            <a href="https://www.instagram.com/laesquinadoradaa/" target="_blank" class="patrocinador-link">
-                                <i class="fab fa-instagram"></i> @laesquinadoradaa
-                            </a>
-                        </div>
-                    </div>
+                    
                 </div>
+                <!-- Imagen de la motocicleta -->
+                <!--<img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Motocicleta premio sorteo" style="width: 100%; border-radius: 10px; margin: 20px 0;">-->
                 
                 <div class="cta-section">
                     <h2 style="color: white; margin-bottom: 15px;">¡No te quedes fuera!</h2>
@@ -756,75 +643,56 @@
                 <h2>📌 Bases y Condiciones</h2>
 
                 <div class="bases-legales">
-                    <h3>Promoción exclusiva para nuevas asociaciones</h3>
-                    <p><strong>¡Asóciate y participa en nuestro sorteo especial!</strong></p>
-                    
-                    <h4>1. Vigencia y alcance</h4>
+                    <h3>Información importante sobre la promoción:</h3>
                     <ul>
-                        <li>Promoción válida solo para nuevas asociaciones.</li>
-                        <li>Finaliza el 19 de marzo de 2026 o hasta agotar los 1.000 números disponibles (del 000 al 999).</li>
+                        <li style="text-align: justify;">Promoción válida exclusivamente para nuevas asociaciones.</li>
+
+                        <li style="text-align: justify;">Para acceder a la promoción, deberá abonarse por adelantado el valor total correspondiente a seis (6) meses de cuota.</li>
+
+                        <li style="text-align: justify;">Cuota mensual: $5.000 (monto total semestral: $30.000).</li>
+
+                        <li style="text-align: justify;">La participación en el sorteo quedará registrada únicamente una vez acreditado el pago.</li>
+
+                        <li style="text-align: justify;">Para participar, el interesado deberá realizar la transferencia y enviar el comprobante mediante el formulario al que se accede presionando el botón “Quiero asociarme”, donde podrá pre-cargar su correo electrónico y adjuntar la información requerida.</li>
+
+                        <li style="text-align: justify;">El sorteo se llevará a cabo a través de Lotería Nacional, conforme mecanismos oficiales de asignación y resultados.</li>
+
+                        <li style="text-align: justify;">La promoción cuenta con un total de 1.000 números disponibles, del 000 al 999.</li>
+
+                        <li style="text-align: justify;">Con el pago semestral de la cuota social, el participante obtiene una (1) chance, lo que implica la asignación de un (1) número dentro de los 1.000 disponibles.</li>
+
+                        <li style="text-align: justify;">De manera opcional, quienes compartan una historia en Instagram etiquetando la cuenta oficial de la Mutual podrán obtener una (1) chance adicional, lo que supondrá la asignación de un (1) número extra, sujeto a disponibilidad.</li>
+
+                        <li style="text-align: justify;">Para acceder a esta chance adicional, el participante deberá mantener su cuenta pública al momento de la verificación o, en su defecto, enviar una captura de la publicación por mensaje directo.</li>
+
+                        <li style="text-align: justify;">Una vez acreditado y verificado el pago (y, en su caso, la publicación), la Mutual asignará al asociado los números correspondientes según disponibilidad de stock y le proporcionará dicha información para su participación en el sorteo.</li>
+
+                        <li style="text-align: justify;">La asignación de números estará sujeta a la disponibilidad existente al momento de la validación del pago, conforme lo refleje el contador de stock publicado en la página web. Dicho contador se actualiza periódicamente y constituye la referencia oficial sobre la cantidad de números disponibles.</li>
+
+                        <li style="text-align: justify;">En caso de que, por acreditaciones simultáneas de pagos realizadas el mismo día, los números disponibles se agoten antes de completarse la validación, el participante podrá no ingresar al sorteo. En tal supuesto, la Mutual informará la situación y procederá a reintegrar el importe abonado o, si el participante lo prefiere, a mantener la asociación sin participación en este sorteo, garantizando su inclusión en un sorteo futuro.</li>
+
+                        <li style="text-align: justify;">Una vez agotados los 1.000 números disponibles, la Mutual podrá realizar sorteos posteriores o nuevas ediciones de la promoción, lo cual será oportunamente informado a través de los canales oficiales.</li>
+
+                        <li style="text-align: justify;">El sorteo se realizará el 19 de marzo de 2026 por la Quiniela Nacional nocturna.</li>
+
+                        <li style="text-align: justify;">El ganador deberá acreditar identidad y cumplir con los requisitos legales correspondientes para la entrega del premio.</li>
+
+                        <li style="text-align: justify;">Promoción válida hasta agotar cupos o hasta la fecha de cierre que se establezca.</li>
+
                     </ul>
-                    
-                    <h4>2. Condiciones para participar</h4>
+
+
+
+                    <h3>Datos para realizar la transferencia:</h3>
                     <ul>
-                        <li>Abonar por adelantado el valor total correspondiente a seis (6) meses de cuota social:</li>
-                        <li style="margin-left: 20px;"> Cuota mensual: $5.000</li>
-                        <li style="margin-left: 20px;"> Monto total semestral: $30.000</li>
-                        <li>El pago debe acreditarse antes del cierre para obtener la participación.</li>
-                    </ul>
-                    
-                    <h4>3. Mecánica del sorteo</h4>
-                    <ul>
-                        <li>Sorteo realizado por Quiniela Nacional nocturna el 19/03/2026, conforme mecanismos oficiales.</li>
-                        <li>Cada pago semestral otorga una (1) chance, equivalente a un (1) número dentro de los 1.000 disponibles.</li>
-                        <li>Chance adicional opcional:</li>
-                        <li style="margin-left: 20px;"> Publica una historia en Instagram etiquetando la cuenta oficial de la Mutual.</li>
-                        <li style="margin-left: 20px;"> La cuenta debe ser pública al momento de la verificación o enviar captura por mensaje directo.</li>
-                        <li style="margin-left: 20px;"> Se asignará un (1) número extra, sujeto a disponibilidad.</li>
-                    </ul>
-                    
-                    <h4>4. Asignación de números</h4>
-                    <ul>
-                        <li>Los números se asignan según disponibilidad al momento de validar el pago.</li>
-                        <li>El contador de stock publicado en la web es la referencia oficial.</li>
-                        <li>Si se agotan los números por acreditaciones simultáneas:</li>
-                        <li style="margin-left: 20px;"> Se reintegrará el importe abonado en un plazo máximo de 10 días hábiles, o</li>
-                        <li style="margin-left: 20px;"> El participante podrá mantener la asociación sin participar en este sorteo, garantizando inclusión en uno futuro.</li>
-                    </ul>
-                    
-                    <h4>5. Premios</h4>
-                    <ul>
-                        <li><strong>Primer premio:</strong> Motocicleta 0 km cortesía de <strong>Lacognata Motos</strong>.</li>
-                        <li><strong>Segundo premio:</strong> Computadora de escritorio completa cortesía de <strong>XMPC Computación</strong>.</li>
-                        <li><strong>Tercer premio:</strong> Parrillada para 10 personas cortesía de <strong>La Esquina Dorada</strong>.</li>
-                        <li>Los ganadores deberán acreditar identidad y cumplir requisitos legales.</li>
-                        <li>Impuestos: Cualquier impuesto o gasto asociado al premio será asumido por el ganador, salvo que se indique lo contrario en las bases completas.</li>
-                    </ul>
-                    
-                    <h4>6. Aspectos legales y privacidad</h4>
-                    <ul>
-                        <li>Promoción autorizada por Lotería Nacional.</li>
-                        <li>El tratamiento de datos personales se realizará conforme a la Ley 25.326.</li>
-                        <li>Los datos se usarán exclusivamente para la gestión de la promoción y no se cederán a terceros sin consentimiento.</li>
-                    </ul>
-                    
-                    <!--<div class="numero-expediente">
-                        <p><strong>Bases y condiciones completas disponibles en:</strong> 
-                        <a href="../doc/bases-sorteo-asociados.pdf" target="_blank">Descargar PDF completo</a></p>
-                    </div>
--->
-                    <strong><h4>Datos para realizar la transferencia:</h4></strong>
-                    <ul>
-                        <li><strong>Titular de la Cuenta:</strong> WASI MUTUAL</li>
+                        <li><strong>Titular de la Cuenta: </strong> WASI MUTUAL</li>
                         <li><strong>Cuenta Corriente en Pesos:</strong> 1040029282</li>
                         <li><strong>CBU:</strong> 2990104110400292820004</li>
-                        <li>Para completar la participación, el comprobante debe cargarse a través del formulario accesible desde el botón "Quiero asociarme".</li>
+                        <li>Para completar la participación, el comprobante debe cargarse a través del formulario accesible desde el botón “Quiero asociarme”.</li>
                     </ul>
-                    
-                    <div class="legal-disclaimer">
-                        <p><strong>Nota:</strong> La participación en el sorteo está sujeta a la aceptación completa de estas bases y condiciones. Wasi Mutual se reserva el derecho de modificar o cancelar la promoción en caso de fuerza mayor, comunicándolo oportunamente a los participantes.</p>
-                    </div>
                 </div>
+
+
                 
                 <div class="noticia-actions">
                     <a href="../pages/asociate.html" class="btn btn-primary">
@@ -838,6 +706,7 @@
                     </a>
                 </div>
                 
+
             </article>
             
             <div class="back-to-news">
@@ -849,93 +718,93 @@
     </section>
 
     <!-- Footer -->
-    <footer id="contacto">
-        <div class="container">
-            <div class="footer-container">
-                <!-- Columna 1: Sobre Nosotros -->
-                <div class="footer-column footer-about">
-                    <div class="footer-logo">
-                        <img src="../images/logo.png" alt="Wasi Mutual" width="50" height="50">
-                        <span class="footer-logo-text">Wasi Mutual</span>
-                    </div>
-                    <p class="footer-description">Tu bienestar, nuestro compromiso. Solidaridad, ayuda mutua y compromiso social.</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-icon" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/543487525680" class="social-icon whatsapp-icon" aria-label="WhatsApp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
+       <footer id="contacto">
+    <div class="container">
+        <div class="footer-container">
+            <!-- Columna 1: Sobre Nosotros -->
+            <div class="footer-column footer-about">
+                <div class="footer-logo">
+                    <img src="../images/logo.png" alt="Wasi Mutual" width="50" height="50">
+                    <span class="footer-logo-text">Wasi Mutual</span>
                 </div>
-                
-                <!-- Columna 2: Navegación -->
-                <div class="footer-column">
-                    <h3>Navegación</h3>
-                    <ul>
-                        <li><a href="../INDEX2.html#home"><i class="fas fa-home"></i> Inicio</a></li>
-                        <li><a href="../INDEX2.html#novedades"><i class="fas fa-newspaper"></i> Novedades</a></li>
-                        <li><a href="../INDEX2.html#servicios"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
-                        <li><a href="../pages/asociate.html" class="asociate-link"><i class="fas fa-handshake"></i> ¡Asóciate!</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Columna 3: La Mutual -->
-                <div class="footer-column">
-                    <h3>La Mutual</h3>
-                    <ul>
-                        <li><a href="../pages/sobre-nosotros.html"><i class="fas fa-users"></i> Sobre Nosotros</a></li>
-                        <li><a href="../pages/historia-valores.html"><i class="fas fa-history"></i> Historia y Valores</a></li>
-                        <li><a href="../pages/beneficios.html"><i class="fas fa-star"></i> Beneficios Socios</a></li>
-                        <li><a href="../pages/soluciones-empresas.html"><i class="fas fa-building"></i> Soluciones Empresas</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Columna 4: Contacto (más ancha) -->
-                <div class="footer-column footer-contact">
-                    <h3>Contacto</h3>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <span class="contact-label">Dirección</span>
-                                <p>Pasaje Entre Rios 271, Zárate, Buenos Aires</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <span class="contact-label">Teléfono</span>
-                                <p>3487-525680</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <span class="contact-label">Email</span>
-                                <a href="mailto:info@wasi.mutual.ar" class="email-link">info@wasi.mutual.ar</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <span class="contact-label">Horario</span>
-                                <p>Lun-Vie: 9:00 - 17:00</p>
-                            </div>
-                        </div>
-                    </div>
+                <p class="footer-description">Tu bienestar, nuestro compromiso. Solidaridad, ayuda mutua y compromiso social.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/543487525680" class="social-icon whatsapp-icon" aria-label="WhatsApp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
                 </div>
             </div>
-            <!-- Copyright -->
-            <div class="copyright">
-                <p>© 2025 Wasi Mutual - Todos los derechos reservados</p>
-                <p class="design-credit">Diseñado por <a href="https://focustech.com.ar" target="_blank">FocusTech</a></p>
+            
+            <!-- Columna 2: Navegación -->
+            <div class="footer-column">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="../INDEX2.1.html#home"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="../INDEX2.1.html#novedades"><i class="fas fa-newspaper"></i> Novedades</a></li>
+                    <li><a href="../INDEX2.1.html#servicios"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
+                    <li><a href="../pages/asociate.html" class="asociate-link"><i class="fas fa-handshake"></i> ¡Asóciate!</a></li>
+                </ul>
+            </div>
+            
+            <!-- Columna 3: La Mutual -->
+            <div class="footer-column">
+                <h3>La Mutual</h3>
+                <ul>
+                    <li><a href="../pages/sobre-nosotros.html"><i class="fas fa-users"></i> Sobre Nosotros</a></li>
+                    <li><a href="../pages/historia-valores.html"><i class="fas fa-history"></i> Historia y Valores</a></li>
+                    <li><a href="../pages/beneficios.html"><i class="fas fa-star"></i> Beneficios Socios</a></li>
+                    <li><a href="../pages/soluciones-empresas.html"><i class="fas fa-building"></i> Soluciones Empresas</a></li>
+                </ul>
+            </div>
+            
+            <!-- Columna 4: Contacto (más ancha) -->
+            <div class="footer-column footer-contact">
+                <h3>Contacto</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <span class="contact-label">Dirección</span>
+                            <p>Pasaje Entre Rios 271, Zárate, Buenos Aires</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <span class="contact-label">Teléfono</span>
+                            <p>3487-525680</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <span class="contact-label">Email</span>
+                            <a href="mailto:info@wasi.mutual.ar" class="email-link">info@wasi.mutual.ar</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span class="contact-label">Horario</span>
+                            <p>Lun-Vie: 9:00 - 17:00</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer>
+        <!-- Copyright -->
+        <div class="copyright">
+            <p>© 2025 Wasi Mutual - Todos los derechos reservados</p>
+            <p class="design-credit">Diseñado por <a href="https://focustech.com.ar" target="_blank">FocusTech</a></p>
+        </div>
+    </div>
+</footer>
 
     <script>
         // Contador de números disponibles - Versión mejorada

@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - Wasi Mutual</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles-pages.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    
+    <style>
+        .nosotros-header {
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), url('https://cdn.pixabay.com/photo/2017/08/06/22/09/people-2597454_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .nosotros-content {
+            padding: 60px 0;
+        }
+        
+        .nosotros-body {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .nosotros-body h2 {
+            color: #1f307b;
+            margin: 40px 0 20px 0;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .nosotros-body p {
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        .intro-section {
+            background: linear-gradient(135deg, #f8f9ff 0%, #eef2ff 100%);
+            padding: 50px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border-left: 5px solid #2e429e;
+        }
+        
+        .intro-section h2 {
+            color: #1f307b;
+            margin-top: 0;
+        }
+        
+        .mision-vision-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin: 50px 0;
+        }
+        
+        .mision-card, .vision-card {
+            background: white;
+            padding: 40px 35px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-top: 5px solid #2e429e;
+            transition: transform 0.3s ease;
+        }
+        
+        .vision-card {
+            border-top-color: #ff9900;
+        }
+        
+        .mision-card:hover, .vision-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: linear-gradient(135deg, #1f307b, #2e429e);
+            color: white;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            border-radius: 50%;
+        }
+        
+        .vision-card .card-icon {
+            background: linear-gradient(135deg, #ff9900, #ffad33);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0 60px 0;
+        }
+        
+        .value-card {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            border: 1px solid #eef2ff;
+            transition: all 0.3s ease;
+        }
+        
+        .value-card:hover {
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+        
+        .value-icon {
+            font-size: 36px;
+            color: #2e429e;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: #f0f4ff;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+        }
+        
+        .history-section {
+            background: linear-gradient(135deg, #397db9 0%, #009198 100%);
+            padding: 20px 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .history-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/clean-textile.png');
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        .history-section h2 {
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .history-section p {
+            position: relative;
+            z-index: 1;
+            font-size: 1.1rem;
+        }
+        
+        .why-choose-section {
+            background: #f8f9ff;
+            padding: 50px 40px;
+            border-radius: 15px;
+            margin: 60px 0;
+        }
+        
+        .why-choose-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .why-choose-list li {
+            padding: 12px 0 12px 40px;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        
+        .why-choose-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            background: #2e429e;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: bold;
+        }
+        
+        .business-section {
+            margin: 60px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .business-section h2 {
+            color: white;
+        }
+        
+        .business-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .benefit-item {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .benefit-service {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            border-top: 4px solid #2e429e;
+        }
+        
+        .benefit-icon {
+            font-size: 40px;
+            color: #2e429e;
+            margin-bottom: 20px;
+        }
+        
+        .testimonials-section {
+            margin: 60px 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 80px;
+            color: #eef2ff;
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #1f307b;
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin: 60px 0 40px 0;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .btn-human {
+            background: linear-gradient(135deg, #2e429e, #1f307b);
+            color: white;
+            border: none;
+        }
+        
+        .btn-institutional {
+            background: linear-gradient(135deg, #00b09b, #96c93d);
+            color: white;
+            border: none;
+        }
+        
+        .btn-inspirational {
+            background: linear-gradient(135deg, #ff9900, #ffad33);
+            color: white;
+            border: none;
+        }
+        
+        /* Sección de Estadísticas Mejorada */
+        .stats-section {
+            margin: 60px 0;
+            text-align: center;
+        }
+        
+        .stats-title {
+            color: #1f307b;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .stats-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+        
+        .about-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .about-stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/clean-textile.png');
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px 35px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            min-width: 200px;
+            flex: 1;
+            max-width: 220px;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.35);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            color: #ffffff;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            font-weight: 500;
+            opacity: 0.95;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 1.3;
+        }
+        
+        .stat-icon {
+            font-size: 24px;
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+        
+        .back-to-home {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .mision-vision-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .values-grid, .benefits-grid, .business-benefits {
+                grid-template-columns: 1fr;
+            }
+            
+            .intro-section, .history-section, .why-choose-section, .business-section {
+                padding: 30px 20px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .about-stats {
+                padding: 30px 20px;
+                gap: 20px;
+            }
+            
+            .stats-row {
+                gap: 20px;
+            }
+            
+            .stat-item {
+                padding: 20px 25px;
+                min-width: 160px;
+                max-width: 180px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .stats-title {
+                font-size: 1.7rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-row {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .stat-item {
+                min-width: auto;
+                width: 100%;
+                max-width: 220px;
+                margin: 0 auto;
+            }
+            
+            .stat-number {
+                font-size: 2.2rem;
+            }
+            
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+    <div class="header-container">
+        <div class="logo">
+            <a href="../INDEX2.1.html" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                <span class="logo-text">Wasi Mutual</span>
+            </a>
+        </div>
+        
+        <!-- Menú principal estilo CNZ -->
+        <div class="cnz-menu-container">
+            <ul class="cnz-main-nav">
+                <li><a href="../INDEX2.1.html#home">Inicio</a></li>
+                
+                <li class="menu-item-has-children">
+                    <a>Novedades</a>
+                    <ul class="cnz-sub-menu">
+                        <li><a href="#novedades">Últimas Novedades</a></li>
+                        <li><a href="../pages/noticia-sorteo-asociados.html">Sorteo Motocicleta</a></li>
+                        <li><a href="../pages/noticia-asesoria-legal.html">Asesoría Legal</a></li>
+                        <li><a href="..//pages/hotel-guerrero.html">Hotel Guerrero</a></li>
+                        <li><a href="../pages/noticia-capacitacion-emprendurismo.html">Capacitación Emprendurismo</a></li>
+                    </ul>
+                </li>
+                
+                <li class="menu-item-has-children">
+                    <a>Servicios</a>
+                    <ul class="cnz-sub-menu">
+                        <li><a href="../INDEX2.1.html#servicios">Nuestros Servicios</a></li>
+                        <li><a href="../INDEX2.1.html#servicios">Turismo</a></li>
+                        <li><a href="../INDEX2.1.html#servicios">Asesoramiento Jurídico</a></li>
+                        <li><a href="../INDEX2.1.html#servicios">Capacitaciones</a></li>
+                    </ul>
+                </li>
+                
+                <li class="menu-item-has-children">
+                    <a>La Mutual</a>
+                    <ul class="cnz-sub-menu">
+                        <li><a href="../pages/sobre-nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="../pages/sobre-nosotros.html">Nuestra Historia</a></li>
+                        <!--<li><a href="pages/socios.html">Socio</a></li>-->
+                        <li><a href="../pages/sobre-nosotros.html">Empresas</a></li>
+                        <li><a href="../doc/estatuto.pdf" target="_blank">Estatuto</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="../pages/asociate.html" class="asociate-btn">¡ASÓCIATE!</a></li>
+                
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+        
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</header>
+<!-- Header Menú móvil -->
+<div class="overlay"></div>
+<div class="mobile-menu">
+    <div class="mobile-menu-header">
+        <div class="logo">
+            <a href="../INDEX2.1.html" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                <span class="logo-text">Wasi Mutual</span>
+            </a>
+        </div>
+        <button class="mobile-menu-close">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <ul class="mobile-nav">
+        <li><a href="../INDEX2.1.html#home">Inicio</a></li>
+        
+        <li class="menu-item-has-children">
+            <a href="../INDEX2.html#novedades">Novedades
+            <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span></a>
+            <ul class="mobile-submenu">
+                <li><a href="#novedades">Últimas Novedades</a></li>
+                <li><a href="../pages/noticia-sorteo-asociados.html">Sorteo Motocicleta</a></li>
+                <li><a href="../pages/noticia-asesoria-legal.html">Asesoría Legal</a></li>
+                <li><a href="../pages/hotel-guerrero.html">Hotel Guerrero</a></li>
+                <li><a href="../pages/noticia-capacitacion-emprendurismo.html">Capacitación Emprendurismo</a></li>
+            </ul>
+        </li>
+        
+        <li class="menu-item-has-children">
+            <a href="#">Servicios
+            <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span></a>
+            <ul class="mobile-submenu">
+                <li><a href="#servicios">Nuestros Servicios</a></li>
+                <li><a href="#servicios">Turismo</a></li>
+                <li><a href="#servicios">Asesoramiento Jurídico</a></li>
+                <li><a href="#servicios">Capacitaciones</a></li>
+            </ul>
+        </li>
+        
+        <li class="menu-item-has-children">
+            <a href="#">Sobre Nosotros
+                <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span></a>
+            <ul class="mobile-submenu">
+                <li><a href="pages/sobre-nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="doc/estatuto.pdf" target="_blank">Estatuto</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </li>
+        
+        <li><a href="../pages/asociate.html" class="asociate-btn">¡ASÓCIATE!</a></li>
+        
+        <li><a href="#contacto">Contacto</a></li>
+    </ul>
+</div>
+
+    <!-- Encabezado Sobre Nosotros -->
+    <section class="nosotros-header">
+        <div class="container" style="margin-top: 20px; font-size: 1.3rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.5; text-align: center;">
+            <h1>Wasi Asociación Mutual</h1>
+<p style="margin-top: 20px; font-size: 1.4rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.5; color: #ffffff; font-style: italic; font-weight: bold; text-shadow: 0px 0px 15px rgba(163, 196, 249, 0.477), 0px 0px 5px rgba(255, 255, 255, 0.5); letter-spacing: 0.5px;">
+    Siempre en tu equipo
+</p>
+            <!--<p style="margin-top: 20px; font-size: 1.3rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.5;">
+                <strong>WASI</strong> significa hogar, refugio, posada. Y eso queremos ser: un lugar donde cada persona encuentre apoyo, oportunidades y una comunidad que lo impulsa a estar mejor.
+            </p>-->
+        </div>
+    </section>
+        
+    <!-- Contenido Sobre Nosotros -->
+    <section class="nosotros-content">
+        <div class="container">
+            <article class="nosotros-body">
+                <!--<div class="intro-section">
+                    <p>En <strong>Wasi Mutual</strong> trabajamos día a día para elevar la calidad de vida de nuestros asociados. Lo hacemos desde la solidaridad, la cooperación y la convicción de que cuando nos unimos, todo es posible.</p>
+                    <p>Somos una organización solidaria que cree en el poder de la comunidad para transformar realidades y construir un futuro mejor para todos.</p>
+                </div>-->
+                <div class="history-section">
+                    <h2>Nuestra Historia</h2>
+                    <p><strong>WASI</strong> es una palabra quechua que significa “hogar”, “refugio” y “posada”; no encontramos otro vocablo o sigla que contenga dicha voluntad humana de forma más expresiva y compresiva.</p>
+                    <p>Este proyecto nació con una idea simple y poderosa: crear una organización que escuche, apoye y responda a las necesidades reales de las personas.</p>
+                    <p>Crecimos gracias a la confianza de nuestros asociados y al trabajo de un equipo que hace de la solidaridad su forma de vida. Hoy seguimos evolucionando, sin perder nuestra esencia: ofrecer un espacio donde cada persona pueda sentirse en casa.</p>
+                </div>
+                
+                <!--Seccion Nuestros Valores-->
+                <h2>Nuestros Valores</h2>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Solidaridad</h3>
+                        <p>Actuamos con compromiso auténtico por el bienestar de nuestra comunidad.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Cooperación</h3>
+                        <p>Avanzamos juntos, sumando esfuerzos para lograr beneficios que nos incluyan a todos.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Transparencia</h3>
+                        <p>Gestionamos con claridad, responsabilidad y honestidad en todas nuestras acciones.</p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Innovación</h3>
+                        <p>Buscamos nuevas formas de crecer y acompañar mejor a cada asociado.</p>
+                    </div>
+                </div>
+
+                <!--Seccion Nuestro Valores-->
+
+                <h2>Beneficios Wasi</h2>
+                <p style="margin-bottom: 30px;">Transformamos la palabra "servicios" en experiencias reales para nuestra comunidad.</p>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-service">
+                        <div class="benefit-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Salud y Medicamentos</h3>
+                        <p>Acceso a descuentos, convenios y acompañamiento para el cuidado integral.</p>
+                    </div>
+                    
+                    <div class="benefit-service">
+                        <div class="benefit-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <h3>Turismo Social</h3>
+                        <p>Experiencias accesibles, viajes organizados y oportunidades para descubrir nuevos destinos.</p>
+                    </div>
+                    
+                    <div class="benefit-service">
+                        <div class="benefit-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Formación y Educación</h3>
+                        <p>Talleres, cursos y actividades que impulsan el crecimiento personal y profesional.</p>
+                    </div>
+                    
+                    <div class="benefit-service">
+                        <div class="benefit-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3>Recreación y Bienestar</h3>
+                        <p>Propuestas pensadas para disfrutar, compartir y fortalecer vínculos.</p>
+                    </div>
+                    
+                    <div class="benefit-service">
+                        <div class="benefit-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Futuro Plan de Vivienda</h3>
+                        <p>Trabajamos para que cada asociado pueda proyectar un hogar propio.</p>
+                    </div>
+                </div>
+                <!--¿Por qué elegirnos?-->
+                <div class="why-choose-section">
+                    <h2>¿Por qué elegir Wasi?</h2>
+                    <p>En Wasi Mutual no sumás un número más: sumás un aliado real. Somos una organización creada para acompañar, proteger y brindar oportunidades a quienes deciden crecer en comunidad.</p>
+                    <p>Elegirnos es acceder a:</p>
+                    <ul class="why-choose-list">
+                        <li>Acompañamiento cercano, humano y permanente.</li>
+                        <li>Servicios concretos que mejoran la vida diaria (salud, turismo, educación y más).</li>
+                        <li>Una comunidad activa, comprometida y en pleno crecimiento.</li>
+                        <li>Convenios que abren puertas a beneficios exclusivos.</li>
+                        <li>Una institución seria, transparente y con visión de futuro.</li>
+                    </ul>
+                    <p style="margin-top: 20px; font-style: italic;">Aquí, cada asociado importa. Aqui, cada paso lo damos juntos.</p>
+                </div>
+                <!-- Sección de Estadísticas -->
+                <div class="stats-section">
+                    <h2 class="stats-title">Nuestro Impacto en Cifras</h2>
+                    <p class="stats-subtitle">Estos números reflejan nuestro compromiso y crecimiento continuo en la comunidad</p>
+                    
+                    <div class="about-stats">
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <span class="stat-number" data-target="1">0</span>
+                                <span class="stat-label">Años de experiencia</span>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <span class="stat-number" data-target="86">0</span>
+                                <span class="stat-label">Asociados activos</span>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <span class="stat-number" data-target="2">0</span>
+                                <span class="stat-label">Convenios activos</span>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="fas fa-concierge-bell"></i>
+                                </div>
+                                <span class="stat-number" data-target="3">0</span>
+                                <span class="stat-label">Servicios exclusivos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mision-vision-container">
+                    <div class="vision-card">
+                        <div class="card-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h2>Visión</h2>
+                        <p>Ser una mutual referente en Argentina y Latinoamérica, reconocida por abrir puertas a una vida mejor. Soñamos con una red que acompañe a cada persona a lo largo de su camino: salud, educación, turismo, vivienda y bienestar.</p>
+                        <p>Queremos ser ese motor que transforma realidades: barrios propios, programas educativos, medicamentos más accesibles y experiencias que acerquen al mundo. Sabemos hacia dónde vamos y lo construimos juntos.</p>
+                    </div>
+                    
+                    <div class="mision-card">
+                        <div class="card-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h2>Misión</h2>
+                        <p>Impulsar una organización moderna, cercana y eficiente que dé respuestas concretas a las necesidades de nuestros asociados.</p>
+                        <p>Creamos servicios que aportan valor real: salud, descuentos en medicamentos, formación, recreación, turismo social y futuros planes de vivienda.</p>
+                        <p>Trabajamos con transparencia, cooperación y una mirada de largo plazo, para que cada miembro sienta que pertenecer a Wasi es una decisión que mejora su vida.</p>
+                    </div>
+                </div>
+                
+                
+                
+
+                
+                
+                
+                <div class="business-section">
+                    <h2>Soluciones para Empresas y Sindicatos</h2>
+                    <p>En Wasi acompañamos a organizaciones que buscan cuidar a su gente y fortalecer su comunidad interna. Ofrecemos beneficios que mejoran la calidad de vida, aumentan el sentido de pertenencia y aportan valor tangible.</p>
+                    
+                    <p><strong>¿Qué obtiene tu organización al unirse a Wasi?</strong></p>
+                    
+                    <div class="business-benefits">
+                        <div class="benefit-item">
+                            <p>✓ Programas de bienestar que hacen la diferencia</p>
+                        </div>
+                        <div class="benefit-item">
+                            <p>✓ Acceso a servicios y descuentos exclusivos para tus afiliados o empleados</p>
+                        </div>
+                        <div class="benefit-item">
+                            <p>✓ Actividades recreativas, educativas y turísticas para toda la familia</p>
+                        </div>
+                        <div class="benefit-item">
+                            <p>✓ Un aliado con responsabilidad social y compromiso territorial</p>
+                        </div>
+                        <div class="benefit-item">
+                            <p>✓ Acompañamiento personalizado y atención directa</p>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 20px; font-size: 1.1rem;"><strong>Más bienestar para tu gente. Más impacto para tu organización.</strong></p>
+                </div>
+                
+                
+                
+                <!--<div class="testimonials-section">
+                    <h2>Testimonios</h2>
+                    <p style="margin-bottom: 20px;">Lo que dicen quienes ya forman parte de nuestra comunidad:</p>
+                    
+                    <div class="testimonial-grid">
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Encontré en Wasi un espacio donde realmente se escucha y se acompaña. No es una mutual más."</p>
+                            <p class="testimonial-author">— Marta R., asociada</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Como organización, sumarnos a Wasi nos permitió ofrecer más beneficios a nuestra gente sin burocracia ni complicaciones."</p>
+                            <p class="testimonial-author">— Carlos P., representante sindical</p>
+                        </div>
+                        
+                        <div class="testimonial-card">
+                            <p class="testimonial-text">"Los programas de turismo y recreación nos sorprendieron. Son accesibles y de calidad."</p>
+                            <p class="testimonial-author">— Romina y Lucas, asociados</p>
+                        </div>
+                    </div>
+                </div>-->
+                
+                <div class="cta-section">
+                    <h2>¿Listo para ser parte del cambio?</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 10px;">Elegí cómo querés sumarte a nuestra comunidad:</p>
+                    
+                    
+                </div>
+                
+                <div class="back-to-home">
+                    <a href="../INDEX2.html" class="btn btn-gradient">
+                        <i class="fas fa-arrow-left"></i> Volver al Inicio
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                        <span class="footer-logo-text">Wasi Mutual</span>
+                    </div>
+                    <p>Tu bienestar, nuestro compromiso. Solidaridad, ayuda mutua y compromiso social.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Turismo y recreación</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Farmacia y convenios</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Acceso a vivienda</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Sepelio</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Servicios</a></li>
+                        <li><a href="sobre-nosotros.html" ><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+                        <li><a href="#novedades"><i class="fas fa-chevron-right"></i> Novedades</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i>Pasaje Entre Rios 271, Zárate, Buenos Aires</p>
+                        <p><i class="fas fa-phone"></i> 3487-525680</p>
+                        <p><i class="fas fa-envelope"></i> 
+                            <a href="mailto:info@wasi.mutual.ar?subject=Quiero hacer una consulta&body=Hola Mutual Wasi quisiera mas informacion sobre:" class="email-link">
+                                info@wasi.mutual.ar
+                            </a>
+                        </p>
+                        <p><i class="fas fa-clock"></i> Lunes a Viernes: 9:00 - 17:00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 Wasi Mutual - Todos los derechos reservados</p>
+                <p style="margin-top: 10px; font-size: 0.8rem;">Designed by <a href="https://focustech.com.ar" style="color: var(--accent-color);">FocusTech</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animación de conteo para las estadísticas
+        document.addEventListener('DOMContentLoaded', function() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = parseInt(entry.target.getAttribute('data-target'));
+                        animateCount(entry.target, target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            statNumbers.forEach(stat => {
+                observer.observe(stat);
+            });
+            
+            function animateCount(element, target) {
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        element.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = Math.floor(current);
+                    }
+                }, 30);
+            }
+        });
+    </script>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>

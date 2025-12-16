@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles-pages.css">
+    <link rel="stylesheet" href="../css/styles.css">
     
     <style>
         .terminos-header {
@@ -138,7 +139,7 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
+ <header>
         <div class="header-container">
             <div class="logo">
                 <a href="../INDEX2.html" style="display: flex; align-items: center; text-decoration: none;">
@@ -146,22 +147,95 @@
                     <span class="logo-text">Wasi Mutual</span>
                 </a>
             </div>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav>
-                <ul>
+            
+            <!-- Menú principal estilo CNZ -->
+            <div class="cnz-menu-container">
+                <ul class="cnz-main-nav">
                     <li><a href="../INDEX2.html#home">Inicio</a></li>
                     <li><a href="../INDEX2.html#novedades">Novedades</a></li>
                     <li><a href="../INDEX2.html#servicios">Servicios</a></li>
-                    <li><a href="sobre-nosotros.html">Sobre Nosotros</a></li>
-                    <li><a href="../doc/estatuto.pdf" target="_blank">Estatuto</a></li>
-                    <li><a href="../INDEX2.html#contacto">Contacto</a></li>
+                    <!--<li class="menu-item-has-children">
+                        <a>Servicios</a>
+                        <ul class="cnz-sub-menu">
+                            <li><a href="../INDEX2.html#servicios">Nuestros Servicios</a></li>
+                            <li><a href="../INDEX2.html#servicios">Turismo</a></li>
+                            <li><a href="../INDEX2.html#servicios">Asesoramiento Jurídico</a></li>
+                            <li><a href="../INDEX2.html#servicios">Capacitaciones</a></li>
+                        </ul>
+                    </li>-->
+                    
+                    <li class="menu-item-has-children">
+                        <a>La Mutual</a>
+                        <ul class="cnz-sub-menu">
+                            <li><a href="../pages/sobre-nosotros.html">¿Qué es Wasi?</a></li>
+                            <li><a href="../pages/historia-valores.html">Historia y Valores</a></li>
+                            <li><a href="../pages/beneficios.html">Beneficios Socios</a></li>
+                            <li><a href="../pages/soluciones-empresas.html">Soluciones para Empresas</a></li>
+                            <li><a href="../doc/estatuto.pdf" target="_blank">Estatuto</a></li>
+                            <li><a href="../pages/terminos.html">Términos y Condiciones</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="../pages/asociate.html" class="asociate-btn">¡ASÓCIATE!</a></li>
+                    
+                    <li><a href="../pages/contacto.html">Contacto</a></li>
                 </ul>
-            </nav>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
-
+    
+    <!-- Menú móvil (manteniendo el original) -->
+    <div class="overlay"></div>
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <a href="../INDEX2.html" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                    <span class="logo-text">Wasi Mutual</span>
+                </a>
+            </div>
+            <button class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="mobile-nav">
+            <li><a href="../INDEX2.html#home">Inicio</a></li>
+            <li><a href="../INDEX2.html#novedades">Novedades</a></li>
+            <li><a href="../INDEX2.html#servicios">Servicios</a></li>
+            <!--<li class="menu-item-has-children">
+                <a href="#">Servicios
+                <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span></a>
+                <ul class="mobile-submenu">
+                    <li><a href="#servicios">Nuestros Servicios</a></li>
+                    <li><a href="#servicios">Turismo</a></li>
+                    <li><a href="#servicios">Asesoramiento Jurídico</a></li>
+                    <li><a href="#servicios">Capacitaciones</a></li>
+                </ul>
+            </li>-->
+            
+            <li class="menu-item-has-children">
+                <a href="#">La Mutual
+                    <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span></a>
+                <ul class="mobile-submenu">
+                    <li><a href="../pages/sobre-nosotros.html">¿Qué es Wasi?</a></li>
+                    <li><a href="../pages/historia-valores.html">Historia y Valores</a></li>
+                    <li><a href="../pages/beneficios.html">Beneficios Socios</a></li>
+                    <li><a href="../pages/soluciones-empresas.html">Soluciones para Empresas</a></li>
+                    <li><a href="../doc/estatuto.pdf" target="_blank">Estatuto</a></li>
+                    <li><a href="../pages/terminos.html">Términos y Condiciones</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="../pages/asociate.html" class="asociate-btn">¡ASÓCIATE!</a></li>
+            
+            <li><a href="../pages/contacto.html">Contacto</a></li>
+        </ul>
+    </div>
     <!-- Contenido de Términos y Condiciones -->
     <section class="terminos-header">
         <div class="container">
@@ -309,64 +383,109 @@
 
     <!-- Footer -->
     <footer id="contacto">
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-about">
-                    <div class="footer-logo">
-                        <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
-                        <span class="footer-logo-text">Wasi Mutual</span>
-                    </div>
-                    <p>Tu bienestar, nuestro compromiso. Solidaridad, ayuda mutua y compromiso social.</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                    </div>
+    <div class="container">
+        <div class="footer-container">
+            <!-- Columna 1: Sobre Nosotros -->
+            <div class="footer-column footer-about">
+                <div class="footer-logo">
+                    <img src="../images/logo.png" alt="Wasi Mutual" width="50" height="50">
+                    <span class="footer-logo-text">Wasi Mutual</span>
                 </div>
-                
-                <div class="footer-column">
-                    <h3>Servicios</h3>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Turismo y recreación</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Farmacia y convenios</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Acceso a vivienda</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Sepelio</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Enlaces rápidos</h3>
-                    <ul>
-                        <li><a href="../INDEX2.html#home"><i class="fas fa-chevron-right"></i> Inicio</a></li>
-                        <li><a href="../INDEX2.html#servicios"><i class="fas fa-chevron-right"></i> Servicios</a></li>
-                        <li><a href="sobre-nosotros.html" ><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
-                        <li><a href="../INDEX2.html#novedades"><i class="fas fa-chevron-right"></i> Novedades</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Contacto</h3>
-                    <div class="footer-contact">
-                        <p><i class="fas fa-map-marker-alt"></i>Pasaje Entre Rios 271, Zárate, Buenos Aires</p>
-                        <p><i class="fas fa-phone"></i> 3487-525680</p>
-                        <p><i class="fas fa-envelope"></i> 
-                        <a href="mailto:info@wasi.mutual.ar" class="email-link">
-                            info@wasi.mutual.ar
-                        </a>
-                        </p>
-                        <p><i class="fas fa-clock"></i> Lunes a Viernes: 9:00 - 17:00</p>
-                    </div>
-                    <!--<a href="#" class="btn btn-warning" style="margin-top: 15px; padding: 10px 20px;">Enviar mensaje</a>-->
+                <p class="footer-description">Tu bienestar, nuestro compromiso. Solidaridad, ayuda mutua y compromiso social.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/543487525680" class="social-icon whatsapp-icon" aria-label="WhatsApp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
                 </div>
             </div>
-            <div class="copyright">
-                <p>© 2025 Wasi Mutual - Todos los derechos reservados</p>
-                <p style="margin-top: 10px; font-size: 0.8rem;">Designed by <a href="https://focustech.com.ar" style="color: var(--accent-color);">FocusTech</a></p>
+            
+            <!-- Columna 2: Navegación -->
+            <div class="footer-column">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="../INDEX2.html#home"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="../INDEX2.html#novedades"><i class="fas fa-newspaper"></i> Novedades</a></li>
+                    <li><a href="../INDEX2.html#servicios"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
+                    <li><a href="../pages/asociate.html" class="asociate-link"><i class="fas fa-handshake"></i> ¡Asóciate!</a></li>
+                </ul>
+            </div>
+            
+            <!-- Columna 3: La Mutual -->
+            <div class="footer-column">
+                <h3>La Mutual</h3>
+                <ul>
+                    <li><a href="../pages/sobre-nosotros.html"><i class="fas fa-users"></i> Sobre Nosotros</a></li>
+                    <li><a href="../pages/historia-valores.html"><i class="fas fa-history"></i> Historia y Valores</a></li>
+                    <li><a href="../pages/beneficios.html"><i class="fas fa-star"></i> Beneficios Socios</a></li>
+                    <li><a href="../pages/soluciones-empresas.html"><i class="fas fa-building"></i> Soluciones Empresas</a></li>
+                </ul>
+            </div>
+            
+            <!-- Columna 4: Contacto (más ancha) -->
+            <div class="footer-column footer-contact">
+                <h3>Contacto</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <span class="contact-label">Dirección</span>
+                            <p>Pasaje Entre Rios 271, Zárate, Buenos Aires</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <span class="contact-label">Teléfono</span>
+                            <p>3487-525680</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <span class="contact-label">Email</span>
+                            <a href="mailto:info@wasi.mutual.ar" class="email-link">info@wasi.mutual.ar</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span class="contact-label">Horario</span>
+                            <p>Lun-Vie: 9:00 - 17:00</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer>
-
+        <!-- Copyright -->
+        <div class="copyright">
+            <p>© 2025 Wasi Mutual - Todos los derechos reservados</p>
+            <p class="design-credit">Diseñado por <a href="https://focustech.com.ar" target="_blank">FocusTech</a></p>
+        </div>
+    </div>
+</footer>
+<!-- Botón Asociate Flotante -->
+        <!-- Botones Flotantes -->
+        <div class="floating-buttons-container">
+            <!-- Botón WhatsApp -->
+            <a href="https://wa.me/5493487525680?text=Hola%20Wasi%20Mutual,%20me%20interesa%20asociarme" 
+            class="floating-btn whatsapp-btn" 
+            target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                
+            </a>
+            
+            <!-- Botón Asociate -->
+            <!--<a href="pages/asociate.html" class="floating-btn associate-btn">
+                <i class="fas fa-user-plus"></i>
+                <span class="btn-text">Asociate</span>
+            </a>-->
+        </div>
     <script src="../js/scripts.js"></script>
 </body>
 </html>

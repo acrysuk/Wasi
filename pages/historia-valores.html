@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia y Valores - Wasi Mutual</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles-pages.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #009198;
+           
+            --light-color: #f8f9fa;
+            --dark-color: #333;
+            --gradient-primary: linear-gradient(135deg, #1a365d 0%, #009198 100%);
+            --gradient-secondary: linear-gradient(to right, #2e429e, #009198);
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --box-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        .historia-header {
+            background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.9)), url('https://cdn.pixabay.com/photo/2017/08/06/22/09/people-2597454_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 120px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .historia-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/clean-textile.png');
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        
+        .historia-header h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .historia-header p {
+            margin-top: 20px;
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .history-section {
+            background: var(--gradient-primary);
+            padding: 60px 50px;
+            border-radius: var(--border-radius);
+            margin: 60px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .history-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/clean-textile.png');
+            opacity: 0.08;
+            pointer-events: none;
+        }
+        
+        .history-section h2 {
+            color: white;
+            position: relative;
+            z-index: 1;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .history-section p {
+            position: relative;
+            z-index: 1;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .history-section p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .history-section strong {
+            color: #ffcc66;
+            font-weight: 600;
+        }
+        
+        .values-section {
+            padding: 80px 0 60px;
+        }
+        
+        .values-section h2 {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.4rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .values-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-secondary);
+            border-radius: 2px;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .value-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-secondary);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, rgba(46, 66, 158, 0.1), rgba(0, 145, 152, 0.1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .value-card:hover .value-icon {
+            background: linear-gradient(135deg, rgba(46, 66, 158, 0.15), rgba(0, 145, 152, 0.15));
+            transform: scale(1.05);
+        }
+        
+        .value-icon i {
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+        
+        .value-card:hover .value-icon i {
+            color: var(--primary-color);
+        }
+        
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .value-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+        
+        .page-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1rem;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(26, 54, 93, 0.05);
+            transform: translateY(-3px);
+        }
+        
+        .btn-gradient {
+            background: var(--gradient-secondary);
+            color: white;
+        }
+        
+        .btn-gradient:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(46, 66, 158, 0.2);
+        }
+        
+        .btn i {
+            margin: 0 8px;
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.1), transparent);
+            margin: 60px 0;
+        }
+        
+        /* Estilos para la línea de tiempo (opcional) */
+        .timeline-section {
+            padding: 60px 0;
+        }
+        
+        .timeline-toggle {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .timeline-toggle-btn {
+            background: var(--light-color);
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+        
+        .timeline-toggle-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            display: none;
+        }
+        
+        .timeline-container.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .historia-header {
+                padding: 100px 0 80px;
+            }
+            
+            .historia-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .history-section {
+                padding: 50px 30px;
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 25px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .historia-header h1 {
+                font-size: 2.4rem;
+            }
+            
+            .historia-header p {
+                font-size: 1.2rem;
+            }
+            
+            .values-section h2 {
+                font-size: 2rem;
+            }
+            
+            .value-card {
+                padding: 30px 20px;
+            }
+            
+            .page-navigation {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .historia-header {
+                padding: 80px 0 60px;
+            }
+            
+            .historia-header h1 {
+                font-size: 2rem;
+            }
+            
+            .history-section {
+                padding: 40px 20px;
+                margin: 40px 0;
+            }
+            
+            .history-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+                .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .value-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 300px;
+        }
+        
+        .value-card p {
+            flex-grow: 1;
+        }
+        
+        /* Asegurar que todos tengan la misma altura */
+        .value-icon {
+            height: 80px;
+            flex-shrink: 0;
+        }
+        
+        .value-card h3 {
+            margin: 20px 0 15px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Responsive: tablet 2x2 */
+        @media (max-width: 1024px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            
+            .value-card {
+                min-height: 280px;
+            }
+        }
+        
+        /* Responsive: móviles se apilan */
+        @media (max-width: 768px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .value-card {
+                min-height: 250px;
+            }
+            
+            .value-card h3 {
+                min-height: auto;
+                margin: 15px 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header (igual que tu archivo original) -->
+<header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../INDEX2.html" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                    <span class="logo-text">Wasi Mutual</span>
+                </a>
+            </div>
+            
+            <!-- Menú principal estilo CNZ -->
+            <div class="cnz-menu-container">
+                <ul class="cnz-main-nav">
+                    <li><a href="../INDEX2.html#home">Inicio</a></li>
+                    <li><a href="../INDEX2.html#novedades">Novedades</a></li>
+                    <li><a href="../INDEX2.html#servicios">Servicios</a></li>
+                    <!--<li class="menu-item-has-children">
+                        <a>Servicios</a>
+                        <ul class="cnz-sub-menu">
+                            <li><a href="../INDEX2.html#servicios">Nuestros Servicios</a></li>
+                            <li><a href="../INDEX2.html#servicios">Turismo</a></li>
+                            <li><a href="../INDEX2.html#servicios">Asesoramiento Jurídico</a></li>
+                            <li><a href="../INDEX2.html#servicios">Capacitaciones</a></li>
+                        </ul>
+                    </li>-->
+                    
+                    <li class="menu-item-has-children">
+                        <a>La Mutual</a>
+                        <ul class="cnz-sub-menu">
+                            <li><a href="../pages/sobre-nosotros.html">¿Qué es Wasi?</a></li>
+                            <li><a href="../pages/historia-valores.html">Historia y Valores</a></li>
+                            <li><a href="../pages/beneficios.html">Beneficios Socios</a></li>
+                            <li><a href="../pages/soluciones-empresas.html">Soluciones para Empresas</a></li>
+                            <li><a href="../doc/estatuto.pdf" target="_blank">Estatuto</a></li>
+                            <li><a href="../pages/terminos.html">Términos y Condiciones</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="../pages/asociate.html" class="asociate-btn">¡ASÓCIATE!</a></li>
+                    
+                    <li><a href="../pages/contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Menú móvil (manteniendo el original) -->
+    <div class="overlay"></div>
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <a href="../INDEX2.html" style="display: flex; align-items: center; text-decoration: none;">
+                    <img src="../images/logo.png" alt="Wasi Mutual" width="40" height="40" style="margin-right: 8px;">
+                    <span class="logo-text">Wasi Mutual</span>
+                </a>
+            </div>
+            <button class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="mobile-nav">
+            <li><a href="../INDEX2.html#home">Inicio</a></li>
+            <li><a href="../INDEX2.html#novedades">Novedades</a></li>
+            <li><a href="../INDEX2.html#servicios">Servicios</a></li>
+            <!--<li class="menu-item-has-children">
+                <a href="#">Servicios
+                <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span></a>
+                <ul class="mobile-submenu">
+                    <li><a href="#servicios">Nuestros Servicios</a></li>
+                    <li><a href="#servicios">Turismo</a></li>
+                    <li><a href="#servicios">Asesoramiento Jurídico</a></li>
+                    <li><a href="#servicios">Capacitaciones</a></li>
+                </ul>
+            </li>-->
+            
+            <li class="menu-item-has-children">
+                <a href="#">La Mutual
+                    <span class="submenu-toggle"><i class="fas fa-chevron-down"></i></span></a>
+                <ul class="mobile-submenu">
+                    <li><a href="../pages/sobre-nosotros.html">¿Qué es Wasi?</a></li>
+                    <li><a href="../pages/historia-valores.html">Historia y Valores</a></li>
+                    <li><a href="../pages/beneficios.html">Beneficios Socios</a></li>
+                    <li><a href="../pages/soluciones-empresas.html">Soluciones para Empresas</a></li>
+                    <li><a href="../doc/estatuto.pdf" target="_blank">Estatuto</a></li>
+                    <li><a href="../pages/terminos.html">Términos y Condiciones</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="../pages/asociate.html" class="asociate-btn">¡ASÓCIATE!</a></li>
+            
+            <li><a href="../pages/contacto.html">Contacto</a></li>
+        </ul>
+    </div>
+
+    <!-- Encabezado -->
+    <section class="historia-header">
+        <div class="container">
+            <h1>Nuestra Historia y Valores</h1>
+            <p>El camino que construimos juntos</p>
+        </div>
+    </section>
+    
+    <!-- Contenido -->
+    <section class="nosotros-content">
+        <div class="container">
+            <article class="nosotros-body">
+                <!-- Historia -->
+                <div class="history-section">
+                    <h2>Nuestra Historia</h2>
+                    <p><strong>WASI</strong> es una palabra quechua que significa "hogar", "refugio" y "posada". No encontramos otro vocablo o sigla que contenga dicha voluntad humana de forma más expresiva y compresiva.</p>
+                    <p>Este proyecto nació con una idea simple y poderosa: crear una organización que escuche, apoye y responda a las necesidades reales de las personas.</p>
+                    <p>Crecimos gracias a la confianza de nuestros asociados y al trabajo de un equipo que hace de la solidaridad su forma de vida. Hoy seguimos evolucionando, sin perder nuestra esencia: ofrecer un espacio donde cada persona pueda sentirse en casa.</p>
+                </div>
+                
+                <!-- Línea de Tiempo (opcional y mejorada) -->
+                <!--<div class="timeline-section">
+                    <div class="timeline-toggle">
+                        <button class="timeline-toggle-btn" id="toggleTimeline">
+                            <i class="fas fa-history"></i> Ver Línea de Tiempo
+                        </button>
+                    </div>
+                    
+                    <div class="timeline-container" id="timelineContainer">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <div class="timeline-year">2024</div>
+                                    <h3>Fundación</h3>
+                                    <p>Nace Wasi Mutual con el objetivo de crear una comunidad solidaria basada en los valores de cooperación y apoyo mutuo.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <div class="timeline-year">2025</div>
+                                    <h3>Crecimiento</h3>
+                                    <p>Superamos los 80 asociados y establecemos convenios estratégicos con diversas empresas e instituciones.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-content">
+                                    <div class="timeline-year">Futuro</div>
+                                    <h3>Expansión</h3>
+                                    <p>Continuamos creciendo para ofrecer más y mejores servicios a nuestra comunidad de asociados.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+                
+                <!-- Separador visual 
+                <div class="section-divider"></div>-->
+                
+                <div class="values-section">
+    <h2>Nuestros Valores</h2>
+    
+    <div class="values-grid">
+        <div class="value-card">
+            <div class="value-icon">
+                <i class="fas fa-hands-helping"></i>
+            </div>
+            <h3>Solidaridad</h3>
+            <p>Actuamos con compromiso auténtico por el bienestar de nuestra comunidad, apoyándonos mutuamente en cada paso del camino.</p>
+        </div>
+        
+        <div class="value-card">
+            <div class="value-icon">
+                <i class="fas fa-handshake"></i>
+            </div>
+            <h3>Cooperación</h3>
+            <p>Avanzamos juntos, sumando esfuerzos para lograr beneficios que nos incluyan a todos en un entorno de colaboración continua.</p>
+        </div>
+        
+        <div class="value-card">
+            <div class="value-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Transparencia</h3>
+            <p>Gestionamos con claridad, responsabilidad y honestidad en todas nuestras acciones, manteniendo una comunicación abierta.</p>
+        </div>
+        
+        <div class="value-card">
+            <div class="value-icon">
+                <i class="fas fa-rocket"></i>
+            </div>
+            <h3>Innovación</h3>
+            <p>Buscamos nuevas formas de crecer y acompañar mejor a cada asociado, adaptándonos a los cambios con visión de futuro.</p>
+        </div>
+    </div>        <!-- Volver al inicio -->
+                <div class="back-to-home" style="text-align: center; margin-top: 50px;">
+                    <a href="../INDEX2.html" class="btn btn-gradient">
+                        <i class="fas fa-arrow-left"></i> Volver al Inicio
+                    </a>
+                </div>
+                </div>
+                
+               <!--  Navegación entre páginas 
+                <div class="page-navigation">
+                    <a href="sobre-nosotros.html" class="btn btn-outline">
+                        <i class="fas fa-arrow-left"></i> Volver a Sobre Nosotros
+                    </a>
+                    <a href="beneficios.html" class="btn btn-gradient">
+                        Ver Beneficios <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>-->
+                
+            </article>
+            
+        </div>
+    </section>
+
+
+    <!-- Footer Mejorado -->
+<footer id="contacto">
+    <div class="container">
+        <div class="footer-container">
+            <!-- Columna 1: Sobre Nosotros -->
+            <div class="footer-column footer-about">
+                <div class="footer-logo">
+                    <img src="../images/logo.png" alt="Wasi Mutual" width="50" height="50">
+                    <span class="footer-logo-text">Wasi Mutual</span>
+                </div>
+                <p class="footer-description">Tu bienestar, nuestro compromiso. Solidaridad, ayuda mutua y compromiso social.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/543487525680" class="social-icon whatsapp-icon" aria-label="WhatsApp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Columna 2: Navegación -->
+            <div class="footer-column">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="../INDEX2.html#home"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="../INDEX2.html#novedades"><i class="fas fa-newspaper"></i> Novedades</a></li>
+                    <li><a href="../INDEX2.html#servicios"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
+                    <li><a href="../pages/asociate.html" class="asociate-link"><i class="fas fa-handshake"></i> ¡Asóciate!</a></li>
+                </ul>
+            </div>
+            
+            <!-- Columna 3: La Mutual -->
+            <div class="footer-column">
+                <h3>La Mutual</h3>
+                <ul>
+                    <li><a href="../pages/sobre-nosotros.html"><i class="fas fa-users"></i> Sobre Nosotros</a></li>
+                    <li><a href="../pages/historia-valores.html"><i class="fas fa-history"></i> Historia y Valores</a></li>
+                    <li><a href="../pages/beneficios.html"><i class="fas fa-star"></i> Beneficios Socios</a></li>
+                    <li><a href="../pages/soluciones-empresas.html"><i class="fas fa-building"></i> Soluciones Empresas</a></li>
+                </ul>
+            </div>
+            
+            <!-- Columna 4: Contacto (más ancha) -->
+            <div class="footer-column footer-contact">
+                <h3>Contacto</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <span class="contact-label">Dirección</span>
+                            <p>Pasaje Entre Rios 271, Zárate, Buenos Aires</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <span class="contact-label">Teléfono</span>
+                            <p>3487-525680</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <span class="contact-label">Email</span>
+                            <a href="mailto:info@wasi.mutual.ar" class="email-link">info@wasi.mutual.ar</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span class="contact-label">Horario</span>
+                            <p>Lun-Vie: 9:00 - 17:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="copyright">
+            <p>© 2025 Wasi Mutual - Todos los derechos reservados</p>
+            <p class="design-credit">Diseñado por <a href="https://focustech.com.ar" target="_blank">FocusTech</a></p>
+        </div>
+    </div>
+</footer>
+        
+<!-- Botón Asociate Flotante -->
+        <!-- Botones Flotantes -->
+        <div class="floating-buttons-container">
+            <!-- Botón WhatsApp -->
+            <a href="https://wa.me/5493487525680?text=Hola%20Wasi%20Mutual,%20me%20interesa%20asociarme" 
+            class="floating-btn whatsapp-btn" 
+            target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                
+            </a>
+            
+            <!-- Botón Asociate -->
+            <!--<a href="pages/asociate.html" class="floating-btn associate-btn">
+                <i class="fas fa-user-plus"></i>
+                <span class="btn-text">Asociate</span>
+            </a>-->
+        </div>
+    <script src="../js/scripts.js"></script>
+    
+    <script>
+        // Script para mostrar/ocultar la línea de tiempo
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggleTimeline');
+            const timelineContainer = document.getElementById('timelineContainer');
+            
+            if (toggleBtn && timelineContainer) {
+                toggleBtn.addEventListener('click', function() {
+                    timelineContainer.classList.toggle('show');
+                    
+                    // Cambiar el texto del botón
+                    if (timelineContainer.classList.contains('show')) {
+                        toggleBtn.innerHTML = '<i class="fas fa-times"></i> Ocultar Línea de Tiempo';
+                    } else {
+                        toggleBtn.innerHTML = '<i class="fas fa-history"></i> Ver Línea de Tiempo';
+                    }
+                });
+            }
+            
+            // Suavizar el desplazamiento a los enlaces internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Solo manejar enlaces internos que no sean # solamente
+                    if (href !== '#' && href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(href);
+                        
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
