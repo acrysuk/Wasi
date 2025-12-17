@@ -393,48 +393,65 @@
 
 
     <script>
-        // Reemplazar todo el script con este:
-
-document.getElementById('formularioAsociacion').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Deshabilitar botón para evitar múltiples envíos
-    const submitBtn = this.querySelector('.submit-btn');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-    submitBtn.disabled = true;
-    
-    // Obtener datos del formulario
-    const formData = new FormData(this);
-    
-    // Enviar datos al servidor
-    fetch('../enviar-asociacion.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert(data.message);
-            this.reset(); // Limpiar formulario
-        } else {
-            let errorMessage = 'Error al enviar la solicitud:\n';
-            data.errors.forEach(error => {
-                errorMessage += `• ${error}\n`;
-            });
-            alert(errorMessage);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Error de conexión. Por favor, inténtalo nuevamente.');
-    })
-    .finally(() => {
-        // Restaurar botón
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-    });
-});
+        document.getElementById('formularioAsociacion').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Obtener todos los datos del formulario
+            const formData = new FormData(this);
+            let emailBody = '¡QUIERO ASOCIARME!\n\n';
+            emailBody += 'DATOS PERSONALES:\n';
+            emailBody += '================\n';
+            emailBody += `Email: ${formData.get('email')}\n`;
+            emailBody += `Nombre: ${formData.get('nombre')}\n`;
+            emailBody += `Apellido: ${formData.get('apellido')}\n`;
+            emailBody += `DNI: ${formData.get('dni')}\n`;
+            emailBody += `Fecha de Nacimiento: ${formData.get('fecha_nacimiento')}\n`;
+            emailBody += `Sexo: ${formData.get('sexo')}\n`;
+            emailBody += `Estado Civil: ${formData.get('estado_civil')}\n`;
+            emailBody += `Teléfono Celular: ${formData.get('telefono_celular')}\n`;
+            emailBody += `Teléfono de Línea: ${formData.get('telefono_linea')}\n\n`;
+            
+            emailBody += 'DOMICILIO:\n';
+            emailBody += '==========\n';
+            emailBody += `Calle: ${formData.get('domicilio')}\n`;
+            emailBody += `Número: ${formData.get('numero')}\n`;
+            emailBody += `Piso: ${formData.get('piso')}\n`;
+            emailBody += `Departamento: ${formData.get('dpto')}\n`;
+            emailBody += `Código Postal: ${formData.get('codigo_postal')}\n`;
+            emailBody += `Localidad: ${formData.get('localidad')}\n`;
+            emailBody += `Nacionalidad: ${formData.get('nacionalidad')}\n\n`;
+            
+            emailBody += 'DOCUMENTACIÓN:\n';
+            emailBody += '==============\n';
+            emailBody += 'DNI: Adjuntado en el formulario\n\n';
+            
+            emailBody += 'CONDICIONES:\n';
+            emailBody += '============\n';
+            emailBody += 'Acepta términos y condiciones: SÍ\n\n';
+            
+            emailBody += '---\n';
+            emailBody += 'Formulario enviado desde: Página Web Wasi Mutual\n';
+            emailBody += `Fecha: ${new Date().toLocaleString()}`;
+            
+            // Crear el mailto
+            const mailtoLink = `mailto:info@wasi.mutual.ar?subject=¡Quiero asociarme! - ${formData.get('nombre')} ${formData.get('apellido')}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Abrir el cliente de correo
+            window.location.href = mailtoLink;
+            
+            // Mostrar mensaje de confirmación
+            alert('¡Formulario completado! Se abrirá tu cliente de correo para enviar la solicitud.');
+        });
+        
+        // Mostrar nombre de archivo seleccionado
+        document.getElementById('dni_foto').addEventListener('change', function(e) {
+            const fileUpload = this.closest('.file-upload');
+            if (this.files.length > 0) {
+                fileUpload.innerHTML = `<i class="fas fa-check-circle" style="color: #1a7cff;"></i>
+                                       <p>${this.files.length} archivo(s) seleccionado(s)</p>
+                                       <small>Listo para enviar</small>`;
+            }
+        });
         
     </script>
 <!-- Botón Asociate Flotante -->
