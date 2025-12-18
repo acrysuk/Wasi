@@ -389,6 +389,62 @@
                 font-size: 1.1rem;
             }
         }
+        <style>
+    .validation-message {
+        color: #ff3860;
+        font-size: 12px;
+        margin-top: 5px;
+        display: none;
+        font-weight: 500;
+    }
+    
+    #contactoForm input:invalid, 
+    #contactoForm select:invalid,
+    #contactoForm textarea:invalid {
+        border-color: #ff3860 !important;
+    }
+    
+    #contactoForm input:valid, 
+    #contactoForm select:valid,
+    #contactoForm textarea:valid {
+        border-color: #23d160 !important;
+    }
+    
+    .required::after {
+        content: " *";
+        color: #ff3860;
+    }
+    
+    .form-group {
+        position: relative;
+    }
+    
+    .btn-submit {
+        background: var(--gradient-secondary);
+        color: white;
+        border: none;
+        padding: 16px 40px;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .btn-submit:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(46, 66, 158, 0.2);
+        background: linear-gradient(to right, #1a365d, #009198);
+    }
+    
+    .btn-submit i {
+        margin-left: 10px;
+    }
     </style>
 </head>
 <body>
@@ -537,48 +593,69 @@
                 </div>
                 
                 <!-- Formulario de Contacto -->
-                <div class="form-section">
-                    <h2>Envíanos un mensaje</h2>
+                <!-- Encuentra la sección del formulario (líneas 305-359 aproximadamente) y reemplázala con esto: -->
+
+<!-- Formulario de Contacto -->
+            <div class="form-section">
+                <h2>Envíanos un mensaje</h2>
+                
+                <form id="contactoForm">
+                    <div class="form-group">
+                        <label for="nombre" class="required">Nombre completo *</label>
+                        <input type="text" id="nombre" class="form-control" 
+                            placeholder="Ingresa tu nombre" 
+                            required 
+                            pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+"
+                            title="Solo letras y espacios">
+                        <div class="validation-message" id="nombre-error"></div>
+                    </div>
                     
-                    <form id="contactoForm">
-                        <div class="form-group">
-                            <label for="nombre">Nombre completo *</label>
-                            <input type="text" id="nombre" class="form-control" placeholder="Ingresa tu nombre" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Correo electrónico *</label>
-                            <input type="email" id="email" class="form-control" placeholder="ejemplo@email.com" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="telefono">Teléfono</label>
-                            <input type="tel" id="telefono" class="form-control" placeholder="Ingresa tu número telefónico">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="asunto">Asunto *</label>
-                            <select id="asunto" class="form-control" required>
-                                <option value="" selected disabled>Selecciona un asunto</option>
-                                <option value="informacion">Información general</option>
-                                <option value="asociacion">Asociación a la mutual</option>
-                                <option value="servicios">Consulta sobre servicios</option>
-                                <option value="sugerencia">Sugerencia o comentario</option>
-                                <option value="problema">Reportar un problema</option>
-                                <option value="otro">Otro</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="mensaje">Mensaje *</label>
-                            <textarea id="mensaje" class="form-control" placeholder="Describe tu consulta o mensaje aquí..." required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn-submit">
-                            Enviar mensaje <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
+                    <div class="form-group">
+                        <label for="email" class="required">Correo electrónico *</label>
+                        <input type="email" id="email" class="form-control" 
+                            placeholder="ejemplo@email.com" 
+                            required>
+                        <div class="validation-message" id="email-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" class="form-control" 
+                            placeholder="Ingresa tu número telefónico"
+                            pattern="[0-9\s\-\(\)\+]*"
+                            title="Solo números, espacios, guiones y paréntesis">
+                        <div class="validation-message" id="telefono-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="asunto" class="required">Asunto *</label>
+                        <select id="asunto" class="form-control" required>
+                            <option value="" selected disabled>Selecciona un asunto</option>
+                            <option value="informacion">Información general</option>
+                            <option value="asociacion">Asociación a la mutual</option>
+                            <option value="servicios">Consulta sobre servicios</option>
+                            <option value="sugerencia">Sugerencia o comentario</option>
+                            <option value="problema">Reportar un problema</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <div class="validation-message" id="asunto-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensaje" class="required">Mensaje *</label>
+                        <textarea id="mensaje" class="form-control" 
+                                placeholder="Describe tu consulta o mensaje aquí..." 
+                                required 
+                                minlength="10"
+                                title="Por favor ingresa al menos 10 caracteres"></textarea>
+                        <div class="validation-message" id="mensaje-error"></div>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">
+                        Enviar mensaje por WhatsApp <i class="fab fa-whatsapp"></i>
+                    </button>
+                </form>
+            </div>
             </div>
             
             <!-- Mapa simple de Google Maps -->
@@ -711,70 +788,197 @@
 
     <script src="../js/scripts.js"></script>
     
-    <script>
-        // Manejo del formulario
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactoForm = document.getElementById('contactoForm');
-            
-            if (contactoForm) {
-                contactoForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Obtener valores del formulario
-                    const nombre = document.getElementById('nombre').value;
-                    const email = document.getElementById('email').value;
-                    const asunto = document.getElementById('asunto').value;
-                    const mensaje = document.getElementById('mensaje').value;
-                    
-                    // Aquí normalmente enviarías los datos a un servidor
-                    // Por ahora, mostramos un mensaje de confirmación
-                    
-                    // Crear mensaje de confirmación
-                    const confirmMessage = document.createElement('div');
-                    confirmMessage.innerHTML = `
-                        <div style="background: #d4edda; color: #155724; padding: 15px; border-radius: 8px; margin-top: 20px; border: 1px solid #c3e6cb;">
-                            <h4 style="margin-top: 0; color: #155724;"><i class="fas fa-check-circle"></i> ¡Mensaje enviado con éxito!</h4>
-                            <p>Gracias <strong>${nombre}</strong>, hemos recibido tu mensaje sobre <strong>${asunto}</strong>.</p>
-                            <p>Te responderemos a <strong>${email}</strong> en un plazo máximo de 48 horas.</p>
-                        </div>
-                    `;
-                    
-                    // Insertar mensaje después del formulario
-                    contactoForm.parentNode.insertBefore(confirmMessage, contactoForm.nextSibling);
-                    
-                    // Resetear formulario
-                    contactoForm.reset();
-                    
-                    // Desplazarse al mensaje de confirmación
-                    confirmMessage.scrollIntoView({ behavior: 'smooth' });
-                    
-                    // Remover mensaje después de 8 segundos
-                    setTimeout(() => {
-                        confirmMessage.remove();
-                    }, 8000);
-                });
-            }
-            
-            // Suavizar el desplazamiento a los enlaces internos
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    
-                    if (href !== '#' && href.startsWith('#')) {
-                        e.preventDefault();
-                        const targetElement = document.querySelector(href);
-                        
-                        if (targetElement) {
-                            window.scrollTo({
-                                top: targetElement.offsetTop - 80,
-                                behavior: 'smooth'
-                            });
-                        }
-                    }
-                });
-            });
+       
+<script>
+    // Función para mostrar mensaje de error
+    function showError(fieldId, message) {
+        const errorElement = document.getElementById(fieldId + '-error');
+        if (errorElement) {
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
+        return false;
+    }
+
+    // Función para limpiar error
+    function clearError(fieldId) {
+        const errorElement = document.getElementById(fieldId + '-error');
+        if (errorElement) {
+            errorElement.textContent = '';
+            errorElement.style.display = 'none';
+        }
+        return true;
+    }
+
+    // Validaciones en tiempo real
+    document.addEventListener('DOMContentLoaded', function() {
+        const contactoForm = document.getElementById('contactoForm');
+        
+        if (!contactoForm) return;
+        
+        // Validar nombre (solo letras)
+        const nombreInput = document.getElementById('nombre');
+        nombreInput.addEventListener('input', function(e) {
+            // Permitir letras, espacios y caracteres especiales en español
+            this.value = this.value.replace(/[^A-Za-záéíóúÁÉÍÓÚñÑ\s]/g, '');
+            clearError('nombre');
         });
-    </script>
+
+        // Validar solo números en teléfono
+        const telefonoInput = document.getElementById('telefono');
+        telefonoInput.addEventListener('input', function(e) {
+            // Permitir números, espacios, guiones y paréntesis
+            this.value = this.value.replace(/[^\d\s\-\(\)\+]/g, '');
+            clearError('telefono');
+        });
+
+        // Validar email mientras se escribe
+        const emailInput = document.getElementById('email');
+        emailInput.addEventListener('blur', function() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (this.value && !emailRegex.test(this.value)) {
+                showError('email', 'Por favor ingresa un email válido');
+            } else {
+                clearError('email');
+            }
+        });
+
+        // Validar asunto al cambiar
+        const asuntoInput = document.getElementById('asunto');
+        asuntoInput.addEventListener('change', function() {
+            if (this.value) {
+                clearError('asunto');
+            }
+        });
+
+        // Validar mensaje mientras se escribe
+        const mensajeInput = document.getElementById('mensaje');
+        mensajeInput.addEventListener('input', function() {
+            if (this.value.length >= 10) {
+                clearError('mensaje');
+            }
+        });
+
+        // Manejo del envío del formulario
+        contactoForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            
+            // Validar nombre
+            const nombre = nombreInput.value.trim();
+            const nameRegex = /^[A-Za-záéíóúÁÉÍÓÚñÑ\s]+$/;
+            if (!nombre || !nameRegex.test(nombre)) {
+                showError('nombre', 'El nombre solo puede contener letras');
+                isValid = false;
+            } else {
+                clearError('nombre');
+            }
+
+            // Validar email
+            const email = emailInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+                showError('email', 'Por favor ingresa un email válido');
+                isValid = false;
+            } else {
+                clearError('email');
+            }
+
+            // Validar asunto
+            const asunto = asuntoInput.value;
+            if (!asunto) {
+                showError('asunto', 'Por favor selecciona un asunto');
+                isValid = false;
+            } else {
+                clearError('asunto');
+            }
+
+            // Validar mensaje (mínimo 10 caracteres)
+            const mensaje = mensajeInput.value.trim();
+            if (!mensaje || mensaje.length < 10) {
+                showError('mensaje', 'El mensaje debe tener al menos 10 caracteres');
+                isValid = false;
+            } else {
+                clearError('mensaje');
+            }
+
+            // Validar teléfono (si se ingresó)
+            const telefono = telefonoInput.value.trim();
+            if (telefono && telefono.replace(/\D/g, '').length < 8) {
+                showError('telefono', 'El teléfono debe tener al menos 8 dígitos');
+                isValid = false;
+            } else {
+                clearError('telefono');
+            }
+
+            if (!isValid) {
+                alert('Por favor, completa todos los campos requeridos correctamente.');
+                // Desplazar al primer error
+                const firstError = document.querySelector('.validation-message[style*="display: block"]');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                return;
+            }
+
+            // Obtener el texto del asunto seleccionado
+            const asuntoTexto = asuntoInput.options[asuntoInput.selectedIndex].text;
+            
+            // Crear el mensaje para WhatsApp
+            let whatsappMessage = '📞 *CONTACTO - WASI MUTUAL*\n\n';
+            whatsappMessage += '*DATOS DE CONTACTO:*\n';
+            whatsappMessage += `👤 *Nombre:* ${nombre}\n`;
+            whatsappMessage += `📧 *Email:* ${email}\n`;
+            if (telefono) {
+                whatsappMessage += `📱 *Teléfono:* ${telefono}\n`;
+            }
+            whatsappMessage += `📋 *Asunto:* ${asuntoTexto}\n\n`;
+            
+            whatsappMessage += '*MENSAJE:*\n';
+            whatsappMessage += `💬 ${mensaje}\n\n`;
+            
+            whatsappMessage += '---\n';
+            whatsappMessage += '*Formulario enviado desde:* Página Web Wasi Mutual\n';
+            whatsappMessage += `📅 *Fecha:* ${new Date().toLocaleString()}`;
+            
+            // Codificar el mensaje para URL de WhatsApp
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Crear el enlace de WhatsApp
+            const whatsappNumber = '5493487525680';
+            const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            // Abrir WhatsApp en una nueva pestaña
+            window.open(whatsappLink, '_blank');
+            
+            // Mostrar mensaje de confirmación
+            alert('¡Formulario validado correctamente! Se abrirá WhatsApp para enviar tu mensaje.');
+            
+            // Opcional: Limpiar el formulario después del envío exitoso
+            contactoForm.reset();
+        });
+    });
+    
+    // Suavizar el desplazamiento a los enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            if (href !== '#' && href.startsWith('#')) {
+                e.preventDefault();
+                const targetElement = document.querySelector(href);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+</script>
     <!-- Botón Asociate Flotante -->
         <!-- Botones Flotantes -->
         <div class="floating-buttons-container">

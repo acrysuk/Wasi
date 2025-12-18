@@ -8,7 +8,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles-pages.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <style>
+    .validation-message {
+        color: #ff3860;
+        font-size: 12px;
+        margin-top: 5px;
+        display: none;
+        font-weight: 500;
+    }
     
+    input:invalid, select:invalid {
+        border-color: #ff38606a !important;
+    }
+    
+    input:valid, select:valid {
+        border-color: #23d160 !important;
+    }
+    
+    .required::after {
+        content: " *";
+        color: #ff3860;
+    }
+    
+    .form-group {
+        position: relative;
+    }
+</style>
 </head>
 <body>
     <!-- Header -->
@@ -125,150 +150,179 @@
                     <p>Completá tus datos para asociarte</p>
                 </div>
                 
-                <form id="formularioAsociacion" class="form-body">
-                    <!-- Datos Personales -->
-                    <div class="form-section">
-                        <h3><i class="fas fa-user"></i> Datos Personales</h3>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="email" class="required">Email</label>
-                                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="nombre" class="required">Nombre</label>
-                                <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="apellido" class="required">Apellido</label>
-                                <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="dni" class="required">DNI</label>
-                                <input type="text" id="dni" name="dni" placeholder="12345678" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="fecha_nacimiento" class="required">Fecha de Nacimiento</label>
-                                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="sexo" class="required">Sexo</label>
-                                <select id="sexo" name="sexo" required>
-                                    <option value="">Seleccionar</option>
-                                    <option value="masculino">Masculino</option>
-                                    <option value="femenino">Femenino</option>
-                                    <option value="otro">Otro</option>
-                                    <option value="prefiero-no-decir">Prefiero no decir</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="estado_civil" class="required">Estado Civil</label>
-                                <select id="estado_civil" name="estado_civil" required>
-                                    <option value="">Seleccionar</option>
-                                    <option value="soltero">Soltero/a</option>
-                                    <option value="casado">Casado/a</option>
-                                    <option value="divorciado">Divorciado/a</option>
-                                    <option value="viudo">Viudo/a</option>
-                                    <option value="union-convivencial">Unión Convivencial</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="telefono_celular" class="required">Teléfono Celular</label>
-                                <input type="tel" id="telefono_celular" name="telefono_celular" placeholder="11 1234-5678" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="telefono_linea">Teléfono de Línea</label>
-                                <input type="tel" id="telefono_linea" name="telefono_linea" placeholder="11 4789-1234">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Domicilio -->
-                    <div class="form-section">
-                        <h3><i class="fas fa-home"></i> Domicilio</h3>
-                        <div class="form-grid">
-                            <div class="form-group full-width">
-                                <label for="domicilio" class="required">Calle</label>
-                                <input type="text" id="domicilio" name="domicilio" placeholder="Calle" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="numero" class="required">Número</label>
-                                <input type="text" id="numero" name="numero" placeholder="Número" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="piso">Piso</label>
-                                <input type="text" id="piso" name="piso" placeholder="Piso">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="dpto">Departamento</label>
-                                <input type="text" id="dpto" name="dpto" placeholder="Dpto">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="codigo_postal" class="required">Código Postal</label>
-                                <input type="text" id="codigo_postal" name="codigo_postal" placeholder="2800" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="localidad" class="required">Localidad</label>
-                                <input type="text" id="localidad" name="localidad" placeholder="Localidad" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="nacionalidad" class="required">Nacionalidad</label>
-                                <select id="nacionalidad" name="nacionalidad" required>
-                                    <option value="">- Nacionalidad -</option>
-                                    <option value="argentina">Argentina</option>
-                                    <option value="uruguaya">Uruguaya</option>
-                                    <option value="chilena">Chilena</option>
-                                    <option value="paraguaya">Paraguaya</option>
-                                    <option value="boliviana">Boliviana</option>
-                                    <option value="brasilena">Brasileña</option>
-                                    <option value="otra">Otra</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Documentación -->
-                   <!-- <div class="form-section">
-                        <h3><i class="fas fa-file-upload"></i> Documentación</h3>
-                        <div class="form-group full-width">
-                            <label for="dni_foto" class="required">Foto de su DNI (Frente y Dorso)</label>
-                            <div class="file-upload" onclick="document.getElementById('dni_foto').click()">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                                <p>Hacé clic para subir fotos de tu DNI</p>
-                                <small>Formatos aceptados: JPG, PNG, PDF (Máx. 5MB)</small>
-                                <input type="file" id="dni_foto" name="dni_foto" accept=".jpg,.jpeg,.png,.pdf" style="display: none;" required multiple>
-                            </div>
-                        </div>
-                    </div>-->
-                    
-                    <!-- Términos y Condiciones -->
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="terminos" name="terminos" required>
-                        <label for="terminos" class="required">
-                            He leído y acepto las <a href="terminos.html" target="_blank" style="color: #ff6b6b; text-decoration: underline;">condiciones de contratación</a> y el estatuto de Wasi Mutual. 
-                            Autorizo el tratamiento de mis datos personales según la Ley 25.326 de Protección de Datos Personales.
-                        </label>
-                    </div>
-                    
-                    <!-- Botón de Envío -->
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-paper-plane"></i> Enviar Solicitud de Asociación
-                    </button>
-                </form>
+                <!-- Encuentra la sección del formulario y reemplaza todo desde <form id="formularioAsociacion"> hasta </form> con esto: -->
+
+<form id="formularioAsociacion" class="form-body">
+    <!-- Datos Personales -->
+    <div class="form-section">
+        <h3><i class="fas fa-user"></i> Datos Personales</h3>
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="email" class="required">Email</label>
+                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                <div class="validation-message" id="email-error"></div>
             </div>
+            
+            <div class="form-group">
+                <label for="nombre" class="required">Nombre</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Nombre" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+" title="Solo letras y espacios">
+                <div class="validation-message" id="nombre-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="apellido" class="required">Apellido</label>
+                <input type="text" id="apellido" name="apellido" placeholder="Apellido" required pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+" title="Solo letras y espacios">
+                <div class="validation-message" id="apellido-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="dni" class="required">DNI</label>
+                <input type="text" id="dni" name="dni" placeholder="12.345.678" required 
+                       pattern="[0-9]{1,3}(?:\.[0-9]{3}){0,2}" 
+                       title="Formato: 12.345.678 o 12345678">
+                <div class="validation-message" id="dni-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="fecha_nacimiento" class="required">Fecha de Nacimiento</label>
+                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                <div class="validation-message" id="fecha-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="tipo_plan" class="required">Tipo de Plan</label>
+                <select id="tipo_plan" name="tipo_plan" required>
+                    <option value="">Seleccionar</option>
+                    <option value="individual">Plan Individual</option>
+                    <option value="familiar">Plan Familiar</option>
+                </select>
+                <div class="validation-message" id="plan-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="sexo" class="required">Sexo</label>
+                <select id="sexo" name="sexo" required>
+                    <option value="">Seleccionar</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="otro">Otro</option>
+                    <option value="prefiero-no-decir">Prefiero no decir</option>
+                </select>
+                <div class="validation-message" id="sexo-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="estado_civil" class="required">Estado Civil</label>
+                <select id="estado_civil" name="estado_civil" required>
+                    <option value="">Seleccionar</option>
+                    <option value="soltero">Soltero/a</option>
+                    <option value="casado">Casado/a</option>
+                    <option value="divorciado">Divorciado/a</option>
+                    <option value="viudo">Viudo/a</option>
+                    <option value="union-convivencial">Unión Convivencial</option>
+                </select>
+                <div class="validation-message" id="estado-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="telefono_celular" class="required">Teléfono Celular</label>
+                <input type="tel" id="telefono_celular" name="telefono_celular" 
+                       placeholder="11 1234-5678" required 
+                       pattern="[0-9\s\-\(\)\+]+"
+                       title="Solo números, espacios, guiones y paréntesis">
+                <div class="validation-message" id="celular-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="telefono_linea">Teléfono de Línea</label>
+                <input type="tel" id="telefono_linea" name="telefono_linea" 
+                       placeholder="11 4789-1234"
+                       pattern="[0-9\s\-\(\)\+]*"
+                       title="Solo números, espacios, guiones y paréntesis">
+                <div class="validation-message" id="linea-error"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Domicilio -->
+    <div class="form-section">
+        <h3><i class="fas fa-home"></i> Domicilio</h3>
+        <div class="form-grid">
+            <div class="form-group full-width">
+                <label for="domicilio" class="required">Calle</label>
+                <input type="text" id="domicilio" name="domicilio" placeholder="Calle" required>
+                <div class="validation-message" id="domicilio-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="numero" class="required">Número</label>
+                <input type="text" id="numero" name="numero" placeholder="Número" required 
+                    pattern="[0-9]+"
+                    title="Solo números (ej: 123, 456)">
+                <div class="validation-message" id="numero-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="piso">Piso</label>
+                <input type="text" id="piso" name="piso" placeholder="Piso"
+                       pattern="[0-9]*">
+                <div class="validation-message" id="piso-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="dpto">Departamento</label>
+                <input type="text" id="dpto" name="dpto" placeholder="Dpto">
+                <div class="validation-message" id="dpto-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="codigo_postal" class="required">Código Postal</label>
+                <input type="text" id="codigo_postal" name="codigo_postal" 
+                    placeholder="B2800" required 
+                    pattern="[0-9]+"
+                    pattern="[A-Za-z0-9\s\-]+"
+                    title="Letras y números (ej: B2800, 2800, CP1234)">
+                <div class="validation-message" id="cp-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="localidad" class="required">Localidad</label>
+                <input type="text" id="localidad" name="localidad" placeholder="Localidad" required>
+                <div class="validation-message" id="localidad-error"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="nacionalidad" class="required">Nacionalidad</label>
+                <select id="nacionalidad" name="nacionalidad" required>
+                    <option value="">- Nacionalidad -</option>
+                    <option value="argentina">Argentina</option>
+                    <option value="uruguaya">Uruguaya</option>
+                    <option value="chilena">Chilena</option>
+                    <option value="paraguaya">Paraguaya</option>
+                    <option value="boliviana">Boliviana</option>
+                    <option value="brasilena">Brasileña</option>
+                    <option value="otra">Otra</option>
+                </select>
+                <div class="validation-message" id="nacionalidad-error"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Términos y Condiciones -->
+    <div class="checkbox-group">
+        <input type="checkbox" id="terminos" name="terminos" required>
+        <label for="terminos" class="required">
+            He leído y acepto las <a href="terminos.html" target="_blank" style="color: #ff6b6b; text-decoration: underline;">condiciones de contratación</a> y el estatuto de Wasi Mutual. 
+            Autorizo el tratamiento de mis datos personales según la Ley 25.326 de Protección de Datos Personales.
+        </label>
+        <div class="validation-message" id="terminos-error"></div>
+    </div>
+    
+    <!-- Botón de Envío -->
+    <button type="submit" class="submit-btn">
+        <i class="fab fa-whatsapp"></i> Enviar Solicitud por WhatsApp
+    </button>
+</form>
             
             <!-- Beneficios -->
             <div class="benefits-sidebar">
@@ -392,68 +446,361 @@
 </footer>
 
 
-    <script>
-        // Reemplazar todo el script con este:
+<!-- Encuentra el script al final del archivo y reemplázalo con esto: -->
 
-document.getElementById('formularioAsociacion').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Deshabilitar botón para evitar múltiples envíos
-    const submitBtn = this.querySelector('.submit-btn');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-    submitBtn.disabled = true;
-    
-    // Obtener datos del formulario
-    const formData = new FormData(this);
-    
-    // Enviar datos al servidor
-    fetch('../enviar-asociacion.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert(data.message);
-            this.reset(); // Limpiar formulario
-        } else {
-            let errorMessage = 'Error al enviar la solicitud:\n';
-            data.errors.forEach(error => {
-                errorMessage += `• ${error}\n`;
-            });
-            alert(errorMessage);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Error de conexión. Por favor, inténtalo nuevamente.');
-    })
-    .finally(() => {
-        // Restaurar botón
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-    });
-});
+<script>
+    // Función para formatear DNI con separadores de miles
+    function formatDNI(value) {
+        // Remover todo excepto números
+        let numbers = value.replace(/\D/g, '');
         
-    </script>
-<!-- Botón Asociate Flotante -->
-        <!-- Botones Flotantes -->
-        <div class="floating-buttons-container">
-            <!-- Botón WhatsApp -->
-            <a href="https://wa.me/5493487525680?text=Hola%20Wasi%20Mutual,%20me%20interesa%20asociarme" 
-            class="floating-btn whatsapp-btn" 
-            target="_blank">
-                <i class="fab fa-whatsapp"></i>
-                
-            </a>
+        // Agregar puntos como separadores de miles
+        if (numbers.length > 3) {
+            numbers = numbers.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+        
+        return numbers;
+    }
+
+    // Función para validar edad (mayor de 18 años)
+    function validateAge(birthDate) {
+        const today = new Date();
+        const birth = new Date(birthDate);
+        
+        let age = today.getFullYear() - birth.getFullYear();
+        const monthDiff = today.getMonth() - birth.getMonth();
+        
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+            age--;
+        }
+        
+        return age >= 18;
+    }
+
+    // Función para mostrar mensaje de error
+    function showError(fieldId, message) {
+        const errorElement = document.getElementById(fieldId + '-error');
+        if (errorElement) {
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
+        return false;
+    }
+
+    // Función para limpiar error
+    function clearError(fieldId) {
+        const errorElement = document.getElementById(fieldId + '-error');
+        if (errorElement) {
+            errorElement.textContent = '';
+            errorElement.style.display = 'none';
+        }
+        return true;
+    }
+
+    // Validaciones en tiempo real
+    document.addEventListener('DOMContentLoaded', function() {
+        // Formatear DNI mientras se escribe
+        const dniInput = document.getElementById('dni');
+        dniInput.addEventListener('input', function(e) {
+            this.value = formatDNI(this.value);
+            clearError('dni');
+        });
+
+        // Validar fecha de nacimiento
+        const fechaInput = document.getElementById('fecha_nacimiento');
+        fechaInput.addEventListener('change', function() {
+            if (this.value) {
+                if (!validateAge(this.value)) {
+                    showError('fecha', 'Debes ser mayor de 18 años para asociarte');
+                } else {
+                    clearError('fecha');
+                }
+            }
+        });
+
+        // Establecer fecha máxima (hoy) y mínima (120 años atrás)
+        const today = new Date();
+        const maxDate = new Date();
+        maxDate.setDate(today.getDate() - 1); // Ayer como máximo
+        const minDate = new Date();
+        minDate.setFullYear(today.getFullYear() - 120); // 120 años atrás
+        
+        fechaInput.max = maxDate.toISOString().split('T')[0];
+        fechaInput.min = minDate.toISOString().split('T')[0];
+
+        // Validar solo números en teléfonos
+        const phoneInputs = document.querySelectorAll('input[type="tel"]');
+        phoneInputs.forEach(input => {
+            input.addEventListener('input', function(e) {
+                // Permitir números, espacios, guiones y paréntesis
+                this.value = this.value.replace(/[^\d\s\-\(\)\+]/g, '');
+                clearError(this.id);
+            });
+        });
+
+        // Validar solo números en número de domicilio (SOLO NÚMEROS)
+        const numeroInput = document.getElementById('numero');
+        numeroInput.addEventListener('input', function(e) {
+            // SOLO números - NO permite letras
+            this.value = this.value.replace(/\D/g, '');
+            clearError('numero');
+        });
+
+        // Validar solo números en piso
+        const pisoInput = document.getElementById('piso');
+        if (pisoInput) {
+            pisoInput.addEventListener('input', function(e) {
+                this.value = this.value.replace(/\D/g, '');
+                clearError('piso');
+            });
+        }
+
+        // Validar código postal (LETRAS Y NÚMEROS)
+        const cpInput = document.getElementById('codigo_postal');
+        cpInput.addEventListener('input', function(e) {
+            // Permitir letras, números, espacios y guiones
+            this.value = this.value.replace(/[^A-Za-z0-9\s\-]/g, '');
             
-            <!-- Botón Asociate -->
-            <!--<a href="pages/asociate.html" class="floating-btn associate-btn">
-                <i class="fas fa-user-plus"></i>
-                <span class="btn-text">Asociate</span>
-            </a>-->
-        </div>
+            // Convertir a mayúsculas automáticamente
+            this.value = this.value.toUpperCase();
+            clearError('cp');
+        });
+
+        // Validar nombre y apellido (solo letras)
+        const nameInputs = document.querySelectorAll('#nombre, #apellido');
+        nameInputs.forEach(input => {
+            input.addEventListener('input', function(e) {
+                // Permitir letras, espacios y caracteres especiales en español
+                this.value = this.value.replace(/[^A-Za-záéíóúÁÉÍÓÚñÑ\s]/g, '');
+                clearError(this.id);
+            });
+        });
+
+        // Validar email mientras se escribe
+        const emailInput = document.getElementById('email');
+        emailInput.addEventListener('blur', function() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (this.value && !emailRegex.test(this.value)) {
+                showError('email', 'Por favor ingresa un email válido');
+            } else {
+                clearError('email');
+            }
+        });
+
+        // Validar selects al cambiar
+        const selects = document.querySelectorAll('select[required]');
+        selects.forEach(select => {
+            select.addEventListener('change', function() {
+                if (this.value) {
+                    clearError(this.id);
+                }
+            });
+        });
+    });
+
+    // Validación final antes de enviar
+    document.getElementById('formularioAsociacion').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        let isValid = true;
+        
+        // Validar email
+        const email = document.getElementById('email').value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email || !emailRegex.test(email)) {
+            showError('email', 'Por favor ingresa un email válido');
+            isValid = false;
+        } else {
+            clearError('email');
+        }
+
+        // Validar nombre y apellido
+        const nombre = document.getElementById('nombre').value.trim();
+        const apellido = document.getElementById('apellido').value.trim();
+        const nameRegex = /^[A-Za-záéíóúÁÉÍÓÚñÑ\s]+$/;
+        
+        if (!nombre || !nameRegex.test(nombre)) {
+            showError('nombre', 'El nombre solo puede contener letras');
+            isValid = false;
+        } else {
+            clearError('nombre');
+        }
+        
+        if (!apellido || !nameRegex.test(apellido)) {
+            showError('apellido', 'El apellido solo puede contener letras');
+            isValid = false;
+        } else {
+            clearError('apellido');
+        }
+
+        // Validar DNI (al menos 7 dígitos)
+        const dni = document.getElementById('dni').value.replace(/\D/g, '');
+        if (dni.length < 7) {
+            showError('dni', 'El DNI debe tener al menos 7 dígitos');
+            isValid = false;
+        } else {
+            clearError('dni');
+        }
+
+        // Validar edad
+        const fechaNacimiento = document.getElementById('fecha_nacimiento').value;
+        if (!fechaNacimiento || !validateAge(fechaNacimiento)) {
+            showError('fecha', 'Debes ser mayor de 18 años para asociarte');
+            isValid = false;
+        } else {
+            clearError('fecha');
+        }
+
+        // Validar tipo de plan
+        const tipoPlan = document.getElementById('tipo_plan').value;
+        if (!tipoPlan) {
+            showError('plan', 'Por favor selecciona un tipo de plan');
+            isValid = false;
+        } else {
+            clearError('plan');
+        }
+
+        // Validar sexo
+        const sexo = document.getElementById('sexo').value;
+        if (!sexo) {
+            showError('sexo', 'Por favor selecciona tu sexo');
+            isValid = false;
+        } else {
+            clearError('sexo');
+        }
+
+        // Validar estado civil
+        const estadoCivil = document.getElementById('estado_civil').value;
+        if (!estadoCivil) {
+            showError('estado', 'Por favor selecciona tu estado civil');
+            isValid = false;
+        } else {
+            clearError('estado');
+        }
+
+        // Validar teléfono celular (al menos 8 dígitos)
+        const celular = document.getElementById('telefono_celular').value.replace(/\D/g, '');
+        if (celular.length < 8) {
+            showError('celular', 'El teléfono celular debe tener al menos 8 dígitos');
+            isValid = false;
+        } else {
+            clearError('celular');
+        }
+
+        // Validar domicilio
+        const domicilio = document.getElementById('domicilio').value.trim();
+        if (!domicilio) {
+            showError('domicilio', 'Por favor ingresa tu calle');
+            isValid = false;
+        } else {
+            clearError('domicilio');
+        }
+
+        // Validar número de domicilio (solo números, al menos 1 dígito)
+        const numero = document.getElementById('numero').value.trim();
+        if (!numero || !/^\d+$/.test(numero)) {
+            showError('numero', 'El número debe contener solo dígitos');
+            isValid = false;
+        } else {
+            clearError('numero');
+        }
+
+        // Validar código postal (al menos 3 caracteres)
+        const codigoPostal = document.getElementById('codigo_postal').value.trim();
+        if (codigoPostal.length < 3) {
+            showError('cp', 'El código postal debe tener al menos 3 caracteres');
+            isValid = false;
+        } else {
+            clearError('cp');
+        }
+
+        // Validar localidad
+        const localidad = document.getElementById('localidad').value.trim();
+        if (!localidad) {
+            showError('localidad', 'Por favor ingresa tu localidad');
+            isValid = false;
+        } else {
+            clearError('localidad');
+        }
+
+        // Validar nacionalidad
+        const nacionalidad = document.getElementById('nacionalidad').value;
+        if (!nacionalidad) {
+            showError('nacionalidad', 'Por favor selecciona tu nacionalidad');
+            isValid = false;
+        } else {
+            clearError('nacionalidad');
+        }
+
+        // Validar términos y condiciones
+        const terminos = document.getElementById('terminos').checked;
+        if (!terminos) {
+            showError('terminos', 'Debes aceptar los términos y condiciones');
+            isValid = false;
+        } else {
+            clearError('terminos');
+        }
+
+        if (!isValid) {
+            alert('Por favor, completa todos los campos requeridos correctamente.');
+            // Desplazar al primer error
+            const firstError = document.querySelector('.validation-message[style*="display: block"]');
+            if (firstError) {
+                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            return;
+        }
+
+        // Obtener todos los datos del formulario
+        const formData = new FormData(this);
+        
+        // Crear el mensaje para WhatsApp incluyendo el tipo de plan
+        let whatsappMessage = '¡QUIERO ASOCIARME A WASI MUTUAL!\n\n';
+        whatsappMessage += '*DATOS PERSONALES:*\n';
+        whatsappMessage += `📧 Email: ${formData.get('email')}\n`;
+        whatsappMessage += `👤 Nombre: ${formData.get('nombre')}\n`;
+        whatsappMessage += `👤 Apellido: ${formData.get('apellido')}\n`;
+        whatsappMessage += `🆔 DNI: ${formData.get('dni')}\n`;
+        whatsappMessage += `🎂 Fecha de Nacimiento: ${formData.get('fecha_nacimiento')}\n`;
+        whatsappMessage += `📋 Tipo de Plan: ${formData.get('tipo_plan') === 'individual' ? 'Individual' : 'Familiar'}\n`;
+        whatsappMessage += `⚤ Sexo: ${formData.get('sexo')}\n`;
+        whatsappMessage += `💍 Estado Civil: ${formData.get('estado_civil')}\n`;
+        whatsappMessage += `📱 Teléfono Celular: ${formData.get('telefono_celular')}\n`;
+        whatsappMessage += `📞 Teléfono de Línea: ${formData.get('telefono_linea') || 'No especificado'}\n\n`;
+        
+        whatsappMessage += '*DOMICILIO:*\n';
+        whatsappMessage += `🏠 Calle: ${formData.get('domicilio')}\n`;
+        whatsappMessage += `📍 Número: ${formData.get('numero')}\n`;
+        whatsappMessage += `🏢 Piso: ${formData.get('piso') || 'No especificado'}\n`;
+        whatsappMessage += `🚪 Departamento: ${formData.get('dpto') || 'No especificado'}\n`;
+        whatsappMessage += `📮 Código Postal: ${formData.get('codigo_postal')}\n`;
+        whatsappMessage += `🏙️ Localidad: ${formData.get('localidad')}\n`;
+        whatsappMessage += `🇦🇷 Nacionalidad: ${formData.get('nacionalidad')}\n\n`;
+        
+        whatsappMessage += '*CONDICIONES:*\n';
+        whatsappMessage += `✅ Acepta términos y condiciones: SÍ\n\n`;
+        
+        whatsappMessage += '---\n';
+        whatsappMessage += '*Formulario enviado desde:* Página Web Wasi Mutual\n';
+        whatsappMessage += `📅 Fecha: ${new Date().toLocaleString()}`;
+        
+        // Codificar el mensaje para URL de WhatsApp
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+        
+        // Crear el enlace de WhatsApp
+        const whatsappNumber = '5493487525680';
+        const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        
+        // Abrir WhatsApp en una nueva pestaña
+        window.open(whatsappLink, '_blank');
+        
+        // Mostrar mensaje de confirmación
+        alert('¡Formulario validado correctamente! Se abrirá WhatsApp para enviar tu solicitud de asociación.');
+        
+        // Opcional: Limpiar el formulario después del envío exitoso
+        // this.reset();
+    });
+</script>
     <script src="../js/scripts.js"></script>
 </body>
 </html>
