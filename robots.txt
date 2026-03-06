@@ -1,0 +1,74 @@
+# Wasi Mutual - robots.txt
+# Configuración optimizada para DonWeb + Cloudflare
+# Generado el: 30 de enero de 2025
+
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Bloquear carpetas que no deben ser indexadas
+Disallow: /cgi-bin/
+Disallow: /admin/
+Disallow: /administrator/
+Disallow: /includes/
+Disallow: /tmp/
+Disallow: /backup/
+Disallow: /logs/
+Disallow: /error_log
+
+# Bloquear archivos específicos
+Disallow: /search
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /xmlrpc.php
+Disallow: *?s=
+Disallow: *&s=
+
+# Cloudflare User Agents (permitir acceso)
+User-agent: Cloudflare
+Allow: /
+Crawl-delay: 2
+
+# Bots principales
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Applebot
+Allow: /
+Crawl-delay: 1
+
+# Bloquear bots maliciosos conocidos
+User-agent: AhrefsBot
+Disallow: /
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Disallow: /
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+Crawl-delay: 10
+
+User-agent: DotBot
+Disallow: /
+Crawl-delay: 10
+
+User-agent: MegaIndex.ru
+Disallow: /
+Crawl-delay: 10
+
+# Sitemap URL
+Sitemap: https://wasi.mutual.ar/sitemap.xml
+
+# Host preferido (opcional para DonWeb)
+Host: https://wasi.mutual.ar
